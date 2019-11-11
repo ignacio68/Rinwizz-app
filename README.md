@@ -1,3 +1,3 @@
 # Rinwizz-nav-app
 
-> The Rinwizz app navigation eskeleton
+> The Rinwizz app navigation skeleton
