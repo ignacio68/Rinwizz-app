@@ -16,8 +16,9 @@ export default {
 </script>
 <style>
 .text {
+  vertical-align: center;
+  text-align: center;
   margin-top: 16px;
   font-size: 20;
-  width: 16px;
 }
 </style>

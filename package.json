@@ -1,5 +1,5 @@
 {
-  "name": "rinwizz-tns-navr",
+  "name": "rinwizz-tns-nav",
   "version": "0.1.0",
   "description": "A native application built with NativeScript-Vue",
   "author": "Ignacio Lopez-Amor <ignaciolopezamor@gmail.com>",
@@ -20,6 +20,7 @@
     "nativescript-socketio": "^3.2.1",
     "nativescript-theme-core": "^1.0.6",
     "nativescript-toasty": "^1.3.0",
+    "nativescript-ui-sidedrawer": "^8.0.0",
     "nativescript-vue": "^2.4.0",
     "nativescript-vue-devtools": "^1.2.0",
     "tns-core-modules": "^6.0.0",

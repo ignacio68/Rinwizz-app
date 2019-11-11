@@ -1,7 +1,7 @@
 <template>
   <Page>
     <ActionBar title="Settings" />
-    <StackLayout>
+    <StackLayout backgroundColor="#5555bf">
       <Label class="text" text="Settings page" textWrap="true" />
     </StackLayout>
   </Page>
@@ -15,9 +15,10 @@ export default {
 };
 </script>
 <style>
-.text {
+/* .text {
+  vertical-align: center;
+  text-align: center;
   margin-top: 16px;
   font-size: 20;
-  width: 16px;
-}
+} */
 </style>
