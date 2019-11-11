@@ -14,7 +14,7 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style>
 .text {
   margin-top: 16px;
   font-size: 20;
