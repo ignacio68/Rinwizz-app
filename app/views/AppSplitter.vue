@@ -1,5 +1,5 @@
 <template>
-  <Page>
+  <Page actionBarHidden="false">
     <RadSideDrawer ref="drawer">
       <StackLayout ~drawerContent class="sideStackLayout">
         <label text="lado desplegable" />

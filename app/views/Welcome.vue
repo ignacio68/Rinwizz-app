@@ -1,5 +1,5 @@
 <template>
-  <Page>
+  <Page actionBarHidden="false">
     <ActionBar title="Welcome" />
     <StackLayout>
       <Label class="text" text="Welcome page" textWrap="true" />
