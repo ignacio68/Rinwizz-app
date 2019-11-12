@@ -1,18 +1,24 @@
 <template>
   <Page actionBarHidden="true">
-    <ActionBar title="Welcome" />
     <StackLayout>
       <Label class="text" text="Welcome page" textWrap="true" />
+      <Button text="SignUp" @tap="toSignUp" />
     </StackLayout>
   </Page>
 </template>
 <script>
+import SignUp from './Auth/SignUp'
 export default {
-  name: "Welcome",
+  name: 'Welcome',
   data() {
-    return {};
+    return {}
+  },
+  methods: {
+    toSignUp() {
+      this.$navigateTo(SignUp)
+    }
   }
-};
+}
 </script>
 <style>
 .text {

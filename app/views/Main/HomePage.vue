@@ -1,18 +1,34 @@
 <template>
-  <Page>
-    <ActionBar title="HomePage" />
-    <StackLayout backgroundColor="#58e821">
-      <Label class="text" text="HomePage page" textWrap="true" />
-    </StackLayout>
+  <Page actionBarHidden="true">
+    <TabView androidTabsPosition="bottom" iosIconRenderingMode="alwaysOriginal">
+      <TabViewItem title="Alerts" iconSource>
+        <Frame>
+          <Alerts />
+        </Frame>
+      </TabViewItem>
+      <TabViewItem title="Tab 2">
+        <Frame>
+          <Page>
+            <ActionBar title="Tab 2" icon />
+            <Label text="Content for Tab 2" />
+          </Page>
+        </Frame>
+      </TabViewItem>
+    </TabView>
   </Page>
 </template>
 <script>
+import Alerts from '../Alerts/Alerts'
 export default {
-  name: "HomePage",
+  name: 'HomePage',
+  components: {
+    Alerts
+  },
   data() {
-    return {};
-  }
-};
+    return {}
+  },
+  methods: {}
+}
 </script>
 <style>
 .text {

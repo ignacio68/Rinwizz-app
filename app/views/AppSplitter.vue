@@ -2,12 +2,14 @@
   <Page actionBarHidden="true">
     <RadSideDrawer ref="drawer">
       <StackLayout ~drawerContent class="sideStackLayout">
-        <label class="text" text="Lado Desplegable" />
-        <!-- <Settings /> -->
+        <Frame>
+          <Settings />
+        </Frame>
       </StackLayout>
       <StackLayout ~mainContent class="drawerStackLayout">
-        <label class="text" text="Página Principal" />
-        <!-- <HomePage /> -->
+        <Frame>
+          <HomePage />
+        </Frame>
       </StackLayout>
     </RadSideDrawer>
   </Page>
@@ -30,8 +32,8 @@ export default {
     },
     onToggleDrawerTap() {
       this.$refs.drawer.toggleDrawerState()
-    },
-  },
+    }
+  }
 }
 </script>
 <style>
