@@ -1,17 +1,15 @@
 module.exports = {
   root: true,
   env: {
-    browser: true,
-    node: true,
     es6: true,
     jest: true
   },
   extends: [
     // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
     // 'plugin:vue/recommended',
-    "eslint:recommended"
+    "eslint:recommended",
     // "prettier/vue",
-    // 'plugin:prettier/recommended'
+    "plugin:prettier/recommended"
   ],
   // required to lint *.vue files
   //   plugins: ['vue', 'prettier'],

@@ -1,12 +1,12 @@
 <template>
-  <Page actionBarHidden="false">
+  <Page actionBarHidden="true">
     <RadSideDrawer ref="drawer">
       <StackLayout ~drawerContent class="sideStackLayout">
-        <label text="lado desplegable" />
+        <label class="text" text="Lado Desplegable" />
         <!-- <Settings /> -->
       </StackLayout>
       <StackLayout ~mainContent class="drawerStackLayout">
-        <label text="página principal" />
+        <label class="text" text="Página Principal" />
         <!-- <HomePage /> -->
       </StackLayout>
     </RadSideDrawer>
@@ -23,16 +23,26 @@ export default {
   },
   methods: {
     onOpenDrawerTap() {
-      this.$refs.drawer.showDrawer();
+      this.$refs.drawer.showDrawer()
     },
     onCloseDrawerTap() {
-      this.$refs.drawer.closeDrawer();
+      this.$refs.drawer.closeDrawer()
     },
     onToggleDrawerTap() {
-      this.$refs.drawer.toggleDrawerState();
+      this.$refs.drawer.toggleDrawerState()
     }
   }
 };
 </script>
 <style>
+.sideStackLayout {
+  background-color: palegreen;
+  color: darkslategray;
+}
+.text {
+  vertical-align: center;
+  text-align: center;
+  margin-top: 16px;
+  font-size: 20;
+}
 </style>
