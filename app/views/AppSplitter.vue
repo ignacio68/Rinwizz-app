@@ -13,13 +13,13 @@
   </Page>
 </template>
 <script>
-import Settings from "./Main/Settings";
-import HomePage from "./Main/HomePage";
+import Settings from './Main/Settings'
+import HomePage from './Main/HomePage'
 export default {
-  name: "AppSplitter",
+  name: 'AppSplitter',
   components: { Settings, HomePage },
   data() {
-    return {};
+    return {}
   },
   methods: {
     onOpenDrawerTap() {
@@ -30,14 +30,14 @@ export default {
     },
     onToggleDrawerTap() {
       this.$refs.drawer.toggleDrawerState()
-    }
-  }
-};
+    },
+  },
+}
 </script>
 <style>
 .sideStackLayout {
-  background-color: palegreen;
-  color: darkslategray;
+  background-color: #13747d;
+  color: palegoldenrod;
 }
 .text {
   vertical-align: center;
