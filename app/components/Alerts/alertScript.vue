@@ -1,11 +1,13 @@
 <template>
-  <Page>
-    <ActionBar title="alertScript" />
-    <StackLayout>
-      <Label class="text" text="Alert Script page" textWrap="true" />
-      <Button text="Continuar" @tap="toUserLocation" />
-    </StackLayout>
-  </Page>
+  <StackLayout>
+    <Label
+      class="text"
+      text="Alert Script page"
+      height="70"
+      backgroundColor="#B7D1A3"
+      textWrap="true"
+    />
+  </StackLayout>
 </template>
 <script>
 export default {
@@ -13,11 +15,6 @@ export default {
   props: {},
   data() {
     return {}
-  },
-  methods: {
-    toUserLocation() {
-      this.$navigateTo(UserLocation)
-    }
   }
 }
 </script>
