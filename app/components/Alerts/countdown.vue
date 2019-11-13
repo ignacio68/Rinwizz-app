@@ -1,17 +1,18 @@
 <template>
   <Page>
-    <ActionBar title="Search" />
-    <StackLayout backgroundColor="#eb50e0">
-      <Label class="text" text="Search page" textWrap="true" />
+    <StackLayout>
+      <Label class="text" text="countdown component" textWrap="true" />
     </StackLayout>
   </Page>
 </template>
 <script>
 export default {
-  name: 'Search',
+  name: 'Countdown',
+  props: {},
   data() {
     return {}
-  }
+  },
+  methods: {}
 }
 </script>
 <style scoped>
