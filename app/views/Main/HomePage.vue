@@ -1,28 +1,37 @@
 <template>
   <Page actionBarHidden="true">
-    <TabView androidTabsPosition="bottom" iosIconRenderingMode="alwaysOriginal">
-      <TabViewItem title="Alerts" iconSource>
+    <BottomNavigation selectedIndex="1">
+      <TabStrip>
+        <TabStripItem>
+          <Label text="Alerts" />
+          <Image src class="fas" />
+        </TabStripItem>
+        <TabStripItem>
+          <Label text="Search" />
+          <Image src class="fas" />
+        </TabStripItem>
+      </TabStrip>
+      <TabContentItem>
         <Frame>
           <Alerts />
         </Frame>
-      </TabViewItem>
-      <TabViewItem title="Tab 2">
+      </TabContentItem>
+      <TabContentItem>
         <Frame>
-          <Page>
-            <ActionBar title="Tab 2" icon />
-            <Label text="Content for Tab 2" />
-          </Page>
+          <Search />
         </Frame>
-      </TabViewItem>
-    </TabView>
+      </TabContentItem>
+    </BottomNavigation>
   </Page>
 </template>
 <script>
 import Alerts from '../Alerts/Alerts'
+import Search from '../Search/Search'
 export default {
   name: 'HomePage',
   components: {
-    Alerts
+    Alerts,
+    Search
   },
   data() {
     return {}
