@@ -1,7 +1,10 @@
 <template>
   <Page>
-    <ActionBar title="Privacy Policy">
-      <NavigationButton android.systemIcon="ic_menu_back" @tap="goBack" />
+    <ActionBar title="Privacy Policy" backgroundColor="#83555E">
+      <NavigationButton
+        android.systemIcon="ic_menu_back"
+        @tap="$navigateBack"
+      />
     </ActionBar>
     <StackLayout>
       <Label class="text" text="Privacy Policy page" textWrap="true" />
@@ -14,11 +17,6 @@ export default {
   name: 'PrivacyPolicy',
   data() {
     return {}
-  },
-  methods: {
-    goBack() {
-      this.$navigateTo(SignUp)
-    }
   }
 }
 </script>

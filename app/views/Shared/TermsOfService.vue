@@ -1,10 +1,17 @@
 <template>
   <Page>
-    <ActionBar title="Terms of Service">
-      <NavigationButton android.systemIcon="ic_menu_back" @tap="goBack" />
+    <ActionBar title="Terms of Service" backgroundColor="#C2768E">
+      <NavigationButton
+        android.systemIcon="ic_menu_back"
+        @tap="$navigateBack"
+      />
     </ActionBar>
     <StackLayout>
-      <Label class="text" text="Terms of Service page" textWrap="true" />
+      <Label
+        class="text"
+        text="Terms of Service page"
+        textWrap="$navigateBack"
+      />
     </StackLayout>
   </Page>
 </template>
@@ -14,11 +21,6 @@ export default {
   name: 'TermsOfService',
   data() {
     return {}
-  },
-  methods: {
-    goBack() {
-      this.$navigateTo(SignUp)
-    }
   }
 }
 </script>
