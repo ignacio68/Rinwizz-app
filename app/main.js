@@ -1,8 +1,7 @@
 import Vue from 'nativescript-vue'
 
 // Add view components
-import Welcome from './views/Welcome'
-import AppSplitter from './views/AppSplitter'
+import AppNavigator from './AppNavigator'
 
 import store from './store'
 import VueDevtools from 'nativescript-vue-devtools'
@@ -22,5 +21,5 @@ Vue.config.silent = TNS_ENV === 'production'
 
 new Vue({
   store,
-  render: h => h('frame', [h(AppSplitter)])
+  render: h => h('frame', [h(AppNavigator)])
 }).$start()
