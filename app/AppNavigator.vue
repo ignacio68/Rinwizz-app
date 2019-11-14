@@ -1,20 +1,14 @@
 <template>
-  <Page>
+  <Page actionBarHidden="true">
     <BottomNavigation selectedIndex="1">
       <TabStrip>
         <TabStripItem>
           <Label text="Welcome" />
-          <Image
-            src
-            class="fas"
-          />
+          <Image src class="fas" />
         </TabStripItem>
         <TabStripItem>
           <Label text="AppSplitter" />
-          <Image
-            src
-            class="fas"
-          />
+          <Image src class="fas" />
         </TabStripItem>
       </TabStrip>
       <TabContentItem>
@@ -37,8 +31,8 @@ export default {
   name: 'AppNavigator',
   components: {
     Welcome,
-    AppSplitter
-  }
+    AppSplitter,
+  },
 }
 </script>
 <style>
