@@ -2,6 +2,12 @@
   <Page actionBarHidden="true">
     <StackLayout>
       <Label class="text" text="Welcome page" textWrap="true" />
+      <Label
+        class="text"
+        :text="$t('lang.views.welcome.header')"
+        textWrap="true"
+      >
+      </Label>
       <Button text="SignUp" @tap="toSignUp" />
     </StackLayout>
   </Page>
@@ -16,8 +22,8 @@ export default {
   methods: {
     toSignUp() {
       this.$navigateTo(SignUp)
-    }
-  }
+    },
+  },
 }
 </script>
 <style>
