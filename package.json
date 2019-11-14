@@ -1,9 +1,22 @@
 {
   "name": "rinwizz-tns-nav",
   "version": "0.1.0",
-  "description": "A native application built with NativeScript-Vue",
-  "author": "Ignacio Lopez-Amor <ignaciolopezamor@gmail.com>",
+  "description": "Rinwizz App NativeScript",
+  "keywords": [
+    "NativeScript",
+    "Vue",
+    "social",
+    "alerts",
+    "network"
+  ],
+  "homepage": "https://rinwizz.com",
+  "author": {
+    "name": "Ignacio Lopez-Amor Pinillos",
+    "email": "ignaciolopezamor@gmail.com",
+    "url": "http://www.lopezamor.com"
+  },
   "license": "MIT",
+  "repository": "<https://github.com/ignacio68/Rinwizz-tns-nav>",
   "nativescript": {
     "id": "app.nav.Rinwizz",
     "templateVersion": "v2",
@@ -14,6 +27,7 @@
       "version": "6.2.0"
     }
   },
+  "scripts": {},
   "dependencies": {
     "@vue/devtools": "^5.0.6",
     "eslint": "^6.6.0",
