@@ -1,7 +1,15 @@
 {
   "name": "rinwizz-tns-nav",
   "version": "0.1.0",
-  "description": "Rinwizz App Nativescript",
+  "description": "Rinwizz App NativeScript",
+  "keywords": [
+    "NativeScript",
+    "Vue",
+    "social",
+    "alerts",
+    "network"
+  ],
+  "homepage": "https://rinwizz.com",
   "author": {
     "name": "Ignacio Lopez-Amor Pinillos",
     "email": "ignaciolopezamor@gmail.com",
