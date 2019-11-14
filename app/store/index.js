@@ -19,20 +19,23 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
-  modules: {
-    // alerts,
-    // auth,
-    // cloudStorage,
-    // errors,
-    // location,
-    // localDb,
-    // usersLocalDb,
-    // alertsLocalDb,
-    // navigator,
-    // password,
-    // shared,
-    // social,
-    // user,
-    // userDb
-  }
+  state: {},
+  mutations: {},
+  actions: {}
+  // modules: {
+  //   alerts,
+  //   auth,
+  //   cloudStorage,
+  //   errors,
+  //   location,
+  //   localDb,
+  //   usersLocalDb,
+  //   alertsLocalDb,
+  //   navigator,
+  //   password,
+  //   shared,
+  //   social,
+  //   user,
+  //   userDb
+  // }
 })

@@ -11,7 +11,7 @@ import Vue from 'nativescript-vue'
 
 const Platform = require('platform')
 
-import { store } from './store'
+import store from './store'
 
 // Import languages
 import i18n from './setup/i18n'
