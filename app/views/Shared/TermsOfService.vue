@@ -1,17 +1,10 @@
 <template>
   <Page>
     <ActionBar title="Terms of Service" backgroundColor="#C2768E">
-      <NavigationButton
-        android.systemIcon="ic_menu_back"
-        @tap="$navigateBack"
-      />
+      <NavigationButton android.systemIcon="ic_menu_back" @tap="$navigateBack" />
     </ActionBar>
     <StackLayout>
-      <Label
-        class="text"
-        text="Terms of Service page"
-        textWrap="$navigateBack"
-      />
+      <Label class="text" text="Terms of Service page" textWrap="$navigateBack" />
     </StackLayout>
   </Page>
 </template>
