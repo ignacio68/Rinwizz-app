@@ -1,10 +1,14 @@
 import Vue from 'nativescript-vue'
 
+import store from './store'
+
+// Import languages
+import i18n from './setup/i18n'
+
+import VueDevtools from 'nativescript-vue-devtools'
+
 // Add view components
 import AppNavigator from './AppNavigator'
-
-import store from './store'
-import VueDevtools from 'nativescript-vue-devtools'
 
 //Add UI components
 import RadSideDrawer from 'nativescript-ui-sidedrawer/vue'
@@ -20,6 +24,7 @@ Vue.use(RadSideDrawer)
 Vue.config.silent = TNS_ENV === 'production'
 
 new Vue({
+  i18n,
   store,
-  render: h => h('frame', [h(AppNavigator)])
+  render: h => h('frame', [h(AppNavigator)]),
 }).$start()
