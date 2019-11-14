@@ -6,11 +6,12 @@
  * @license MIT
  * @version 0.1.1
  */
+
 import Vue from 'nativescript-vue'
-// const platformModule = require('tns-core-modules/platform')
+
 const Platform = require('platform')
 
-import store from './store'
+import { store } from './store'
 
 // Import languages
 import i18n from './setup/i18n'
@@ -51,5 +52,6 @@ new Vue({
       console.log('No se encuentra el idioma del navegador')
     }
   },
-  render: h => h('frame', [h(AppNavigator)]),
+  render: h => h('frame', [h(AppNavigator)])
 }).$start()
+/* eslint-disable no-new */
