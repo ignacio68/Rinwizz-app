@@ -1,3 +1,11 @@
+/**
+ * @file Rinwizz is an social media app with internationalization that emits alerts
+ *
+ * @copyright Ignacio López-Amor Pinillos 2019
+ * @author Ignacio López-Amor Pinillos <ignaciolopezamor@gmail.com>
+ * @license MIT
+ * @version 0.1.1
+ */
 import Vue from 'nativescript-vue'
 // const platformModule = require('tns-core-modules/platform')
 const Platform = require('platform')
