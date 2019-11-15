@@ -158,6 +158,7 @@ module.exports = env => {
         '@setup': resolve(projectRoot, 'app/setup'),
         '@mstore': resolve(projectRoot, 'app/store'),
         '@modules': resolve(projectRoot, 'app/store/modules'),
+        '@types': resolve(projectRoot, 'app/store/types'),
         '@utils': resolve(projectRoot, 'app/utils'),
         '@views': resolve(projectRoot, 'app/views')
       },

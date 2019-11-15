@@ -1,7 +1,17 @@
-module.exports = function (api) {
+module.exports = function(api) {
   api.cache(true)
 
   return {
-    presets: [['@babel/env', { targets: { esmodules: true } }]],
+    presets: [
+      [
+        '@babel/env',
+        {
+          targets: {
+            esmodules: true,
+            node: 'current'
+          }
+        }
+      ]
+    ]
   }
 }

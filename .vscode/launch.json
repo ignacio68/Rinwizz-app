@@ -45,7 +45,7 @@
             "sourceMaps": true,
             "watch": true,
             "tnsArgs": [
-                "--log=trace"
+                "--bundle"
             ]
         },
         {
