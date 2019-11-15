@@ -25,14 +25,14 @@
   </Page>
 </template>
 <script>
-import Welcome from './views/Welcome'
-import AppSplitter from './views/AppSplitter'
+import Welcome from '@views/Welcome'
+import AppSplitter from '@views/AppSplitter'
 export default {
   name: 'AppNavigator',
   components: {
     Welcome,
-    AppSplitter,
-  },
+    AppSplitter
+  }
 }
 </script>
 <style>

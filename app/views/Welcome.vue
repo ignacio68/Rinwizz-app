@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import SignUp from './Auth/SignUp'
+import SignUp from '@views/Auth/SignUp'
 export default {
   name: 'Welcome',
   data() {
