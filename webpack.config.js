@@ -45,7 +45,7 @@ module.exports = env => {
 
     // You can provide the following flags when running 'tns run android|ios'
     snapshot, // --env.snapshot
-    uglify, // --env.uglify
+    // uglify, // --env.uglify
     production, // --env.production
     report, // --env.report
     hmr, // --env.hmr
@@ -204,8 +204,8 @@ module.exports = env => {
           }
         }
       },
-      // minimize: Boolean(production),
-      minimize: !!uglify,
+      minimize: Boolean(production),
+      // minimize: !!uglify,
       minimizer: [
         new TerserPlugin({
           parallel: true,
