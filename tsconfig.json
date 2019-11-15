@@ -11,19 +11,19 @@
     "importHelpers": true /* Import emit helpers from 'tslib'. */,
     "moduleResolution": "node" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
     "baseUrl": "." /* Base directory to resolve non-absolute module names. */,
-    "paths": {
+    "paths": { /* Paths aliases */
       "@/*": ["app/*"],
-      "@api": ["./app/api"],
+      "@api": ["app/api"],
       "@assets": ["./app/assets"],
-      "@components": ["./app/components"],
-      "@locales": ["./app/locales"],
-      "@mixins": ["./app/mixins"],
-      "@services": ["./app/services"],
-      "@setup": ["./app/setup"],
-      "@store": ["./app/store"],
-      "@modules": ["./app/store/modules"],
-      "@views": ["./app/views"],
-      "@utils": ["./app/utils"]
+      "@components": ["app/components"],
+      "@locales": ["app/locales"],
+      "@mixins": ["app/mixins"],
+      "@services": ["app/services"],
+      "@setup": ["app/setup"],
+      "@store": ["app/store"],
+      "@modules": ["app/store/modules"],
+      "@views": ["app/views"],
+      "@utils": ["app/utils"]
     } /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */,
     "typeRoots": [
       "types"
