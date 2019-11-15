@@ -11,7 +11,7 @@ import Vue from 'nativescript-vue'
 
 const Platform = require('platform')
 
-import store from './store'
+import { store } from './store'
 
 // Import languages
 import i18n from './setup/i18n'
@@ -47,11 +47,11 @@ new Vue({
       // const lang = val.slice(0, 2)
       i18n.locale = lang
       console.log('El idioma del navegador es: ' + val)
-      // this.$store.commit('shared/SET_LANGUAGE', lang)
+      this.$store.commit('shared/SET_LANGUAGE', lang)
     } else {
       console.log('No se encuentra el idioma del navegador')
     }
   },
-  render: h => h('frame', [h(AppNavigator)])
+  render: h => h('frame', [h(AppNavigator)]),
 }).$start()
 /* eslint-disable no-new */

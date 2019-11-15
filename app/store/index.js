@@ -11,7 +11,7 @@ import Vuex from 'vuex'
 // import location from './modules/location'
 // import navigator from './modules/navigator'
 // import password from './modules/password'
-// import shared from './modules/shared'
+import shared from './modules/shared'
 // import social from './modules/social'
 // import user from './modules/user'
 // import userDb from './modules/userDb'
@@ -21,21 +21,21 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {},
   mutations: {},
-  actions: {}
-  // modules: {
-  //   alerts,
-  //   auth,
-  //   cloudStorage,
-  //   errors,
-  //   location,
-  //   localDb,
-  //   usersLocalDb,
-  //   alertsLocalDb,
-  //   navigator,
-  //   password,
-  //   shared,
-  //   social,
-  //   user,
-  //   userDb
-  // }
+  actions: {},
+  modules: {
+    //   alerts,
+    // auth,
+    //   cloudStorage,
+    //   errors,
+    //   location,
+    //   localDb,
+    //   usersLocalDb,
+    //   alertsLocalDb,
+    //   navigator,
+    //   password,
+    shared,
+    //   social,
+    //   user,
+    //   userDb
+  },
 })
