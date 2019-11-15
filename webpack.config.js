@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 const { join, relative, resolve, sep } = require('path')
 
 const webpack = require('webpack')
