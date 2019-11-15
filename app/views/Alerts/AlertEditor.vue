@@ -11,6 +11,7 @@
   </Page>
 </template>
 <script>
+// TODO: revisar @component alias
 import alertScript from '../../components/Alerts/alertScript'
 export default {
   name: 'AlertEditor',
