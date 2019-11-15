@@ -41,7 +41,7 @@
 
 <script>
 import SignUp from '@views/Auth/SignUp'
-import mapGetters from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
   name: 'Welcome',
   data() {
