@@ -10,7 +10,7 @@
 </template>
 <script>
 import SignUp from './SignUp'
-import AppSplitter from '../AppSplitter'
+import AppSplitter from '@views/AppSplitter'
 export default {
   name: 'LogIn',
   data() {

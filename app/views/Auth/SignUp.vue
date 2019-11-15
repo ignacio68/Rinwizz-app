@@ -18,13 +18,13 @@
 <script>
 import LogIn from './LogIn'
 import ConfirmEmail from './ConfirmEmail'
-import PrivacyPolicy from '../Shared/PrivacyPolicy'
-import TermsOfService from '../Shared/TermsOfService'
-import Personal from '../Preferences/Personal'
+import PrivacyPolicy from '@views/Shared/PrivacyPolicy'
+import TermsOfService from '@views/Shared/TermsOfService'
+import Personal from '@views/Preferences/Personal'
 export default {
   name: 'SignUp',
   components: {
-    ConfirmEmail,
+    ConfirmEmail
   },
   data() {
     return {}
@@ -47,10 +47,10 @@ export default {
         title: 'Password Confirmation',
         message: 'Send an email to password confirmation',
         cancelable: true,
-        okButtonText: 'Ok',
+        okButtonText: 'Ok'
       }).then(() => this.toPersonal())
-    },
-  },
+    }
+  }
 }
 </script>
 <style scoped>

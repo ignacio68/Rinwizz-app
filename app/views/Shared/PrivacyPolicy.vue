@@ -2,7 +2,10 @@
   <Page>
     <ActionBar title="Privacy Policy" backgroundColor="#83555E">
       <!-- TODO: areglar el uso de iconos -->
-      <NavigationButton android.systemIcon="ic_menu_back" @tap="$navigateBack" />
+      <NavigationButton
+        android.systemIcon="ic_menu_back"
+        @tap="$navigateBack"
+      />
     </ActionBar>
     <StackLayout>
       <Label class="text" text="Privacy Policy page" textWrap="true" />
@@ -10,7 +13,7 @@
   </Page>
 </template>
 <script>
-import SignUp from '../Auth/SignUp'
+import SignUp from '@views/Auth/SignUp'
 export default {
   name: 'PrivacyPolicy',
   data() {

@@ -25,8 +25,8 @@
   </Page>
 </template>
 <script>
-import Alerts from '../Alerts/Alerts'
-import Search from '../Search/Search'
+import Alerts from '@views/Alerts/Alerts'
+import Search from '@views/Search/Search'
 export default {
   name: 'HomePage',
   components: {

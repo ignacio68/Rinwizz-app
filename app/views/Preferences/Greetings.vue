@@ -8,7 +8,7 @@
   </Page>
 </template>
 <script>
-import AppSplitter from '../AppSplitter'
+import AppSplitter from '@views/AppSplitter'
 export default {
   name: 'Greetings',
   data() {

@@ -15,8 +15,8 @@
   </Page>
 </template>
 <script>
-import Settings from './Main/Settings'
-import HomePage from './Main/HomePage'
+import Settings from '@views/Main/Settings'
+import HomePage from '@views/Main/HomePage'
 export default {
   name: 'AppSplitter',
   components: { Settings, HomePage },
