@@ -43,7 +43,10 @@
             "platform": "android",
             "appRoot": "${workspaceRoot}",
             "sourceMaps": true,
-            "watch": true
+            "watch": true,
+            "tnsArgs": [
+                "--log=trace"
+            ]
         },
         {
             "name": "Test on Android",
