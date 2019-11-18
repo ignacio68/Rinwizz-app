@@ -39,6 +39,9 @@ new Vue({
   i18n,
   store,
   beforeCreate() {
+    // Set the $isAndroid global variable
+    Vue.prototype.$isAndroid = Platform.isAndroid ? true : false
+
     // // Set app language
     const val = Platform.device.language
     const lang = val.slice(0, 2)
@@ -52,6 +55,6 @@ new Vue({
       console.log('No se encuentra el idioma del navegador')
     }
   },
-  render: h => h('frame', [h(AppNavigator)]),
+  render: h => h('frame', [h(AppNavigator)])
 }).$start()
 /* eslint-disable no-new */

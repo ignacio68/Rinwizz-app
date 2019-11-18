@@ -1,28 +1,36 @@
 <template>
   <Page>
-    <ActionBar title="Alerts">
-        <NavigationButton
-          effectiveWidth="40"
-          efecctiveHeigth="40"
-          icon="~/assets/images/user_icon.png"
-          @tap="showSideDrawer"
-          class="showDrawer__icon"
-        />
-        <ActionItem
-          icon="~/assets/images/user_icon.png"
-          @tap="showSideDrawer"
-          ios.position="left"
-          class="showDrawer__icon"
-        >
-          <Image src="~/assets/images/user_icon.png" />
-        </ActionItem>
-      <Label :text="$t('lang.views.alerts.toolbar')"
-        fontSize="24"
-        verticalAlignment="center"
-        />
+    <ActionBar :title="$t('lang.views.alerts.toolbar')">
+      <NavigationButton
+        v-show="$isAndroid"
+        icon="~/assets/images/user_icon.png"
+        @tap="showSideDrawer"
+      >
+        <Image src="~/assets/images/user_icon.png" width="20" height="20" />
+      </NavigationButton>
+      <ActionItem
+        v-show="!$isAndroid"
+        icon="~/assets/images/user_icon.png"
+        @tap="showSideDrawer"
+        ios.position="left"
+        class="showDrawer__icon"
+      >
+        <Image src="~/assets/images/user_icon.png" />
+      </ActionItem>
     </ActionBar>
     <StackLayout backgroundColor="#00A8C6">
-      <Label class="text" text="Alerts page" textWrap="true" />
+      <Label
+        v-show="$isAndroid"
+        class="text"
+        text="Alerts page"
+        textWrap="true"
+      />
+      <Label
+        v-show="!$isAndroid"
+        class="text"
+        text="No es Android!!!"
+        textWrap="true"
+      />
       <Button text="Alert Editor" @tap="openAlertModal" />
     </StackLayout>
   </Page>
@@ -36,8 +44,7 @@ export default {
       isIOS: false
     }
   },
-  computed: {
-  },
+  computed: {},
   methods: {
     openAlertModal() {
       this.$showModal(AlertEditor, {
