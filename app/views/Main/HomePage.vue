@@ -39,7 +39,7 @@ export default {
   methods: {}
 }
 </script>
-<style>
+<style scoped>
 .text {
   vertical-align: center;
   text-align: center;
