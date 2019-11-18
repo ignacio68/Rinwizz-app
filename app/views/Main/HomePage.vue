@@ -13,7 +13,8 @@
       </TabStrip>
       <TabContentItem>
         <Frame>
-          <Alerts />
+          <Alerts
+          @showSideDrawerChild="showSideDrawerParent" />
         </Frame>
       </TabContentItem>
       <TabContentItem>
@@ -36,7 +37,13 @@ export default {
   data() {
     return {}
   },
-  methods: {}
+  methods: {
+    showSideDrawerParent() {
+      console.log('showSideDrawerParent')
+      this.$emit('showSideDrawerParent')
+      // this.$refs.drawer.showDrawer()
+    }
+  }
 }
 </script>
 <style scoped>

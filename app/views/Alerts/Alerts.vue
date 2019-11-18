@@ -1,7 +1,31 @@
 <template>
   <Page>
-    <ActionBar title="Alerts" />
-    <StackLayout backgroundColor="#58e821">
+    <ActionBar title="Alerts">
+      <!-- <StackLayout orientation="vertical"> -->
+        <NavigationButton
+          ios:visibility="collapsed"
+          icon="~/assets/images/user_icon.png"
+          @tap="showSideDrawer"
+        />
+        <ActionItem
+          android:visibility="collapsed"
+          icon="~/assets/images/user_icon.png"
+          @tap="showSideDrawer"
+          ios.position="left"
+        />
+        <!-- <Image
+          src="~/assets/images/user_icon.png"
+          width="40"
+          height="40"
+          @tap="swapMenu" /> -->
+      <!-- </ActionItem> -->
+      <Label :text="$t('lang.views.alerts.toolbar')"
+        fontSize="24"
+        verticalAlignment="center"
+        />
+      <!-- </StackLayout> -->
+    </ActionBar>
+    <StackLayout backgroundColor="#00A8C6">
       <Label class="text" text="Alerts page" textWrap="true" />
       <Button text="Alert Editor" @tap="openAlertModal" />
     </StackLayout>
@@ -12,7 +36,11 @@ import AlertEditor from './AlertEditor'
 export default {
   name: 'Alerts',
   data() {
-    return {}
+    return {
+      isIOS: false
+    }
+  },
+  computed: {
   },
   methods: {
     openAlertModal() {
@@ -20,6 +48,10 @@ export default {
         fullscreen: true,
         props: { message: 'Todo va dabuten' }
       })
+    },
+    showSideDrawer() {
+      console.log('showSideDrawerChild')
+      this.$emit('showSideDrawerChild')
     }
   }
 }

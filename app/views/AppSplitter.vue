@@ -8,7 +8,8 @@
       </StackLayout>
       <StackLayout ~mainContent class="drawerStackLayout">
         <Frame>
-          <HomePage />
+          <HomePage
+          @showSideDrawerParent="onOpenDrawerTap" />
         </Frame>
       </StackLayout>
     </RadSideDrawer>
@@ -25,13 +26,14 @@ export default {
   },
   methods: {
     onOpenDrawerTap() {
+      console.log('showSideDrawerGrandParent')
       this.$refs.drawer.showDrawer()
     },
     onCloseDrawerTap() {
-      this.$refs.drawer.closeDrawer()
+      // this.$refs.drawer.closeDrawer()
     },
     onToggleDrawerTap() {
-      this.$refs.drawer.toggleDrawerState()
+      // this.$refs.drawer.toggleDrawerState()
     }
   }
 }
