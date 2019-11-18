@@ -1,29 +1,25 @@
 <template>
   <Page>
     <ActionBar title="Alerts">
-      <!-- <StackLayout orientation="vertical"> -->
         <NavigationButton
-          ios:visibility="collapsed"
+          effectiveWidth="40"
+          efecctiveHeigth="40"
           icon="~/assets/images/user_icon.png"
           @tap="showSideDrawer"
+          class="showDrawer__icon"
         />
         <ActionItem
-          android:visibility="collapsed"
           icon="~/assets/images/user_icon.png"
           @tap="showSideDrawer"
           ios.position="left"
-        />
-        <!-- <Image
-          src="~/assets/images/user_icon.png"
-          width="40"
-          height="40"
-          @tap="swapMenu" /> -->
-      <!-- </ActionItem> -->
+          class="showDrawer__icon"
+        >
+          <Image src="~/assets/images/user_icon.png" />
+        </ActionItem>
       <Label :text="$t('lang.views.alerts.toolbar')"
         fontSize="24"
         verticalAlignment="center"
         />
-      <!-- </StackLayout> -->
     </ActionBar>
     <StackLayout backgroundColor="#00A8C6">
       <Label class="text" text="Alerts page" textWrap="true" />
@@ -49,6 +45,7 @@ export default {
         props: { message: 'Todo va dabuten' }
       })
     },
+    // TODO: Change the events name
     showSideDrawer() {
       console.log('showSideDrawerChild')
       this.$emit('showSideDrawerChild')
@@ -62,5 +59,9 @@ export default {
   text-align: center;
   margin-top: 16px;
   font-size: 20;
+}
+.showDrawer__icon {
+  width: 40px;
+  height: 40px;
 }
 </style>
