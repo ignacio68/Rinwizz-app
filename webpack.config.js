@@ -205,7 +205,6 @@ module.exports = env => {
         }
       },
       minimize: Boolean(production),
-      // minimize: !!uglify,
       minimizer: [
         new TerserPlugin({
           parallel: true,
