@@ -1,13 +1,29 @@
 <template>
   <Page>
     <ActionBar :title="$t('lang.views.alerts.toolbar')">
-      <NavigationButton
+      <!-- Android -->
+      <!-- <NavigationButton
         v-show="$isAndroid"
-        icon="~/assets/images/user_icon.png"
+        :icon="userIcon"
         @tap="showSideDrawer"
+        effectiveHeight="20"
+        effectiveWidth="20"
+      /> -->
+      <StackLayout
+        orientation="horizontal"
+        horizontalAlignment="left"
+        verticalAlignment="center"
       >
-        <Image src="~/assets/images/user_icon.png" width="20" height="20" />
-      </NavigationButton>
+        <Label
+          v-show="$isAndroid"
+          background-position="center"
+          background-size="cover"
+          class="showDrawer__icon"
+          backgroundColor="#ff5500"
+          @tap="showSideDrawer"
+        />
+        <Label :text="$t('lang.views.alerts.toolbar')" class="labelText" />
+      </StackLayout>
       <ActionItem
         v-show="!$isAndroid"
         icon="~/assets/images/user_icon.png"
@@ -17,6 +33,8 @@
       >
         <Image src="~/assets/images/user_icon.png" />
       </ActionItem>
+      <!-- <Image src="~/assets/images/user_icon.png" width="20" height="20" /> -->
+      <!-- IOS -->
     </ActionBar>
     <StackLayout backgroundColor="#00A8C6">
       <Label
@@ -41,7 +59,8 @@ export default {
   name: 'Alerts',
   data() {
     return {
-      isIOS: false
+      isIOS: false,
+      userIcon: '~/assets/images/user_icon.png'
     }
   },
   computed: {},
@@ -68,7 +87,11 @@ export default {
   font-size: 20;
 }
 .showDrawer__icon {
-  width: 40px;
-  height: 40px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+.labelText {
+  text-align: center;
 }
 </style>
