@@ -39,8 +39,9 @@ new Vue({
   i18n,
   store,
   beforeCreate() {
-    // Set the $isAndroid global variable
-    Vue.prototype.$isAndroid = Platform.isAndroid ? true : false
+    // Set the platform OS global variable
+    Vue.prototype.IS_ANDROID = Platform.isAndroid
+    Vue.prototype.IS_IOS = Platform.isIos
 
     // // Set app language
     const val = Platform.device.language
