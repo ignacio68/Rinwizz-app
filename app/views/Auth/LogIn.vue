@@ -3,6 +3,8 @@
     <ActionBar title="LogIn" />
     <StackLayout>
       <Label class="text" text="Login page" textWrap="true" />
+      <RadDataForm :source="person">
+      </RadDataForm>
       <Button text="SignUp" @tap="toSignUp" />
       <Button text="Ok" @tap="toAlerts" />
     </StackLayout>
@@ -14,7 +16,11 @@ import AppSplitter from '@views/AppSplitter'
 export default {
   name: 'LogIn',
   data() {
-    return {}
+    return {
+      person {
+
+      }
+    }
   },
   methods: {
     toSignUp() {

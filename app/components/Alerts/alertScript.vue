@@ -7,6 +7,8 @@
       backgroundColor="#B7D1A3"
       textWrap="true"
     />
+    <RadDataForm :source="alert">
+    </RadDataForm>
   </StackLayout>
 </template>
 <script>
@@ -14,7 +16,9 @@ export default {
   name: 'AlertScript',
   props: {},
   data() {
-    return {}
+    return {
+      alert{}
+    }
   }
 }
 </script>
