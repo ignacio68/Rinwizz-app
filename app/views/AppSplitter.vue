@@ -8,8 +8,7 @@
       </StackLayout>
       <StackLayout ~mainContent class="drawerStackLayout">
         <Frame>
-          <HomePage
-          @showSideDrawerParent="onOpenDrawerTap" />
+          <HomePage @showSideDrawerParent="onOpenDrawerTap" />
         </Frame>
       </StackLayout>
     </RadSideDrawer>
@@ -18,6 +17,7 @@
 <script>
 import Settings from '@views/Main/Settings'
 import HomePage from '@views/Main/HomePage'
+
 export default {
   name: 'AppSplitter',
   components: { Settings, HomePage },

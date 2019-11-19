@@ -7,13 +7,16 @@
       backgroundColor="#B7D1A3"
       textWrap="true"
     />
-    <RadDataForm :source="alert">
-    </RadDataForm>
+    <RadDataForm :source="alert"> </RadDataForm>
   </StackLayout>
 </template>
 <script>
+// import { RadDataForm } from 'nativescript-ui-dataform/vue'
 export default {
   name: 'AlertScript',
+  // components: {
+  //   RadDataForm
+  // },
   props: {},
   data() {
     return {

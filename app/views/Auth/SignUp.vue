@@ -1,10 +1,10 @@
 <template>
-  <Page>
-    <ActionBar title="SignUp" />
+  <Page actionBarHidden="true">
     <StackLayout>
-      <RadDataForm :source="person">
-      </RadDataForm>
-      <Button text="LogIn" @tap="toLogIn" />
+      <TextView :text="$t('lang.views.signup.main.text1')" class="mainText" />
+      <DataForm />
+      <SocialButtons />
+      <Button :text="$t('lang.views.signup.main.text2')" @tap="toLogIn" />
       <Button text="PrivacyPolicy" @tap="toPrivacyPolicy" />
       <Button text="Terms of Service" @tap="toTermsOfService" />
       <Button
@@ -17,6 +17,8 @@
   </Page>
 </template>
 <script>
+import signUpDataForm from '@components/Auth/signUpDataForm'
+import socialButtons from '@components/Auth/socialButtons'
 import LogIn from './LogIn'
 import ConfirmEmail from './ConfirmEmail'
 import PrivacyPolicy from '@views/Shared/PrivacyPolicy'
@@ -25,19 +27,12 @@ import Personal from '@views/Preferences/Personal'
 export default {
   name: 'SignUp',
   components: {
+    DataForm: signUpDataForm,
+    SocialButtons: socialButtons,
     ConfirmEmail
   },
   data() {
-    return {
-      person: {
-        name: 'Ignacio',
-        age: 51,
-        email: 'ignaciolopezamor@gmail.com',
-        city: 'Madrid',
-        street: 'Ramón de Santillán',
-        streetNumber: 15
-      }
-    }
+    return {}
   },
   methods: {
     toLogIn() {
@@ -63,16 +58,21 @@ export default {
   }
 }
 </script>
-<style scoped>
-.text {
+<style lang="scss" scoped>
+.mainText {
   vertical-align: center;
   text-align: center;
   margin-top: 16px;
-  font-size: 20;
+  font-size: 16;
+  padding {
+    right: 16px;
+    left: 16px;
+  }
+  color: darkred;
 }
 .PasswordConfirmation-button {
   margin-top: 32px;
   margin-bottom: 32px;
-  background-color: coral;
+  background-color: #fc284f;
 }
 </style>

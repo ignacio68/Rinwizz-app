@@ -17,10 +17,7 @@
           col="1"
           class="actionBar_title"
         />
-        <Label
-          col="2"
-          class="actionBar_iconRigth"
-        />
+        <Label col="2" class="actionBar_iconRigth" />
       </GridLayout>
     </ActionBar>
     <GridLayout rows="auto, auto, *">
@@ -30,10 +27,10 @@
         text="Alerts page"
         textWrap="true"
       />
-      <RadListView ref="listView">
+      <!-- <RadListView ref="listView">
         <v-template>
         </v-template>
-      </RadListView>
+      </RadListView> -->
 
       <fab
         row="1"
@@ -79,7 +76,7 @@ export default {
 }
 .actionBar_iconLeft {
   background: {
-    color:white;
+    color: white;
     repeat: no-repeat;
     size: cover;
     position: center;
@@ -95,11 +92,11 @@ export default {
   }
 }
 .fab-button {
-   height: 70;
-   width: 70;
-   margin: 16;
-   background-color: #ff4081;
-   vertical-align: bottom;
-   horizontal-align: right;
+  height: 70;
+  width: 70;
+  margin: 16;
+  background-color: #ff4081;
+  vertical-align: bottom;
+  horizontal-align: right;
 }
 </style>

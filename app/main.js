@@ -22,8 +22,10 @@ import VueDevtools from 'nativescript-vue-devtools'
 import AppNavigator from './AppNavigator'
 
 //Add UI components
+// import 'nativescript-ui-sidedrawer/vue'
+// import 'nativescript-ui-dataform/vue'
 import RadSideDrawer from 'nativescript-ui-sidedrawer/vue'
-import RadDataForm from 'nativescript-ui-sidedrawer/vue'
+import RadDataForm from 'nativescript-ui-dataform/vue'
 import RadListView from 'nativescript-ui-listview/vue'
 // import Fab from '@nstudio/nativescript-floatingactionbutton'
 Vue.registerElement(
