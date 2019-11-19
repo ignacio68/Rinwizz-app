@@ -17,7 +17,7 @@ export default {
   name: 'LogIn',
   data() {
     return {
-      person {
+      person: {
 
       }
     }
