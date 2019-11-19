@@ -113,7 +113,7 @@ export default {
     }
   },
   alerts: {
-    toolbar: 'ALERTS'
+    toolbar: 'Alerts'
   },
   profile: {
     toolbar: 'USER',
