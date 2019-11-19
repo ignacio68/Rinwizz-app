@@ -1,40 +1,28 @@
 <template>
   <Page>
-    <ActionBar :title="$t('lang.views.alerts.toolbar')">
-      <!-- Android -->
-      <!-- <NavigationButton
-        v-show="$isAndroid"
-        :icon="userIcon"
-        @tap="showSideDrawer"
-        effectiveHeight="20"
-        effectiveWidth="20"
-      /> -->
-      <StackLayout
-        orientation="horizontal"
-        horizontalAlignment="left"
+    <ActionBar>
+      <GridLayout
+        columns="*, 4*, *"
+        rows="*"
         verticalAlignment="center"
+        horizontalAlignment="center"
       >
         <Label
-          v-show="$isAndroid"
+          col="0"
+          backgroundImage="~/assets/images/user_icon.png"
           background-position="center"
           background-size="cover"
           class="showDrawer__icon"
           backgroundColor="#ff5500"
           @tap="showSideDrawer"
         />
-        <Label :text="$t('lang.views.alerts.toolbar')" class="labelText" />
-      </StackLayout>
-      <ActionItem
-        v-show="!$isAndroid"
-        icon="~/assets/images/user_icon.png"
-        @tap="showSideDrawer"
-        ios.position="left"
-        class="showDrawer__icon"
-      >
-        <Image src="~/assets/images/user_icon.png" />
-      </ActionItem>
-      <!-- <Image src="~/assets/images/user_icon.png" width="20" height="20" /> -->
-      <!-- IOS -->
+        <Label
+          :text="$t('lang.views.alerts.toolbar')"
+          col="1"
+          class="labelText"
+        />
+        <Label text="Hey" col="2" />
+      </GridLayout>
     </ActionBar>
     <StackLayout backgroundColor="#00A8C6">
       <Label
