@@ -1,43 +1,45 @@
 <template>
   <Page>
-    <ActionBar>
+    <ActionBar verticalAlibnment="center">
       <GridLayout
         columns="*, 4*, *"
-        rows="*"
         verticalAlignment="center"
         horizontalAlignment="center"
       >
         <Label
           col="0"
           backgroundImage="~/assets/images/user_icon.png"
-          background-position="center"
-          background-size="cover"
-          class="showDrawer__icon"
-          backgroundColor="#ff5500"
+          class="actionBar_iconLeft"
           @tap="showSideDrawer"
         />
         <Label
           :text="$t('lang.views.alerts.toolbar')"
           col="1"
-          class="labelText"
+          class="actionBar_title"
         />
-        <Label text="Hey" col="2" />
+        <Label
+          col="2"
+          text="Hey"
+          class="actionBar_iconRigth"
+        />
       </GridLayout>
     </ActionBar>
     <StackLayout backgroundColor="#00A8C6">
       <Label
-        v-show="$isAndroid"
+        v-show="IS_ANDROID"
         class="text"
         text="Alerts page"
         textWrap="true"
       />
       <Label
-        v-show="!$isAndroid"
+        v-show="!IS_ANDROID"
         class="text"
         text="No es Android!!!"
         textWrap="true"
       />
-      <Button text="Alert Editor" @tap="openAlertModal" />
+      <Button text="Alert Editor"
+        @tap="openAlertModal"
+      />
     </StackLayout>
   </Page>
 </template>
@@ -47,8 +49,6 @@ export default {
   name: 'Alerts',
   data() {
     return {
-      isIOS: false,
-      userIcon: '~/assets/images/user_icon.png'
     }
   },
   computed: {},
@@ -67,19 +67,29 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style scoped lang="scss">
 .text {
   vertical-align: center;
   text-align: center;
   margin-top: 16px;
   font-size: 20;
 }
-.showDrawer__icon {
-  width: 64px;
+.actionBar_iconLeft {
+  background: {
+    color: lime;
+    repeat: no-repeat;
+    size: cover;
+    position: center;
+  }
   height: 64px;
+  width: 64px;
   border-radius: 50%;
 }
-.labelText {
-  text-align: center;
+.actionBar_title {
+  background-color:darkseagreen;
+  font-weight: bold;
+}
+.actionBar_iconRigth {
+  background-color:coral;
 }
 </style>
