@@ -51,7 +51,7 @@ export default {
   name: 'Alerts',
   data() {
     return {
-      itemList: getItemList(10)
+      itemList: {}
     }
   },
   computed: {},
