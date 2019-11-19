@@ -23,12 +23,20 @@ import AppNavigator from './AppNavigator'
 
 //Add UI components
 import RadSideDrawer from 'nativescript-ui-sidedrawer/vue'
+import RadDataForm from 'nativescript-ui-sidedrawer/vue'
+// import Fab from '@nstudio/nativescript-floatingactionbutton'
+Vue.registerElement(
+  'Fab',
+  () => require('@nstudio/nativescript-floatingactionbutton').Fab
+)
 
 if (TNS_ENV !== 'production') {
   Vue.use(VueDevtools)
 }
 
 Vue.use(RadSideDrawer)
+Vue.use(RadDataForm)
+// Vue.use(Fab)
 // Vue.component("RadSideDrawer", RadSideDrawer)
 
 // Vue.config.productionTip = process.env.NODE_ENV === 'production'

@@ -2,7 +2,8 @@
   <Page>
     <ActionBar title="SignUp" />
     <StackLayout>
-      <Label class="text" text="SignUp page" textWrap="true" />
+      <RadDataForm :source="person">
+      </RadDataForm>
       <Button text="LogIn" @tap="toLogIn" />
       <Button text="PrivacyPolicy" @tap="toPrivacyPolicy" />
       <Button text="Terms of Service" @tap="toTermsOfService" />
@@ -27,7 +28,16 @@ export default {
     ConfirmEmail
   },
   data() {
-    return {}
+    return {
+      person: {
+        name: 'Ignacio',
+        age: 51,
+        email: 'ignaciolopezamor@gmail.com',
+        city: 'Madrid',
+        street: 'Ramón de Santillán',
+        streetNumber: 15
+      }
+    }
   },
   methods: {
     toLogIn() {
