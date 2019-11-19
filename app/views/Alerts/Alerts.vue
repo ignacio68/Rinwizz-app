@@ -1,6 +1,6 @@
 <template>
   <Page>
-    <ActionBar verticalAlibnment="center">
+    <ActionBar verticalAlignment="center">
       <GridLayout
         columns="*, 4*, *"
         verticalAlignment="center"
@@ -19,28 +19,30 @@
         />
         <Label
           col="2"
-          text="Hey"
           class="actionBar_iconRigth"
         />
       </GridLayout>
     </ActionBar>
-    <StackLayout backgroundColor="#00A8C6">
+    <GridLayout rows="auto, auto, *">
       <Label
         v-show="IS_ANDROID"
         class="text"
         text="Alerts page"
         textWrap="true"
       />
-      <Label
-        v-show="!IS_ANDROID"
-        class="text"
-        text="No es Android!!!"
-        textWrap="true"
-      />
-      <Button text="Alert Editor"
+      <RadListView ref="listView">
+        <v-template>
+        </v-template>
+      </RadListView>
+
+      <fab
+        row="1"
+        text.decode="&#xe69d;"
+        rippleColor="#f1f1f1"
+        class="fab-button"
         @tap="openAlertModal"
       />
-    </StackLayout>
+    </GridLayout>
   </Page>
 </template>
 <script>
@@ -49,6 +51,7 @@ export default {
   name: 'Alerts',
   data() {
     return {
+      itemList: getItemList(10)
     }
   },
   computed: {},
@@ -76,7 +79,7 @@ export default {
 }
 .actionBar_iconLeft {
   background: {
-    color: lime;
+    color:white;
     repeat: no-repeat;
     size: cover;
     position: center;
@@ -86,10 +89,17 @@ export default {
   border-radius: 50%;
 }
 .actionBar_title {
-  background-color:darkseagreen;
-  font-weight: bold;
+  font: {
+    size: 20px;
+    weight: 500;
+  }
 }
-.actionBar_iconRigth {
-  background-color:coral;
+.fab-button {
+   height: 70;
+   width: 70;
+   margin: 16;
+   background-color: #ff4081;
+   vertical-align: bottom;
+   horizontal-align: right;
 }
 </style>
