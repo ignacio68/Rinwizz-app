@@ -2,7 +2,7 @@
   <Page class="page">
     <ActionBar verticalAlignment="center" class="action-bar">
       <GridLayout
-        columns="*, 4*, *"
+        columns="*, *, *"
         verticalAlignment="center"
         horizontalAlignment="center"
       >
@@ -81,8 +81,8 @@ export default {
     size: cover;
     position: center;
   }
-  height: 64px;
-  width: 64px;
+  height: 32;
+  width: 32;
   border-radius: 50%;
 }
 .fab-button {
