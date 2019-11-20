@@ -20,7 +20,7 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'space-before-function-paren': 0,
     "vue/component-name-in-template-casing": ["error", "PascalCase"],
-    "vue/attribute-hyphenation": ["error", "never"]
+    "vue/attribute-hyphenation": ["error", "never",{ "ignore": ["custom-prop", "v-"]}]
     // 'no-unused-vars': ["error", {"args": "none"}],
   },
   parserOptions: {
