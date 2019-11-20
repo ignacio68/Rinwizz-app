@@ -1,6 +1,13 @@
 <template>
-  <StackLayout orientation="vertical">
-    <DataField
+  <StackLayout class="page m-x-25" orientation="vertical">
+    <StackLayout class="input-field">
+      <TextField class="input" hint="name" maxLength="16" />
+    </StackLayout>
+    <StackLayout class="input-field">
+      <TextField class="input" hint="email" keyboardType="email" />
+    </StackLayout>
+
+    <!-- <DataField
       data="user.name"
       :title="$t('lang.views.signup.input.name')"
       name="name"
@@ -13,7 +20,7 @@
       name="email"
       iconSrc="&#xe6ae;"
       class="dataField"
-    />
+    /> -->
   </StackLayout>
 </template>
 <script>
@@ -21,22 +28,22 @@ import DataField from './dataField'
 export default {
   name: 'SignUpDataForm',
   components: {
-    DataField,
+    DataField
   },
   data() {
     return {
       user: {
         name: '',
         email: '',
-        password: '',
-      },
+        password: ''
+      }
     }
   },
   methods: {
     updateUserData() {
       console.log('el usuario es: ' + JSON.stringify(this.user))
-    },
-  },
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>

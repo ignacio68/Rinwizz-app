@@ -1,21 +1,15 @@
 <template>
   <StackLayout orientation="horizontal">
-    <Label
-      :text="iconSrc"
-      class="dataField_icon"
-    />
-    <Label
-      :text="title"
-      class="dataField_title"
-    />
-    <MDTextField
+    <Label :text="iconSrc" class="dataField_icon" />
+    <Label :text="title" class="dataField_title" />
+    <!-- <MDTextField
       :v-model="data"
       :name="name"
       :keyboardType="keyboardType"
       :maxLength="maxLength"
       :text="text"
       class="dataField__text"
-    />
+    /> -->
   </StackLayout>
 </template>
 
@@ -72,10 +66,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .dataField__icon {
-    font-family: 'Pe-icon-7-stroke';
-    font-size: 24px;
-  }
-  .dataField__title{}
-  .dataField__text{}
+.dataField__icon {
+  font-family: 'Pe-icon-7-stroke';
+  font-size: 24px;
+}
+.dataField__title {
+}
+.dataField__text {
+}
 </style>
