@@ -3,8 +3,6 @@
     <ActionBar title="LogIn" />
     <StackLayout>
       <Label class="text" text="Login page" textWrap="true" />
-      <RadDataForm :source="person">
-      </RadDataForm>
       <Button text="SignUp" @tap="toSignUp" />
       <Button text="Ok" @tap="toAlerts" />
     </StackLayout>

@@ -7,7 +7,6 @@
       backgroundColor="#B7D1A3"
       textWrap="true"
     />
-    <RadDataForm :source="alert"> </RadDataForm>
   </StackLayout>
 </template>
 <script>
