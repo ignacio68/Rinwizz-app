@@ -1,10 +1,10 @@
 <template>
-  <Page>
-    <ActionBar title="Genero" />
+  <Page class="page">
+    <ActionBar class="action-bar" title="Genero" />
     <StackLayout>
       <Label class="text" text="Gender page" textWrap="true" />
-      <Button text="Continuar" @tap="toAvatar" />
-      <Button text="Finalizar" @tap="toGreetings" />
+      <Button class="btn btn-primary" ext="Continuar" @tap="toAvatar" />
+      <Button class="btn btn-primary" text="Finalizar" @tap="toGreetings" />
     </StackLayout>
   </Page>
 </template>

@@ -1,6 +1,6 @@
 <template>
-  <Page>
-    <ActionBar verticalAlignment="center">
+  <Page class="page">
+    <ActionBar verticalAlignment="center" class="action-bar">
       <GridLayout
         columns="*, 4*, *"
         verticalAlignment="center"
@@ -15,12 +15,9 @@
         <Label
           :text="$t('lang.views.alerts.toolbar')"
           col="1"
-          class="actionBar_title"
+          class="action-bar-title"
         />
-        <Label
-          col="2"
-          class="actionBar_iconRigth"
-        />
+        <Label col="2" class="actionBar_iconRigth" />
       </GridLayout>
     </ActionBar>
     <GridLayout rows="auto, auto, *">
@@ -87,12 +84,6 @@ export default {
   height: 64px;
   width: 64px;
   border-radius: 50%;
-}
-.actionBar_title {
-  font: {
-    size: 20px;
-    weight: 500;
-  }
 }
 .fab-button {
   height: 70;

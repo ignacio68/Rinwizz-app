@@ -1,7 +1,8 @@
 <template>
-  <Page>
-    <ActionBar title="Terms of Service" backgroundColor="#C2768E">
+  <Page class="page">
+    <ActionBar class="action-bar" title="Terms of Service">
       <NavigationButton
+        class="action-item"
         android.systemIcon="ic_menu_back"
         @tap="$navigateBack"
       />

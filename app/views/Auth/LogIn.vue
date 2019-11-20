@@ -1,10 +1,10 @@
 <template>
-  <Page>
-    <ActionBar title="LogIn" />
+  <Page class="page">
+    <ActionBar class="action-bar" title="LogIn" />
     <StackLayout>
       <Label class="text" text="Login page" textWrap="true" />
-      <Button text="SignUp" @tap="toSignUp" />
-      <Button text="Ok" @tap="toAlerts" />
+      <Button class="btn btn-primary" text="SignUp" @tap="toSignUp" />
+      <Button class="btn btn-primary" text="Ok" @tap="toAlerts" />
     </StackLayout>
   </Page>
 </template>
@@ -15,9 +15,7 @@ export default {
   name: 'LogIn',
   data() {
     return {
-      person: {
-
-      }
+      person: {}
     }
   },
   methods: {

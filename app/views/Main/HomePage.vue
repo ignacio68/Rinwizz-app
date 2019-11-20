@@ -1,6 +1,6 @@
 <template>
-  <Page actionBarHidden="true">
-    <BottomNavigation selectedIndex="0">
+  <Page actionBarHidden="true" class="page">
+    <BottomNavigation selectedIndex="0" class="tab-view">
       <TabStrip>
         <TabStripItem>
           <Label text="Alerts" />
@@ -13,8 +13,7 @@
       </TabStrip>
       <TabContentItem>
         <Frame>
-          <Alerts
-          @showSideDrawerChild="showSideDrawerParent" />
+          <Alerts @showSideDrawerChild="showSideDrawerParent" />
         </Frame>
       </TabContentItem>
       <TabContentItem>

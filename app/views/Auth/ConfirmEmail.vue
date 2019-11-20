@@ -1,6 +1,6 @@
 <template>
-  <StackLayout>
-    <TextView text="message" editable="false" />
+  <StackLayout class="page">
+    <Label text="message" />
   </StackLayout>
 </template>
 
@@ -9,9 +9,9 @@ export default {
   name: 'ConfirmEmail',
   data() {
     return {
-      message: 'Enviado correo de confirmación de password',
+      message: 'Enviado correo de confirmación de password'
     }
-  },
+  }
 }
 </script>
 

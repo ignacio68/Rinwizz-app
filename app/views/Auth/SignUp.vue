@@ -1,33 +1,22 @@
 <template>
-  <Page actionBarHidden="true">
-    <StackLayout class="m-x-24">
-      <TextView
-        :text="$t('lang.views.signup.main.text1')"
-        class="mainText"
-      />
+  <Page actionBarHidden="true" class="page">
+    <StackLayout class="m-x-14">
+      <TextView :text="$t('lang.views.signup.main.text1')" class="mainText" />
       <DataForm />
       <SocialButtons />
       <Button
+        class="btn btn-primary"
         :text="$t('lang.views.signup.main.text2')"
         @tap="toLogIn"
       />
+      <Button class="btn" text="PrivacyPolicy" @tap="toPrivacyPolicy" />
+      <Button class="btn" text="Terms of Service" @tap="toTermsOfService" />
       <Button
-        text="PrivacyPolicy"
-        @tap="toPrivacyPolicy"
-      />
-      <Button
-        text="Terms of Service"
-        @tap="toTermsOfService"
-      />
-      <Button
-        class="PasswordConfirmation-button"
+        class="btn PasswordConfirmation-button"
         text="Password Confirmation"
         @tap="toPasswordConfirmation"
       />
-      <Button
-        text="Ok"
-        @tap="toPersonal"
-      />
+      <Button class="btn" text="Ok" @tap="toPersonal" />
     </StackLayout>
   </Page>
 </template>

@@ -1,10 +1,10 @@
 <template>
-  <Page>
-    <ActionBar title="Avatar" />
+  <Page class="page">
+    <ActionBar title="Avatar" class="action-bar" />
     <StackLayout>
       <Label class="text" text="Avatar page" textWrap="true" />
-      <Button text="Continuar" @tap="toUserLocation" />
-      <Button text="Finalizar" @tap="toGreetings" />
+      <Button class="btn btn-primary" text="Continuar" @tap="toUserLocation" />
+      <Button class="btn btn-primary" text="Finalizar" @tap="toGreetings" />
     </StackLayout>
   </Page>
 </template>

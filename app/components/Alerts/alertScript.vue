@@ -1,12 +1,6 @@
 <template>
-  <StackLayout>
-    <Label
-      class="text"
-      text="Alert Script page"
-      height="70"
-      backgroundColor="#B7D1A3"
-      textWrap="true"
-    />
+  <StackLayout class="page">
+    <Label class="text" text="Alert Script page" height="70" textWrap="true" />
   </StackLayout>
 </template>
 <script>

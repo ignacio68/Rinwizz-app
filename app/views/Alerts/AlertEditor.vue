@@ -1,12 +1,12 @@
 <template>
-  <Page>
-    <ActionBar title="Alert Editor" />
+  <Page class="page">
+    <ActionBar class="action-bar" title="Alert Editor" />
     <StackLayout backgroundColor="#4A536B">
       <Label class="text" text="AlertEditor page" textWrap="true" />
       <Label class="text" :text="message" textWrap="true" />
       <alertScript />
-      <Button text="Cancelar" @tap="$modal.close" class="cancelButton" />
-      <Button text="Ok" @tap="$modal.close" />
+      <Button class="btn cancelButton" text="Cancelar" @tap="$modal.close" />
+      <Button class="btn btn-primary" text="Ok" @tap="$modal.close" />
     </StackLayout>
   </Page>
 </template>
@@ -16,12 +16,12 @@ import alertScript from '@components/Alerts/alertScript'
 export default {
   name: 'AlertEditor',
   components: {
-    alertScript,
+    alertScript
   },
   props: ['message'],
   data() {
     return {}
-  },
+  }
 }
 </script>
 <style scoped>

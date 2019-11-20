@@ -1,9 +1,7 @@
 <template>
-  <Page>
-    <StackLayout>
-      <Label class="text" text="countdown component" textWrap="true" />
-    </StackLayout>
-  </Page>
+  <StackLayout class="page">
+    <Label class="text" text="countdown component" textWrap="true" />
+  </StackLayout>
 </template>
 <script>
 export default {

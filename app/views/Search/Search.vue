@@ -1,6 +1,6 @@
 <template>
-  <Page>
-    <ActionBar title="Search" />
+  <Page class="page">
+    <ActionBar title="Search" class="action-bar" />
     <StackLayout backgroundColor="#eb50e0">
       <Label class="text" text="Search page" textWrap="true" />
     </StackLayout>

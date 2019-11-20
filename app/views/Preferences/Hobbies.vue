@@ -1,9 +1,9 @@
 <template>
-  <Page>
-    <ActionBar title="Hobbies" />
+  <Page class="page">
+    <ActionBar class="action-bar" title="Hobbies" />
     <StackLayout>
       <Label class="text" text="Hobbies page" textWrap="true" />
-      <Button text="Continuar" @tap="toGreetings" />
+      <Button class="btn btn-primary" text="Continuar" @tap="toGreetings" />
     </StackLayout>
   </Page>
 </template>

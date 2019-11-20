@@ -1,40 +1,28 @@
 <template>
-  <Page action-bar-hidden="true">
+  <Page actionBarHidden="true" class="page">
     <StackLayout>
       <Label
-        class="text"
-        text="Welcome page"
-        text-wrap="true"
-      />
-      <Label
-        class="text"
+        class="h3 text-center font-weight-bold m-t-30"
         :text="$t('lang.views.welcome.header')"
         text-wrap="true"
       />
 
       <!-- Icon Font with Label -->
-      <Label
-        text.decode="&#xe6ab;"
-        class="iconLabel"
-        color="#0A6B59"
-      />
+      <Label text.decode="&#xe6ab;" class="iconLabel" color="#0A6B59" />
 
       <!-- Icon Font with Image -->
       <Image
         src.decode="font://&#xe6ae;"
         stretch="none"
-        class="iconImage"
+        class="iconImage_dips"
       />
-      <Label
-        :text="lang"
-        text-wrap="true"
+      <Image
+        src.decode="font://&#xe6ae;"
+        stretch="none"
+        class="iconImage_pixels"
       />
-
-      <Button
-        text="SignUp"
-        class="button"
-        @tap="toSignUp"
-      />
+      <Label :text="lang" text-wrap="true" class="h2 text-uppercase" />
+      <Button text="SignUp" class="btn btn-primary" @tap="toSignUp" />
     </StackLayout>
   </Page>
 </template>
@@ -63,11 +51,16 @@ export default {
 <style lang="scss" scoped>
 .iconLabel {
   font-family: 'Pe-icon-7-stroke';
-  font-size: 100px;
+  font-size: 50px;
 }
-.iconImage {
+.iconImage_dips {
   font-family: 'Pe-icon-7-stroke';
-  font-size: 24px;
+  font-size: 30;
+  color: crimson;
+}
+.iconImage_pixels {
+  font-family: 'Pe-icon-7-stroke';
+  font-size: 30px;
   color: crimson;
 }
 .text {
@@ -76,7 +69,7 @@ export default {
   margin-top: 16px;
   font-size: 20px;
 }
-.button {
+.btn {
   background-color: indianred;
 }
 </style>

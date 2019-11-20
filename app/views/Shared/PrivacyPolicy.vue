@@ -1,8 +1,9 @@
 <template>
-  <Page>
-    <ActionBar title="Privacy Policy" backgroundColor="#83555E">
+  <Page class="page">
+    <ActionBar class="action-bar" title="Privacy Policy">
       <!-- TODO: areglar el uso de iconos -->
       <NavigationButton
+        class="action-item"
         android.systemIcon="ic_menu_back"
         @tap="$navigateBack"
       />

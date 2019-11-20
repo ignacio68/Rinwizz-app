@@ -1,6 +1,6 @@
 <template>
-  <Page actionBarHidden="true">
-    <BottomNavigation selectedIndex="0">
+  <Page actionBarHidden="true" class="page">
+    <BottomNavigation selectedIndex="0" clas="tab-view">
       <TabStrip>
         <TabStripItem>
           <Label text="Welcome" />

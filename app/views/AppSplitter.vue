@@ -1,12 +1,12 @@
 <template>
-  <Page actionBarHidden="true">
+  <Page actionBarHidden="true" class="page">
     <RadSideDrawer ref="drawer">
-      <StackLayout ~drawerContent class="sideStackLayout">
+      <StackLayout ~drawerContent class="sidedrawer-left sideStackLayout">
         <Frame>
           <Settings />
         </Frame>
       </StackLayout>
-      <StackLayout ~mainContent class="drawerStackLayout">
+      <StackLayout ~mainContent class="sidedrawer-content">
         <Frame>
           <HomePage @showSideDrawerParent="onOpenDrawerTap" />
         </Frame>

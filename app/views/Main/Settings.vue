@@ -1,6 +1,8 @@
 <template>
-  <Page>
-    <ActionBar title="Settings" />
+  <Page class="page">
+    <StackLayout class="sidedrawer-header">
+      <label text="Settings" class="sidedrawer-header-brand" />
+    </StackLayout>
     <StackLayout>
       <Label class="text" text="Settings page" textWrap="true" />
     </StackLayout>
