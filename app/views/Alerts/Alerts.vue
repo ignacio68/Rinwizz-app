@@ -17,7 +17,10 @@
           col="1"
           class="actionBar_title"
         />
-        <Label col="2" class="actionBar_iconRigth" />
+        <Label
+          col="2"
+          class="actionBar_iconRigth"
+        />
       </GridLayout>
     </ActionBar>
     <GridLayout rows="auto, auto, *">
@@ -98,5 +101,6 @@ export default {
   background-color: #ff4081;
   vertical-align: bottom;
   horizontal-align: right;
+  font-family: Pe-icon-7-stroke;
 }
 </style>
