@@ -25,6 +25,7 @@ import AppNavigator from './AppNavigator'
 // import 'nativescript-ui-sidedrawer/vue'
 import RadSideDrawer from 'nativescript-ui-sidedrawer/vue'
 import RadListView from 'nativescript-ui-listview/vue'
+import TextFieldPlugin from 'nativescript-material-textfield/vue'
 // import Fab from '@nstudio/nativescript-floatingactionbutton'
 Vue.registerElement(
   'Fab',
@@ -37,6 +38,7 @@ if (TNS_ENV !== 'production') {
 
 Vue.use(RadSideDrawer)
 Vue.use(RadListView)
+Vue.use(TextFieldPlugin)
 // Vue.use(Fab)
 // Vue.component("RadSideDrawer", RadSideDrawer)
 
