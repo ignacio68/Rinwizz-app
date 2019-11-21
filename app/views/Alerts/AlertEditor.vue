@@ -4,7 +4,7 @@
     <StackLayout backgroundColor="#4A536B">
       <Label class="text" text="AlertEditor page" textWrap="true" />
       <Label class="text" :text="message" textWrap="true" />
-      <alertScript />
+      <AlertScript />
       <Button class="btn cancelButton" text="Cancelar" @tap="$modal.close" />
       <Button class="btn btn-primary" text="Ok" @tap="$modal.close" />
     </StackLayout>
@@ -12,11 +12,11 @@
 </template>
 <script>
 // TODO: revisar @component alias
-import alertScript from '@components/Alerts/alertScript'
+import AlertScript from '@components/Alerts/AlertScript'
 export default {
   name: 'AlertEditor',
   components: {
-    alertScript
+    AlertScript
   },
   props: ['message'],
   data() {

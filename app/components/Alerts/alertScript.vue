@@ -4,12 +4,8 @@
   </StackLayout>
 </template>
 <script>
-// import { RadDataForm } from 'nativescript-ui-dataform/vue'
 export default {
   name: 'AlertScript',
-  // components: {
-  //   RadDataForm
-  // },
   props: {},
   data() {
     return {

@@ -21,8 +21,8 @@
   </Page>
 </template>
 <script>
-import signUpDataForm from '@components/Auth/signUpDataForm'
-import socialButtons from '@components/Auth/socialButtons'
+import SignUpDataForm from '@components/Auth/SignUpDataForm'
+import SocialButtons from '@components/Auth/SocialButtons'
 import LogIn from './LogIn'
 import ConfirmEmail from './ConfirmEmail'
 import PrivacyPolicy from '@views/Shared/PrivacyPolicy'
@@ -31,8 +31,8 @@ import Personal from '@views/Preferences/Personal'
 export default {
   name: 'SignUp',
   components: {
-    DataForm: signUpDataForm,
-    SocialButtons: socialButtons,
+    DataForm: SignUpDataForm,
+    SocialButtons,
     ConfirmEmail
   },
   data() {
