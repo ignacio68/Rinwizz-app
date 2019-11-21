@@ -1,51 +1,34 @@
 <template>
-  <Page class="page">
-    <!-- <ActionBar verticalAlignment="center" class="action-bar">
-      <GridLayout
-        columns="*, *, *"
-        verticalAlignment="center"
-        horizontalAlignment="center"
-      >
-        <Label
-          col="0"
-          backgroundImage="~/assets/images/user_icon.png"
-          class="actionBar_iconLeft"
-          @tap="showSideDrawer"
-        />
-        <Label
-          :text="$t('lang.views.alerts.toolbar')"
-          col="1"
-          class="action-bar-title"
-        />
-        <Label col="2" class="actionBar_iconRigth" />
-      </GridLayout>
-    </ActionBar> -->
-    <TheActionBar
-      iconLeftSrc="~/assets/images/user_icon.png"
-      iconLeftAction="showSideDrawer"
-      size="32"
-      title="Alerts"
-    />
-    <GridLayout rows="auto, auto, *">
-      <Label
-        v-show="IS_ANDROID"
-        class="text"
-        text="Alerts page"
-        textWrap="true"
+  <Page actionBarHidden="true" class="page">
+    <StackLayout orientation="vertical">
+      <TheActionBar
+        iconLeftSrc="~/assets/images/user_icon.png"
+        :iconLeftAction="showSideDrawer"
+        iconRight=""
+        size="32"
+        :title="$t('lang.views.alerts.toolbar')"
       />
-      <!-- <RadListView ref="listView">
+      <GridLayout rows="auto, auto, *">
+        <Label
+          v-show="IS_ANDROID"
+          class="text"
+          text="Alerts Page"
+          textWrap="true"
+        />
+        <!-- <RadListView ref="listView">
         <v-template>
         </v-template>
       </RadListView> -->
 
-      <fab
-        row="1"
-        text.decode="&#xe69d;"
-        rippleColor="#f1f1f1"
-        class="fab-button"
-        @tap="openAlertModal"
-      />
-    </GridLayout>
+        <fab
+          row="1"
+          text.decode="&#xe69d;"
+          rippleColor="#f1f1f1"
+          class="fab-button"
+          @tap="openAlertModal"
+        />
+      </GridLayout>
+    </StackLayout>
   </Page>
 </template>
 <script>

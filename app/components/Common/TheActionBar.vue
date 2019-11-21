@@ -1,39 +1,35 @@
 <template>
   <GridLayout
     class="action-bar"
-    rows="*,4,*"
-    columns="*"
+    columns="64,*,58"
+    rows="58"
     verticalAlignment="center"
+    width="100%"
   >
-    <StackLayout>
-      <v-slot>
-        <Label
-          col="0"
-          class="action-bar-icon"
-          :backgroundImage="iconLeftSrc"
-          @tap="iconLeftAction"
-          :width="size"
-          :heigth="size"
-          textWrap="true"
-        />
-      </v-slot>
-    </StackLayout>
-    <StackLayout>
-      <Label col="1" class="action-bar-title" :text="title" textWrap="true" />
-    </StackLayout>
-    <StackLayout>
-      <v-slot>
-        <Label
-          col="2"
-          class="action-bar-icon"
-          :backgroundImage="iconRightSrc"
-          @tap="iconRightAction"
-          :width="size"
-          :heigth="size"
-          textWrap="true"
-        />
-      </v-slot>
-    </StackLayout>
+    <Label
+      col="0"
+      class="action-bar-icon--left"
+      :backgroundImage="iconLeftSrc"
+      horizontalAlignment="center"
+      textWrap="true"
+      @tap="iconLeftAction"
+    />
+    <Label
+      col="1"
+      class="action-bar-title text-left p-l-16"
+      :text="title"
+      textWrap="true"
+    />
+    <slot>
+      <Label
+        col="2"
+        class="action-bar-icon--right"
+        :backgroundImage="iconRightSrc"
+        horizontalAlignment="center"
+        textWrap="true"
+        @tap="iconRightAction"
+      />
+    </slot>
   </GridLayout>
 </template>
 
@@ -43,16 +39,11 @@ export default {
   props: {
     iconLeftSrc: {
       type: String,
-      default: ''
+      default: void 0
     },
     iconLeftAction: {
       type: String,
       default: ''
-    },
-    size: {
-      type: Number,
-      required: true,
-      default: 32
     },
     title: {
       type: String,
@@ -61,7 +52,7 @@ export default {
     },
     iconRighttSrc: {
       type: String,
-      default: ''
+      default: void 0
     },
     iconRightAction: {
       type: String,
@@ -75,17 +66,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.action-bar-icon {
+.action-bar-icon--left {
   background: {
     color: white;
     repeat: no-repeat;
     size: cover;
     position: center;
   }
-  border: {
-    color: red;
-    width: 10;
-    radius: 50%;
-  }
+  width: 48;
+  height: 48;
+  border-radius: 50%;
+}
+.action-bar-title {
+
+}
+.action-bar-icon--right {
+  width: 32;
+  height: 32;
 }
 </style>
