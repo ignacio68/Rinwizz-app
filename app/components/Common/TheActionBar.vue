@@ -2,7 +2,7 @@
   <GridLayout
     class="action-bar"
     columns="64,*,58"
-    rows="58"
+    rows="*"
     verticalAlignment="center"
     width="100%"
   >
@@ -66,6 +66,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.action-bar {
+  height: 56;
+}
 .action-bar-icon--left {
   background: {
     color: white;
@@ -78,7 +81,6 @@ export default {
   border-radius: 50%;
 }
 .action-bar-title {
-
 }
 .action-bar-icon--right {
   width: 32;
