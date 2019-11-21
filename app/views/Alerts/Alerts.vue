@@ -4,8 +4,6 @@
       <TheActionBar
         iconLeftSrc="~/assets/images/user_icon.png"
         :iconLeftAction="showSideDrawer"
-        iconRight=""
-        size="32"
         :title="$t('lang.views.alerts.toolbar')"
       />
       <GridLayout rows="auto, auto, *">
