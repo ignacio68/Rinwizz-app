@@ -1,6 +1,6 @@
 <template>
   <Page class="page">
-    <ActionBar verticalAlignment="center" class="action-bar">
+    <!-- <ActionBar verticalAlignment="center" class="action-bar">
       <GridLayout
         columns="*, *, *"
         verticalAlignment="center"
@@ -19,7 +19,13 @@
         />
         <Label col="2" class="actionBar_iconRigth" />
       </GridLayout>
-    </ActionBar>
+    </ActionBar> -->
+    <TheActionBar
+      iconLeftSrc="~/assets/images/user_icon.png"
+      iconLeftAction="showSideDrawer"
+      size="32"
+      title="Alerts"
+    />
     <GridLayout rows="auto, auto, *">
       <Label
         v-show="IS_ANDROID"
@@ -44,8 +50,12 @@
 </template>
 <script>
 import AlertEditor from './AlertEditor'
+import TheActionBar from '@components/Shares/TheActionBar'
 export default {
   name: 'Alerts',
+  components: {
+    TheActionBar
+  },
   data() {
     return {
       itemList: {}
