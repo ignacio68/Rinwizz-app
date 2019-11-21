@@ -50,7 +50,7 @@
 </template>
 <script>
 import AlertEditor from './AlertEditor'
-import TheActionBar from '@components/Shares/TheActionBar'
+import TheActionBar from '@components/Common/TheActionBar'
 export default {
   name: 'Alerts',
   components: {
