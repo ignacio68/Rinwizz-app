@@ -1,11 +1,25 @@
 // NativeScript core theme
 // @see https://docs.nativescript.org/ui/theme
-@import '~nativescript-theme-core/core';
-@import '~nativescript-theme-core/blue';
+@import '~@nativescript/theme/core';
+// Load old generic theme
+@import "~@nativescript/theme/core.compat";
+// @import '~@nativescript/theme/blue';
+// Load old generic theme
+// @import '~@nativescript/theme/blue.compat'
+
+
 
 // Override variables here
+@import '~@nativescript/theme/index';
 
-@import '~nativescript-theme-core/index';
+// Rinwizz CSS
+$base-theme:Material;
+$skin-name:rinwizz;
+$swatch-name:Teal Orange Light;
+$border-radius: 2px;
+$primary-palette-name: teal;
+$secondary-palette-name: orange;
+$theme-type: light;
 
 // Global SCSS styling
 // @see https://docs.nativescript.org/ui/styling

@@ -1,14 +1,20 @@
 <template>
-  <Page actionBarHidden="true" class="page">
-    <BottomNavigation selectedIndex="0" clas="tab-view">
+  <Page
+    actionBarHidden="true"
+    class="page"
+  >
+    <BottomNavigation
+      selectedIndex="0"
+      clas="tab-view"
+    >
       <TabStrip>
         <TabStripItem>
           <Label text="Welcome" />
-          <Image src class="fas" />
+          <Image src />
         </TabStripItem>
         <TabStripItem>
           <Label text="AppSplitter" />
-          <Image src class="fas" />
+          <Image src />
         </TabStripItem>
       </TabStrip>
       <TabContentItem>
