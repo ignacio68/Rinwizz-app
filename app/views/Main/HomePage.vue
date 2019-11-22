@@ -1,14 +1,19 @@
 <template>
-  <Page actionBarHidden="true" class="page">
-    <BottomNavigation selectedIndex="0" class="tab-view">
+  <Page
+    actionBarHidden="true"
+  >
+    <BottomNavigation
+      selectedIndex="0"
+      class="tab-view"
+    >
       <TabStrip>
         <TabStripItem>
           <Label text="Alerts" />
-          <Image src class="fas" />
+          <!-- <Image src class="fas" /> -->
         </TabStripItem>
         <TabStripItem>
           <Label text="Search" />
-          <Image src class="fas" />
+          <!-- <Image src class="fas" /> -->
         </TabStripItem>
       </TabStrip>
       <TabContentItem>
@@ -45,7 +50,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .text {
   vertical-align: center;
   text-align: center;

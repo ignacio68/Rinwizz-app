@@ -24,12 +24,8 @@
   </StackLayout>
 </template>
 <script>
-import DataField from './DataField'
 export default {
   name: 'SignUpDataForm',
-  components: {
-    DataField
-  },
   data() {
     return {
       user: {

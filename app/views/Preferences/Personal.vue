@@ -1,10 +1,22 @@
 <template>
-  <Page class="page">
-    <ActionBar class="action-bar" title="Preferencias" />
+  <Page>
+    <ActionBar title="Preferencias" />
     <StackLayout>
-      <Label class="text" text="Personal page" textWrap="true" />
-      <Button class="btn btn-primary" text="Continuar" @tap="toGender" />
-      <Button class="btn btn-primary" text="Finalizar" @tap="toGreetings" />
+      <Label
+        class="text"
+        text="Personal page"
+        textWrap="true"
+      />
+      <Button
+        class="-primary"
+        text="Continuar"
+        @tap="toGender"
+      />
+      <Button
+        class="-primary"
+        text="Finalizar"
+        @tap="toGreetings"
+      />
     </StackLayout>
   </Page>
 </template>
@@ -26,7 +38,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .text {
   vertical-align: center;
   text-align: center;

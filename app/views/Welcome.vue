@@ -1,14 +1,18 @@
 <template>
-  <Page actionBarHidden="true" class="page">
+  <Page actionBarHidden="true">
     <StackLayout>
       <Label
         class="h3 text-center font-weight-bold m-t-30"
         :text="$t('lang.views.welcome.header')"
-        text-wrap="true"
+        textWrap="true"
       />
 
       <!-- Icon Font with Label -->
-      <Label text.decode="&#xe6ab;" class="iconLabel" color="#0A6B59" />
+      <Label
+        text.decode="&#xe6ab;"
+        class="iconLabel"
+        color="#0A6B59"
+      />
 
       <!-- Icon Font with Image -->
       <Image
@@ -21,8 +25,16 @@
         stretch="none"
         class="iconImage_pixels"
       />
-      <Label :text="lang" text-wrap="true" class="h2 text-uppercase" />
-      <Button text="SignUp" class="btn btn-primary" @tap="toSignUp" />
+      <Label
+        :text="lang"
+        textWrap="true"
+        class="h2 -uppercase"
+      />
+      <Button
+        text="SignUp"
+        class="-primary"
+        @tap="toSignUp"
+      />
     </StackLayout>
   </Page>
 </template>

@@ -1,9 +1,17 @@
 <template>
-  <Page class="page">
-    <ActionBar class="action-bar" title="Hobbies" />
+  <Page>
+    <ActionBar title="Hobbies" />
     <StackLayout>
-      <Label class="text" text="Hobbies page" textWrap="true" />
-      <Button class="btn btn-primary" text="Continuar" @tap="toGreetings" />
+      <Label
+        class="text"
+        text="Hobbies page"
+        textWrap="true"
+      />
+      <Button
+        class="-primary"
+        text="Continuar"
+        @tap="toGreetings"
+      />
     </StackLayout>
   </Page>
 </template>
@@ -21,7 +29,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .text {
   vertical-align: center;
   text-align: center;

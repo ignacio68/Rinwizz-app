@@ -1,10 +1,19 @@
 <template>
-  <Page class="page">
+  <Page
+    actionBarHidden="true"
+  >
     <StackLayout class="sidedrawer-header">
-      <label text="Settings" class="sidedrawer-header-brand" />
+      <label
+        text="Settings"
+        class="sidedrawer-header-brand"
+      />
     </StackLayout>
     <StackLayout>
-      <Label class="text" text="Settings page" textWrap="true" />
+      <Label
+        class="text"
+        text="Settings page"
+        textWrap="true"
+      />
     </StackLayout>
   </Page>
 </template>
@@ -16,7 +25,7 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="scss" scoped>
 .text {
   vertical-align: center;
   text-align: center;

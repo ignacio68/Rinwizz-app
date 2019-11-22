@@ -7,16 +7,15 @@
       iconSrc="passwordIcon"
       secure="secure"
     /> -->
-    <Image src="" stretch="none" />
+    <Image
+      src=""
+      stretch="none"
+    />
   </StackLayout>
 </template>
 <script>
-import DataField from './DataField'
 export default {
   name: 'Password',
-  components: {
-    DataField
-  },
   props: {},
   data() {
     return {}

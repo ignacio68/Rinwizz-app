@@ -1,7 +1,6 @@
 <template>
   <Page
     actionBarHidden="true"
-    class="page"
   >
     <RadSideDrawer ref="drawer">
       <StackLayout
@@ -47,7 +46,7 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="scss" scoped>
 .sideStackLayout {
   background-color: #13747d;
   color: palegoldenrod;

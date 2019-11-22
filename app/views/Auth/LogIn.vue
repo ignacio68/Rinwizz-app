@@ -1,10 +1,22 @@
 <template>
-  <Page class="page">
-    <ActionBar class="action-bar" title="LogIn" />
+  <Page>
+    <ActionBar title="LogIn" />
     <StackLayout>
-      <Label class="text" text="Login page" textWrap="true" />
-      <Button class="btn btn-primary" text="SignUp" @tap="toSignUp" />
-      <Button class="btn btn-primary" text="Ok" @tap="toAlerts" />
+      <Label
+        class="text"
+        text="Login page"
+        textWrap="true"
+      />
+      <Button
+        class="-primary"
+        text="SignUp"
+        @tap="toSignUp"
+      />
+      <Button
+        class="-primary"
+        text="Ok"
+        @tap="toAlerts"
+      />
     </StackLayout>
   </Page>
 </template>
@@ -28,7 +40,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .text {
   vertical-align: center;
   text-align: center;

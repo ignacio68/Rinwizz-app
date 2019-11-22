@@ -1,5 +1,5 @@
 <template>
-  <Page actionBarHidden="true" class="page">
+  <Page actionBarHidden="true">
     <StackLayout orientation="vertical">
       <TheActionBar
         iconLeftSrc="~/assets/images/user_icon.png"
@@ -58,23 +58,12 @@ export default {
   }
 }
 </script>
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .text {
   vertical-align: center;
   text-align: center;
   margin-top: 16px;
   font-size: 20;
-}
-.actionBar_iconLeft {
-  background: {
-    color: white;
-    repeat: no-repeat;
-    size: cover;
-    position: center;
-  }
-  height: 32;
-  width: 32;
-  border-radius: 50%;
 }
 .fab-button {
   height: 70;

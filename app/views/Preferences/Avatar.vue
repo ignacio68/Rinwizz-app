@@ -1,10 +1,25 @@
 <template>
-  <Page class="page">
-    <ActionBar title="Avatar" class="action-bar" />
+  <Page>
+    <ActionBar
+      title="Avatar"
+      class="medium"
+    />
     <StackLayout>
-      <Label class="text" text="Avatar page" textWrap="true" />
-      <Button class="btn btn-primary" text="Continuar" @tap="toUserLocation" />
-      <Button class="btn btn-primary" text="Finalizar" @tap="toGreetings" />
+      <Label
+        class="text"
+        text="Avatar page"
+        textWrap="true"
+      />
+      <Button
+        class="-primary"
+        text="Continuar"
+        @tap="toUserLocation"
+      />
+      <Button
+        class="-primary -outline"
+        text="Finalizar"
+        @tap="toGreetings"
+      />
     </StackLayout>
   </Page>
 </template>
@@ -26,7 +41,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .text {
   vertical-align: center;
   text-align: center;

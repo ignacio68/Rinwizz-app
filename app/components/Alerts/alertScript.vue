@@ -1,6 +1,11 @@
 <template>
   <StackLayout class="page">
-    <Label class="text" text="Alert Script page" height="70" textWrap="true" />
+    <Label
+      class="text"
+      text="Alert Script page"
+      height="70"
+      textWrap="true"
+    />
   </StackLayout>
 </template>
 <script>
@@ -14,7 +19,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .text {
   vertical-align: center;
   text-align: center;

@@ -41,7 +41,7 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="scss">
 .text {
   vertical-align: center;
   text-align: center;

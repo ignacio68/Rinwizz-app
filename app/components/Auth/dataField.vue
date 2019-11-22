@@ -1,7 +1,13 @@
 <template>
   <StackLayout orientation="horizontal">
-    <Label :text="iconSrc" class="dataField_icon" />
-    <Label :text="title" class="dataField_title" />
+    <Label
+      :text="iconSrc"
+      class="dataField_icon"
+    />
+    <Label
+      :text="title"
+      class="dataField_title"
+    />
     <!-- <MDTextField
       :v-model="data"
       :name="name"

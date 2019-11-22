@@ -1,12 +1,28 @@
 <template>
-  <Page class="page">
-    <ActionBar class="action-bar" title="Alert Editor" />
+  <Page>
+    <ActionBar title="Alert Editor" />
     <StackLayout backgroundColor="#4A536B">
-      <Label class="text" text="AlertEditor page" textWrap="true" />
-      <Label class="text" :text="message" textWrap="true" />
+      <Label
+        class="text"
+        text="AlertEditor page"
+        textWrap="true"
+      />
+      <Label
+        class="text"
+        :text="message"
+        textWrap="true"
+      />
       <AlertScript />
-      <Button class="btn cancelButton" text="Cancelar" @tap="$modal.close" />
-      <Button class="btn btn-primary" text="Ok" @tap="$modal.close" />
+      <Button
+        class="cancelButton"
+        text="Cancelar"
+        @tap="$modal.close"
+      />
+      <Button
+        class="-primary"
+        text="Ok"
+        @tap="$modal.close"
+      />
     </StackLayout>
   </Page>
 </template>
@@ -24,7 +40,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .text {
   vertical-align: center;
   text-align: center;

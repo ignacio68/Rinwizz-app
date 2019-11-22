@@ -1,6 +1,6 @@
 <template>
-  <Page class="page">
-    <ActionBar class="action-bar" title="Terms of Service">
+  <Page>
+    <ActionBar title="Terms of Service">
       <NavigationButton
         class="action-item"
         android.systemIcon="ic_menu_back"
@@ -17,7 +17,6 @@
   </Page>
 </template>
 <script>
-import SignUp from '@views/Auth/SignUp'
 export default {
   name: 'TermsOfService',
   data() {
@@ -25,7 +24,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .text {
   vertical-align: center;
   text-align: center;

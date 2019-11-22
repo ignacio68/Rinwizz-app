@@ -1,8 +1,12 @@
 <template>
-  <Page class="page">
-    <ActionBar title="Search" class="action-bar" />
+  <Page>
+    <ActionBar title="Search"/>
     <StackLayout backgroundColor="#eb50e0">
-      <Label class="text" text="Search page" textWrap="true" />
+      <Label
+        class="text"
+        text="Search page"
+        textWrap="true"
+      />
     </StackLayout>
   </Page>
 </template>
@@ -14,7 +18,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .text {
   vertical-align: center;
   text-align: center;

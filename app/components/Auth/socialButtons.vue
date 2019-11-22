@@ -1,9 +1,12 @@
 <template>
-  <Label :text="$t('lang.views.signup.main.socialText')" class="text" />
+  <Label
+    :text="$t('lang.views.signup.main.socialText')"
+    class="text"
+  />
 </template>
 <script>
-name: 'SocialButtons'
 export default {
+  name: 'SocialButtons',
   data() {
     return {}
   }
