@@ -13,10 +13,16 @@ const Platform = require('platform')
 
 import { store } from './store'
 
+// Load theme
+import './app.scss'
+
 // Import languages
 import i18n from './setup/i18n'
 
 import VueDevtools from 'nativescript-vue-devtools'
+
+// Add NativeScript plugin
+import {TNSFontIcon, fonticon} from 'nativescript-fonticon'
 
 // Add view components
 import AppNavigator from './AppNavigator'
@@ -34,6 +40,14 @@ Vue.registerElement(
 if (TNS_ENV !== 'production') {
   Vue.use(VueDevtools)
 }
+
+// Load TNSFonticon
+TNSFontIcon.debug = true
+TNSFontIcon.paths = {
+  'peIcon': './assets/css/pe-icon-7-stroke.css'
+}
+TNSFontIcon.loadCss()
+Vue.filter('fonticon', fonticon)
 
 Vue.use(RadSideDrawer)
 Vue.use(RadListView)

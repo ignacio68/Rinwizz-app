@@ -24,6 +24,9 @@ $theme-type: light;
 
 // Global SCSS styling
 // @see https://docs.nativescript.org/ui/styling
+.peIcon {
+  font-family: 'Pe-icon-7-stroke';
+}
 Page {
   font-family: 'Maven Pro, MavenPro-Regular';
 }
