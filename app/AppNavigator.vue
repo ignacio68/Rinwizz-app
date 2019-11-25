@@ -1,7 +1,6 @@
 <template>
   <Page
     actionBarHidden="true"
-    class="page"
   >
     <BottomNavigation
       selectedIndex="0"
