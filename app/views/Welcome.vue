@@ -35,15 +35,31 @@
         class="-primary"
         @tap="toSignUp"
       />
+      <FontIcon
+        className="peIcon"
+        fontSize="36"
+        name="&#xe6ae;"
+        tapAction="tapPrueba"
+      />
+      <FontIcon
+        className="peIcon"
+        name='pe-7s-piggy'
+        color="00A8C6"
+        @tap="tapPrueba"
+      />
     </StackLayout>
   </Page>
 </template>
 
 <script>
 import SignUp from '@views/Auth/SignUp'
+import FontIcon from '@components/Common/FontIcon'
 import { mapGetters } from 'vuex'
 export default {
   name: 'Welcome',
+  components: {
+    FontIcon
+  },
   data() {
     return {}
   },
@@ -56,6 +72,9 @@ export default {
     toSignUp() {
       this.$navigateTo(SignUp)
     }
+  },
+  tapPrueba() {
+    console.log('@tap funciona!!')
   }
 }
 </script>
