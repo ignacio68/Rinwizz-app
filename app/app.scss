@@ -4,8 +4,8 @@
 @import '~@nativescript/theme/default';
 // Load old generic theme
 // Load old generic theme
-@import "~@nativescript/theme/core.compat";
-@import "~@nativescript/theme/default.compat";
+@import '~@nativescript/theme/core.compat';
+@import '~@nativescript/theme/default.compat';
 // @import '~@nativescript/theme/blue';
 // Load old generic theme
 // @import '~@nativescript/theme/blue.compat'
@@ -14,9 +14,9 @@
 @import '~@nativescript/theme/index';
 
 // Rinwizz CSS
-$base-theme:Material;
-$skin-name:rinwizz;
-$swatch-name:Teal Orange Light;
+$base-theme: Material;
+$skin-name: rinwizz;
+$swatch-name: Teal Orange Light;
 $border-radius: 2px;
 $primary-palette-name: teal;
 $secondary-palette-name: orange;
@@ -26,6 +26,7 @@ $theme-type: light;
 // @see https://docs.nativescript.org/ui/styling
 .peIcon {
   font-family: 'Pe-icon-7-stroke';
+  color: teal;
 }
 Page {
   font-family: 'Maven Pro, MavenPro-Regular';

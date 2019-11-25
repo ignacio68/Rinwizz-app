@@ -8,11 +8,7 @@
       />
 
       <!-- Icon Font with Label -->
-      <Label
-        text.decode="&#xe6ab;"
-        class="iconLabel"
-        color="#0A6B59"
-      />
+      <Label text.decode="&#xe6ab;" class="iconLabel" color="#0A6B59" />
 
       <!-- Icon Font with Image -->
       <Image
@@ -25,17 +21,9 @@
         stretch="none"
         class="iconImage_pixels"
       />
-      <Label
-        :text="lang"
-        textWrap="true"
-        class="h2 -uppercase"
-      />
-      <Button
-        text="SignUp"
-        class="-primary"
-        @tap="toSignUp"
-      />
-      <FontIcon
+      <Label :text="lang" textWrap="true" class="h2 -uppercase" />
+      <Button text="SignUp" class="-primary" @tap="toSignUp" />
+      <!-- <FontIcon
         className="peIcon"
         fontSize="36"
         name="&#xe6ae;"
@@ -45,6 +33,12 @@
         className="peIcon"
         name='pe-7s-piggy'
         color="00A8C6"
+        @tap="tapPrueba"
+      /> -->
+      <Label
+        class="peIcon"
+        fontSize="40"
+        :text="'pe-7s-car' | fonticon"
         @tap="tapPrueba"
       />
     </StackLayout>
