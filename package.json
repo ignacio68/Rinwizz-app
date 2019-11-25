@@ -12,7 +12,7 @@
   },
   "keywords": [
     "nativeScript",
-    "nue",
+    "vue",
     "social",
     "alerts",
     "network"
@@ -24,7 +24,7 @@
     "url": "http://www.lopezamor.com"
   },
   "nativescript": {
-    "id": "app.nav.Rinwizz",
+    "id": "app.rinwizz.com",
     "templateVersion": "v2",
     "tns-android": {
       "version": "6.2.0"
