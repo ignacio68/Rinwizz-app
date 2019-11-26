@@ -1,11 +1,6 @@
 <template>
-  <StackLayout class="page">
-    <Label
-      class="text"
-      text="Alert Script page"
-      height="70"
-      textWrap="true"
-    />
+  <StackLayout class="nt-page">
+    <Label class="text" text="Alert Script page" height="70" textWrap="true" />
   </StackLayout>
 </template>
 <script>

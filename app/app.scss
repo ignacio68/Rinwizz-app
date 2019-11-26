@@ -2,13 +2,10 @@
 // @see https://docs.nativescript.org/ui/theme
 @import '~@nativescript/theme/core';
 @import '~@nativescript/theme/default';
+
 // Load old generic theme
-// Load old generic theme
-@import '~@nativescript/theme/core.compat';
-@import '~@nativescript/theme/default.compat';
-// @import '~@nativescript/theme/blue';
-// Load old generic theme
-// @import '~@nativescript/theme/blue.compat'
+// @import '~@nativescript/theme/core.compat';
+// @import '~@nativescript/theme/default.compat';
 
 // Override variables here
 @import '~@nativescript/theme/index';

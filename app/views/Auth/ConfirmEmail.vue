@@ -1,5 +1,5 @@
 <template>
-  <StackLayout class="page">
+  <StackLayout class="ng-page">
     <Label text="message" />
   </StackLayout>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <GridLayout
-    class="action-bar"
+    class="nt-action-bar"
     columns="64,*,58"
     rows="*"
     verticalAlignment="center"

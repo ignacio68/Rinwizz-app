@@ -1,10 +1,6 @@
 <template>
-  <StackLayout class="page">
-    <Label
-      class="text"
-      text="countdown component"
-      textWrap="true"
-    />
+  <StackLayout class="nt-page">
+    <Label class="text" text="countdown component" textWrap="true" />
   </StackLayout>
 </template>
 <script>

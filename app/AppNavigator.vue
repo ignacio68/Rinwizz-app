@@ -2,23 +2,23 @@
   <Page actionBarHidden="true">
     <BottomNavigation selectedIndex="0" clas="tab-view">
       <TabStrip>
-        <TabStripItem @tap="changeColor">
+        <TabStripItem @tap="changeHomeColor">
           <StackLayout>
             <FontIcon
               type="fas"
               name="fa-home"
               size="24"
-              :color="isActive ? iconColor.active : iconColor.inactive"
+              :color="isHomeActive ? iconColor.active : iconColor.inactive"
               ref="home"
             />
           </StackLayout>
         </TabStripItem>
-        <TabStripItem @tap="changeColor">
+        <TabStripItem @tap="changeDrawerColor">
           <FontIcon
             type="fas"
             name="fa-book"
             size="24"
-            :color="isActive ? iconColor.active : iconColor.inactive"
+            :color="isDrawerActive ? iconColor.active : iconColor.inactive"
             ref="drawer"
           />
         </TabStripItem>
@@ -49,7 +49,8 @@ export default {
   },
   data() {
     return {
-      isActive: true,
+      isHomeActive: true,
+      isDrawerActive: false,
       iconColor: {
         active: '#aaaaaa',
         inactive: '#222222'
@@ -57,10 +58,14 @@ export default {
     }
   },
   methods: {
-    changeColor() {
-      this.isActive = !this.isActive
-      console.log('isActive?: ' + this.isActive)
+    changeHomeColor() {
+      this.isHomeActive = !this.isHomeActive
+      console.log('isHomeActive?: ' + this.isHomeActive)
       console.log('El color de home es: ' + $refs.home.color)
+    },
+    changeDrawerColor() {
+      this.isDrawerActive = !this.isDrawerActive
+      console.log('isDrawerActive?: ' + this.isDrawerActive)
       console.log('El color de drawer es: ' + $refs.drawer.color)
     }
   }
