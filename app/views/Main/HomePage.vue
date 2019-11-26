@@ -1,17 +1,12 @@
 <template>
-  <Page
-    actionBarHidden="true"
-  >
-    <BottomNavigation
-      selectedIndex="0"
-      class="tab-view"
-    >
+  <Page actionBarHidden="true">
+    <BottomNavigation selectedIndex="0" class="tab-view">
       <TabStrip>
-        <TabStripItem>
+        <TabStripItem color="#262626">
           <Label text="Alerts" />
           <!-- <Image src class="fas" /> -->
         </TabStripItem>
-        <TabStripItem>
+        <TabStripItem color="#30bcff">
           <Label text="Search" />
           <!-- <Image src class="fas" /> -->
         </TabStripItem>
