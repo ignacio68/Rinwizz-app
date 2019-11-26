@@ -75,8 +75,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-,
-action-bar-icon {
+.action-bar-icon {
   background: {
     color: white;
     repeat: no-repeat;
