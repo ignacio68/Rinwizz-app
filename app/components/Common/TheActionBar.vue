@@ -7,6 +7,7 @@
     width="100%"
   >
     <Label
+      v-if="iconLeftSrc"
       col="0"
       class="action-bar-icon--left"
       :backgroundImage="iconLeftSrc"
@@ -22,6 +23,7 @@
     />
     <slot>
       <Label
+        v-if="iconRightSrc"
         col="2"
         class="action-bar-icon--right"
         :backgroundImage="iconRightSrc"
