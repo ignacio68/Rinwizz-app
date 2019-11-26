@@ -14,6 +14,7 @@ const Platform = require('platform')
 import { store } from './store'
 
 // Load theme
+import './scss/variables.scss'
 import './scss/global.scss'
 
 // Import languages
