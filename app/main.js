@@ -44,7 +44,11 @@ if (TNS_ENV !== 'production') {
 // Load TNSFonticon
 TNSFontIcon.debug = true
 TNSFontIcon.paths = {
-  peIcon: './assets/css/pe-icon-7-stroke.css'
+  'fa': './assets/css/fontawesome.min.css',
+  'far': './assets/css/regular.min.css',
+  'fas': './assets/css/solid.min.css',
+  'fab': './assets/css/brand.min.css',
+  'peIcon': './assets/css/pe-icon-7-stroke.css'
 }
 TNSFontIcon.loadCss()
 Vue.filter('fonticon', fonticon)

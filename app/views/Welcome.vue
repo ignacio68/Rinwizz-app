@@ -8,7 +8,8 @@
       />
 
       <!-- Icon Font with Label -->
-      <Label text.decode="&#xe6ab;" class="iconLabel" color="#0A6B59" />
+      <Label text.decode="&#xe6ab;"
+class="iconLabel" color="#0A6B59" />
 
       <!-- Icon Font with Image -->
       <Image
@@ -21,25 +22,35 @@
         stretch="none"
         class="iconImage_pixels"
       />
-      <Label :text="lang" textWrap="true" class="h2 -uppercase" />
-      <Button text="SignUp" class="-primary" @tap="toSignUp" />
+      <Label :text="lang"
+textWrap="true" class="h2 -uppercase" />
+      <Button text="SignUp"
+class="-primary" @tap="toSignUp" />
       <!-- <FontIcon
         className="peIcon"
         fontSize="36"
         name="&#xe6ae;"
         tapAction="tapPrueba"
-      />
+      /> -->
       <FontIcon
-        className="peIcon"
-        name='pe-7s-piggy'
+        name="fa-500px"
         color="00A8C6"
         @tap="tapPrueba"
-      /> -->
+      />
       <Label
-        class="peIcon"
+        class="fab"
         fontSize="40"
-        :text="'pe-7s-car' | fonticon"
-        @tap="tapPrueba"
+        :text="'fa-android' | fonticon"
+      />
+      <Label
+        class="far"
+        fontSize="50"
+        :text="'fa-500px' | fonticon"
+      />
+      <Label
+        class="fas"
+        fontSize="60"
+        :text="'fa-address-card' | fonticon"
       />
     </StackLayout>
   </Page>
@@ -93,6 +104,9 @@ export default {
   text-align: center;
   margin-top: 16px;
   font-size: 20px;
+}
+.fab {
+  color: crimson;
 }
 .btn {
   background-color: indianred;
