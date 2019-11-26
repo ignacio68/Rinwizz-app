@@ -4,7 +4,7 @@
     :color="color"
     :fontSize="size"
     :text="name | fonticon"
-    width="${size}"
+    width="size"
     textAlignment="center"
     @tap="$emit('tap')"
   />
@@ -16,21 +16,20 @@ export default {
     className: {
       type: String,
       required: true,
-      default:''
+      default:'fa'
     },
     color: {
       type: String,
-      default: ''
+      default: 'black'
     },
-    fontSize: {
+    size: {
       type: [String, Number],
-      default: 50,
+      default: 16,
       validation: s => !isNaN(s)
     },
     name: {
       type: String,
-      required: true,
-      default:''
+      required: true
     },
     // tapAction: {
     //   type: String,
