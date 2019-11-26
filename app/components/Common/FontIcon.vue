@@ -6,7 +6,6 @@
     :text="name | fonticon"
     width="size"
     textAlignment="center"
-    @tap="$emit('tap')"
   />
 </template>
 <script>
@@ -31,10 +30,6 @@ export default {
       type: String,
       required: true
     }
-    // tapAction: {
-    //   type: String,
-    //   default:''
-    // },
   },
   data() {
     return {}

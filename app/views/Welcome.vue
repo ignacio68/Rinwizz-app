@@ -2,33 +2,17 @@
   <Page actionBarHidden="true">
     <StackLayout>
       <Label
-        class="h3 text-center font-weight-bold m-t-30"
+        class="h2 text-center font-weight-bold m-t-30"
         :text="$t('lang.views.welcome.header')"
         textWrap="true"
       />
-
-      <!-- Icon Font with Label -->
-      <Label text.decode="&#xe6ab;" class="iconLabel" color="#0A6B59" />
-
-      <!-- Icon Font with Image -->
-      <Image
-        src.decode="font://&#xe6ae;"
-        stretch="none"
-        class="iconImage_dips"
-      />
-      <Image
-        src.decode="font://&#xe6ae;"
-        stretch="none"
-        class="iconImage_pixels"
-      />
-      <Label :text="lang" textWrap="true" class="h2 -uppercase" />
       <Button text="SignUp" class="-primary" @tap="toSignUp" />
       <FontIcon
         type="fab"
         name="fa-angular"
         color="00A8C6"
         size="50"
-        :@tap="tapPrueba"
+        @tap="$emit(onTap)"
       />
       <Label class="fab" fontSize="40" :text="'fa-android' | fonticon" />
       <Label class="far" fontSize="50" :text="'fa-edit' | fonticon" />
@@ -40,7 +24,6 @@
 <script>
 import SignUp from '@views/Auth/SignUp'
 import FontIcon from '@components/Common/FontIcon'
-import { mapGetters } from 'vuex'
 export default {
   name: 'Welcome',
   components: {
@@ -49,17 +32,13 @@ export default {
   data() {
     return {}
   },
-  computed: {
-    ...mapGetters('shared', {
-      lang: 'GET_LANG'
-    })
-  },
+  computed: {},
   methods: {
     toSignUp() {
       this.$navigateTo(SignUp)
     }
   },
-  tapPrueba() {
+  onTap() {
     console.log('@tap funciona!!')
   }
 }
