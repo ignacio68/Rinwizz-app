@@ -8,8 +8,7 @@
       />
 
       <!-- Icon Font with Label -->
-      <Label text.decode="&#xe6ab;"
-class="iconLabel" color="#0A6B59" />
+      <Label text.decode="&#xe6ab;" class="iconLabel" color="#0A6B59" />
 
       <!-- Icon Font with Image -->
       <Image
@@ -22,36 +21,18 @@ class="iconLabel" color="#0A6B59" />
         stretch="none"
         class="iconImage_pixels"
       />
-      <Label :text="lang"
-textWrap="true" class="h2 -uppercase" />
-      <Button text="SignUp"
-class="-primary" @tap="toSignUp" />
-      <!-- <FontIcon
-        className="peIcon"
-        fontSize="36"
-        name="&#xe6ae;"
-        tapAction="tapPrueba"
-      /> -->
+      <Label :text="lang" textWrap="true" class="h2 -uppercase" />
+      <Button text="SignUp" class="-primary" @tap="toSignUp" />
       <FontIcon
-        name="fa-500px"
+        type="fab"
+        name="fa-angular"
         color="00A8C6"
-        @tap="tapPrueba"
+        size="50"
+        :@tap="tapPrueba"
       />
-      <Label
-        class="fab"
-        fontSize="40"
-        :text="'fa-android' | fonticon"
-      />
-      <Label
-        class="far"
-        fontSize="50"
-        :text="'fa-500px' | fonticon"
-      />
-      <Label
-        class="fas"
-        fontSize="60"
-        :text="'fa-address-card' | fonticon"
-      />
+      <Label class="fab" fontSize="40" :text="'fa-android' | fonticon" />
+      <Label class="far" fontSize="50" :text="'fa-edit' | fonticon" />
+      <Label class="fas" fontSize="60" :text="'fa-address-card' | fonticon" />
     </StackLayout>
   </Page>
 </template>

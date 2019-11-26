@@ -1,6 +1,6 @@
 <template>
   <Label
-    :classname="className"
+    :class="type"
     :color="color"
     :fontSize="size"
     :text="name | fonticon"
@@ -13,10 +13,10 @@
 export default {
   name: 'FontIcon',
   props: {
-    className: {
+    type: {
       type: String,
       required: true,
-      default:'fa'
+      default: 'fa'
     },
     color: {
       type: String,
@@ -30,7 +30,7 @@ export default {
     name: {
       type: String,
       required: true
-    },
+    }
     // tapAction: {
     //   type: String,
     //   default:''
