@@ -2,11 +2,11 @@
   <Page actionBarHidden="true">
     <BottomNavigation selectedIndex="0" class="tab-view">
       <TabStrip>
-        <TabStripItem color="#262626">
+        <TabStripItem>
           <Label text="Alerts" />
           <!-- <Image src class="fas" /> -->
         </TabStripItem>
-        <TabStripItem color="#30bcff">
+        <TabStripItem>
           <Label text="Search" />
           <!-- <Image src class="fas" /> -->
         </TabStripItem>
