@@ -9,29 +9,27 @@
     <Label
       v-if="iconLeftSrc"
       col="0"
-      class="action-bar-icon--left"
+      class="nt-action-bar__item nt-action-bar-icon__left"
       :backgroundImage="iconLeftSrc"
       horizontalAlignment="center"
       textWrap="true"
-      @tap="iconLeftAction"
+      :@tap="iconLeftAction"
     />
     <Label
       col="1"
-      class="action-bar-title text-left p-l-16"
+      class="nt-action-bar-title text-left p-l-16"
       :text="title"
       textWrap="true"
     />
-    <slot>
-      <Label
-        v-if="iconRightSrc"
-        col="2"
-        class="action-bar-icon--right"
-        :backgroundImage="iconRightSrc"
-        horizontalAlignment="center"
-        textWrap="true"
-        @tap="iconRightAction"
-      />
-    </slot>
+    <Label
+      v-if="iconRightSrc"
+      col="2"
+      class="nt-action-bar__item nt-action-bar-icon__right"
+      :backgroundImage="iconRightSrc"
+      horizontalAlignment="center"
+      textWrap="true"
+      :@tap="iconRightAction"
+    />
   </GridLayout>
 </template>
 
@@ -64,10 +62,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.action-bar {
-  height: 56;
-}
-.action-bar-icon--left {
+.nt-action-bar-icon__left {
   background: {
     color: white;
     repeat: no-repeat;
@@ -78,9 +73,9 @@ export default {
   height: 48;
   border-radius: 50%;
 }
-.action-bar-title {
+.nt-action-bar-title {
 }
-.action-bar-icon--right {
+.nt-action-bar-icon--right {
   width: 32;
   height: 32;
 }

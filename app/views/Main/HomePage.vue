@@ -1,6 +1,6 @@
 <template>
   <Page actionBarHidden="true">
-    <BottomNavigation selectedIndex="0" class="tab-view">
+    <BottomNavigation selectedIndex="0">
       <TabStrip>
         <TabStripItem>
           <Label text="Alerts" />

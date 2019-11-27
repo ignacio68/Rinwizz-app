@@ -1,20 +1,12 @@
 <template>
-  <Page
-    actionBarHidden="true"
-  >
+  <Page actionBarHidden="true">
     <RadSideDrawer ref="drawer">
-      <StackLayout
-        ~drawerContent
-        class="-left sideStackLayout"
-      >
+      <StackLayout ~drawerContent>
         <Frame>
           <Settings />
         </Frame>
       </StackLayout>
-      <StackLayout
-        ~mainContent
-        class="-content"
-      >
+      <StackLayout ~mainContent>
         <Frame>
           <HomePage @showSideDrawerParent="onOpenDrawerTap" />
         </Frame>
@@ -47,10 +39,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.sideStackLayout {
-  background-color: #13747d;
-  color: palegoldenrod;
-}
 .text {
   vertical-align: center;
   text-align: center;

@@ -12,7 +12,7 @@
         name="fa-angular"
         color="00A8C6"
         size="50"
-        @tap="$emit(onTap)"
+        @tap="onTap"
       />
       <Label class="fab" fontSize="40" :text="'fa-android' | fonticon" />
       <Label class="far" fontSize="50" :text="'fa-edit' | fonticon" />
@@ -45,20 +45,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.iconLabel {
-  font-family: 'Pe-icon-7-stroke';
-  font-size: 50px;
-}
-.iconImage_dips {
-  font-family: 'Pe-icon-7-stroke';
-  font-size: 30;
-  color: crimson;
-}
-.iconImage_pixels {
-  font-family: 'Pe-icon-7-stroke';
-  font-size: 30px;
-  color: crimson;
-}
+
 .text {
   vertical-align: center;
   text-align: center;
@@ -67,8 +54,5 @@ export default {
 }
 .fab {
   color: crimson;
-}
-.btn {
-  background-color: indianred;
 }
 </style>

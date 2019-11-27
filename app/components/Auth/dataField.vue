@@ -1,13 +1,13 @@
 <template>
   <StackLayout orientation="horizontal">
-    <Label
-      :text="iconSrc"
-      class="dataField_icon"
+    <FontIcon
+      class="dataField-icon"
+      :type="type"
+      :color="color"
+      :size="size"
+      :name="name"
     />
-    <Label
-      :text="title"
-      class="dataField_title"
-    />
+    <Label :text="title" class="dataField-title" />
     <!-- <MDTextField
       :v-model="data"
       :name="name"
@@ -20,50 +20,58 @@
 </template>
 
 <script>
+import FontIcon from '@components/Common/FontIcon'
 export default {
   name: 'DataField',
+  components: {
+    FontIcon
+  },
   props: {
-    iconSrc: {
+    type: {
       type: String,
       required: true,
-      default: ''
+      default: 'fa'
+    },
+    color: {
+      type: String,
+      default: 'black'
+    },
+    size: {
+      type: [String, Number],
+      default: 16,
+      validation: s => !isNaN(s)
+    },
+    name: {
+      type: String,
+      required: true
     },
     title: {
       type: String,
       required: true,
       default: ''
-    },
-    data: {
-      type: String,
-      required: true,
-      default: ''
-    },
-    name: {
-      type: String,
-      required: true,
-      default: ''
-    },
-    keyboardType: {
-      type: String,
-      default: ''
-    },
-    maxLength: {
-      type: Number,
-      default: 0
-    },
-    text: {
-      type: String,
-      required: true,
-      default: ''
-    },
-    secure: {
-      type: Boolean,
-      default: false
-    },
-    visibility: {
-      type: String,
-      default: 'visible'
     }
+    // data: {
+    //   type: String,
+    //   required: true,
+    //   default: ''
+    // },
+    // keyboardType: {
+    //   type: String,
+    //   default: ''
+    // },
+    // maxLength: {
+    //   type: Number,
+    //   default: 0
+    // },
+
+    // secure: {
+    //   type: Boolean,
+    //   default: false
+    // },
+    // visibility: {
+    //   type: String,
+    //   default: 'visible'
+    // }
   },
   data() {
     return {}
@@ -72,12 +80,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.dataField__icon {
-  font-family: 'Pe-icon-7-stroke';
-  font-size: 24px;
+.dataField_-icon {
 }
-.dataField__title {
-}
-.dataField__text {
+.dataField-title {
 }
 </style>

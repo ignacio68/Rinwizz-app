@@ -1,12 +1,7 @@
 <template>
-  <Page
-    actionBarHidden="true"
-  >
+  <Page actionBarHidden="true">
     <StackLayout class="m-x-14">
-      <TextView
-        :text="$t('lang.views.signup.main.text1')"
-        class="mainText"
-      />
+      <TextView :text="$t('lang.views.signup.main.text1')" class="mainText" />
       <DataForm />
       <SocialButtons />
       <Button
@@ -25,15 +20,11 @@
         @tap="toTermsOfService"
       />
       <Button
-        class="-rounded-lg PasswordConfirmation-button"
+        class="-rounded-lg -ruby PasswordConfirmation-button"
         text="Password Confirmation"
         @tap="toPasswordConfirmation"
       />
-      <Button
-        class="-rounded-sm text-primary"
-        text="Ok"
-        @tap="toPersonal"
-      />
+      <Button class="-rounded-sm text-primary" text="Ok" @tap="toPersonal" />
     </StackLayout>
   </Page>
 </template>
@@ -94,6 +85,5 @@ export default {
 .PasswordConfirmation-button {
   margin-top: 32px;
   margin-bottom: 32px;
-  background-color: #fc284f;
 }
 </style>

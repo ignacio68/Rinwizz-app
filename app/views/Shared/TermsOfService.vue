@@ -2,7 +2,6 @@
   <Page>
     <ActionBar title="Terms of Service">
       <NavigationButton
-        class="action-item"
         android.systemIcon="ic_menu_back"
         @tap="$navigateBack"
       />

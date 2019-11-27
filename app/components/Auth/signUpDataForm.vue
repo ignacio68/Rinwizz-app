@@ -1,12 +1,7 @@
 <template>
-  <StackLayout class="page m-x-25" orientation="vertical">
-    <StackLayout class="input-field">
-      <TextField class="input" hint="name" maxLength="16" />
-    </StackLayout>
-    <StackLayout class="input-field">
-      <TextField class="input" hint="email" keyboardType="email" />
-    </StackLayout>
-
+  <StackLayout class="nt-page m-x-25" orientation="vertical">
+    <TextField class="nt-input" hint="name" maxLength="16" />
+    <TextField class="nt-input" hint="email" keyboardType="email" />
     <!-- <DataField
       data="user.name"
       :title="$t('lang.views.signup.input.name')"
@@ -42,8 +37,4 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-.dataField {
-  font-family: 'Pe-icon-7-stroke';
-}
-</style>
+<style lang="scss" scoped></style>

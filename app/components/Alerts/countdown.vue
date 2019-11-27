@@ -1,5 +1,5 @@
 <template>
-  <StackLayout class="nt-page">
+  <StackLayout>
     <Label class="text" text="countdown component" textWrap="true" />
   </StackLayout>
 </template>

@@ -4,7 +4,7 @@
  * @copyright Ignacio López-Amor Pinillos 2019
  * @author Ignacio López-Amor Pinillos <ignaciolopezamor@gmail.com>
  * @license MIT
- * @version 0.2.1
+ * @version 0.3..0
  */
 
 import Vue from 'nativescript-vue'
@@ -14,8 +14,8 @@ const Platform = require('platform')
 import { store } from './store'
 
 // Load theme
-import './scss/variables.scss'
-import './scss/global.scss'
+import './assets/scss/variables.scss'
+import './assets/scss/global.scss'
 
 // Import languages
 import i18n from './setup/i18n'

@@ -1,17 +1,14 @@
 <template>
-  <Page
-    actionBarHidden="true"
-  >
-    <StackLayout class="sidedrawer-header">
-      <label
-        text="Settings"
-        class="sidedrawer-header-brand"
-      />
+  <Page actionBarHidden="true">
+    <StackLayout>
+      <label text="Settings" class="nt-drawer__header" />
     </StackLayout>
     <StackLayout>
+      <Label class="nt-drawer__list-item text" text="Perfil" textWrap="true" />
+      <Label class="nt-drawer__list-item text" text="Temas" textWrap="true" />
       <Label
-        class="text"
-        text="Settings page"
+        class="nt-drawer__list-item text"
+        text="Favoritos"
         textWrap="true"
       />
     </StackLayout>
