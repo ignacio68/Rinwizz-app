@@ -1,8 +1,5 @@
 <template>
-  <GridLayout
-columns="56, *, 56"
-              rows="56"
->
+  <GridLayout columns="56, *, 56" rows="56">
     <StackLayout col="0">
       <FontIcon
         class="dataField-icon"
@@ -16,11 +13,7 @@ columns="56, *, 56"
     </StackLayout>
 
     <StackLayout col="1">
-      <GridLayout
-class="nt-input"
-                  rows="16, auto"
-col="*, 16" marginBottom="5"
->
+      <GridLayout class="nt-input" rows="16, auto" col="*, 16" marginBottom="5">
         <Label
           ref="label"
           opacity="0.4"
@@ -98,6 +91,7 @@ export default {
     },
     keyboardType: {
       type: String,
+      default:'url',
       validator: function(value) {
         // The value must match one of these strings
         return (
