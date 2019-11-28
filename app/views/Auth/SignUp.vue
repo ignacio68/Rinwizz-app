@@ -6,7 +6,7 @@
         class="mainText"
         borderColor="transparent"
       />
-      <DataField type="fas" name="fa-user" maxLength="32" labelText="name" />
+      <DataField type="far" name="fa-user" maxLength="32" labelText="name" />
       <TheSignDataForm />
       <SocialButtons />
       <Button
