@@ -6,7 +6,7 @@
         class="mainText"
         borderColor="transparent"
       />
-      <DataField type="fas" name="fa-user" maxLength="32" labelText="name" />
+      <DataField type="far" name="fa-user" maxLength="32" labelText="name" />
       <TheSignDataForm />
       <SocialButtons />
       <Button
@@ -35,7 +35,7 @@
 </template>
 <script>
 // Components
-import DataField from '@components/Auth/DataField'
+import DataField from '@components/Common/DataField'
 import TheSignDataForm from '@components/Auth/TheSignDataForm'
 import SocialButtons from '@components/Auth/SocialButtons'
 
@@ -80,6 +80,12 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+Page {
+  margin {
+    left: 72;
+    right: 72;
+  }
+}
 .mainText {
   vertical-align: center;
   text-align: center;

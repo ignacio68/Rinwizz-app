@@ -13,32 +13,48 @@
     </StackLayout>
 
     <StackLayout col="1">
-      <GridLayout class="nt-input" rows="16, auto" marginBottom="5">
+      <GridLayout class="nt-input" rows="16, auto" col="*, 16" marginBottom="5">
         <Label
           ref="label"
           opacity="0.4"
           fontSize="16"
           :text="labelText"
           row="1"
+          col="0"
         />
         <TextField
           ref="textField"
           :secure="secure"
           :maxLength="maxLength"
-          :keyboardType="keyboardType"
+          :keyboardType="keyboard"
+          :returnKeyType="returnKey"
           editable="true"
           row="1"
-          @focus="onFocus"
-          @blur="onBlur"
+          col="0"
+          colSpan="2"
           borderColor="transparent"
           borderBottomWidth="2"
           borderBottomColor="#cec8c8"
           padding="0"
+          @focus="onFocus"
+          @blur="onBlur"
+        />
+        <FontIcon
+          v-if="isError"
+          class="dataField-icon"
+          type="fas"
+          color="red"
+          size="16"
+          name="fa-exclamation-circle"
+          paddingRight="0"
+          paddingTop="30"
+          row="1"
+          col="1"
         />
       </GridLayout>
     </StackLayout>
     <StackLayout col="2">
-      <slot></slot>
+      <slot />
     </StackLayout>
   </GridLayout>
 </template>
@@ -75,12 +91,23 @@ export default {
       default: 32,
       validation: s => !isNaN(s)
     },
-    keyboardType: {
+    keyboard: {
       type: String,
+      default:'url',
       validator: function(value) {
         // The value must match one of these strings
         return (
           ['datetime', 'phone', 'number', 'url', 'email'].indexOf(value) !== -1
+        )
+      }
+    },
+    returnKey: {
+      type: String,
+      default:'next',
+      validator: function(value) {
+        // The value must match one of these strings
+        return (
+          ['done', 'go', 'next', 'search', 'send'].indexOf(value) !== -1
         )
       }
     },
@@ -90,8 +117,12 @@ export default {
       required: true
     },
     secure: {
-      type: String,
-      default: 'false'
+      type: Boolean,
+      default: false
+    },
+    isError: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -107,7 +138,8 @@ export default {
       label
         .animate({
           translate: { x: 0, y: -16 },
-          opacity: 0.8
+          opacity: 0.8,
+          fontSize: label.fontSize - 2
         })
         .then(
           () => {},
@@ -127,7 +159,8 @@ export default {
         label
           .animate({
             translate: { x: 0, y: 0 },
-            opacity: 0.4
+            opacity: 0.4,
+            fontSize: label.fontSize + 2
           })
           .then(
             () => {},

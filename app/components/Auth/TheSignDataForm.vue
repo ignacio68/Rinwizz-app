@@ -1,32 +1,28 @@
 <template>
-  <StackLayout orientation="vertical" marginTop="0" paddingTop="0">
+  <StackLayout
+    orientation="vertical"
+    marginTop="0"
+    paddingTop="0"
+  >
     <!-- <DataField type="fas" name="fa-user" maxLength="32" labelText="name" /> -->
     <DataField
       type="far"
       name="fa-envelope"
       maxLength="64"
       labelText="email"
-      keyboardType="email"
+      keyboard="email"
     />
-    <DataField
-      type="fas"
-      name="fa-key"
-      maxLength="32"
-      labelText="password"
-      secure="true"
-    >
-      <FontIcon type="far" name="fa-eye" paddingleft="0" paddingTop="30" />
-    </DataField>
+    <Password />
   </StackLayout>
 </template>
 <script>
-import DataField from './DataField'
-import FontIcon from '@components/Common/FontIcon'
+import DataField from '@components/Common/DataField'
+import Password from './Password'
 export default {
   name: 'TheSignDataForm',
   components: {
     DataField,
-    FontIcon
+    Password
   },
   data() {
     return {
