@@ -13,13 +13,19 @@
   font-family: 'Font Awesome 5 Free', 'fa-brands-400';
   font-weight: 400;
 }
-.peIcon {
-  font-family: 'Pe-icon-7-stroke';
-  color: teal;
-}
 Page {
   font-family: 'Maven Pro', 'MavenPro-Regular';
+  font-weight: 400;
 }
 .medium {
   font-family: 'Maven Pro', 'MavenPro-Medium';
+  font-weight: 500;
+}
+.bold {
+  font-family: 'Maven Pro', 'MavenPro-Bold';
+  font-weight: 700;
+}
+.black {
+  font-family: 'Maven Pro', 'MavenPro-Black';
+  font-weight: 900;
 }
