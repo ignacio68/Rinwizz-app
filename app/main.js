@@ -48,8 +48,7 @@ TNSFontIcon.paths = {
   fa: './assets/css/fontawesome.min.css',
   far: './assets/css/regular.min.css',
   fas: './assets/css/solid.min.css',
-  fab: './assets/css/brand.min.css',
-  peIcon: './assets/css/pe-icon-7-stroke.css'
+  fab: './assets/css/brand.min.css'
 }
 TNSFontIcon.loadCss()
 Vue.filter('fonticon', fonticon)
