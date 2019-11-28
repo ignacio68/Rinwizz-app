@@ -26,7 +26,8 @@
           ref="textField"
           :secure="secure"
           :maxLength="maxLength"
-          :keyboardType="keyboardType"
+          :keyboardType="keyboard"
+          :returnKeyType="returnKey"
           editable="true"
           row="1"
           col="0"
@@ -39,6 +40,7 @@
           @blur="onBlur"
         />
         <FontIcon
+          v-if="isError"
           class="dataField-icon"
           type="fas"
           color="red"
@@ -89,7 +91,7 @@ export default {
       default: 32,
       validation: s => !isNaN(s)
     },
-    keyboardType: {
+    keyboard: {
       type: String,
       default:'url',
       validator: function(value) {
@@ -99,14 +101,28 @@ export default {
         )
       }
     },
+    returnKey: {
+      type: String,
+      default:'next',
+      validator: function(value) {
+        // The value must match one of these strings
+        return (
+          ['done', 'go', 'next', 'search', 'send'].indexOf(value) !== -1
+        )
+      }
+    },
     labelText: {
       type: String,
       default: '',
       required: true
     },
     secure: {
-      type: String,
-      default: 'false'
+      type: Boolean,
+      default: false
+    },
+    isError: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
