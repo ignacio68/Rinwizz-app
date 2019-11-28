@@ -1,30 +1,25 @@
 <template>
-  <Page>
-    <ActionBar title="LogIn" />
+  <Page actionBarHidden="true">
     <StackLayout>
-      <Label
-        class="text"
-        text="Login page"
-        textWrap="true"
-      />
-      <Button
-        class="-primary"
-        text="SignUp"
-        @tap="toSignUp"
-      />
-      <Button
-        class="-primary"
-        text="Ok"
-        @tap="toAlerts"
-      />
+      <TheSignDataForm />
+      <Button class="-primary" text="SignUp" @tap="toSignUp" />
+      <Button class="-primary" text="Ok" @tap="toAlerts" />
     </StackLayout>
   </Page>
 </template>
 <script>
+// Components
+import TheSignDataForm from '@components/Auth/TheSignDataForm'
+
+// Views
 import SignUp from './SignUp'
 import AppSplitter from '@views/AppSplitter'
+
 export default {
   name: 'LogIn',
+  components: {
+    TheSignDataForm
+  },
   data() {
     return {
       person: {}

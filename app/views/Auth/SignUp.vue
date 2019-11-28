@@ -1,8 +1,13 @@
 <template>
   <Page actionBarHidden="true">
-    <StackLayout class="m-x-14">
-      <TextView :text="$t('lang.views.signup.main.text1')" class="mainText" />
-      <DataForm />
+    <StackLayout>
+      <TextView
+        :text="$t('lang.views.signup.main.text1')"
+        class="mainText"
+        borderColor="transparent"
+      />
+      <DataField type="fas" name="fa-user" maxLength="32" labelText="name" />
+      <TheSignDataForm />
       <SocialButtons />
       <Button
         class="-primary"
@@ -29,19 +34,23 @@
   </Page>
 </template>
 <script>
-import SignUpDataForm from '@components/Auth/SignUpDataForm'
+// Components
+import DataField from '@components/Auth/DataField'
+import TheSignDataForm from '@components/Auth/TheSignDataForm'
 import SocialButtons from '@components/Auth/SocialButtons'
+
+// Views
 import LogIn from './LogIn'
-import ConfirmEmail from './ConfirmEmail'
 import PrivacyPolicy from '@views/Shared/PrivacyPolicy'
 import TermsOfService from '@views/Shared/TermsOfService'
 import Personal from '@views/Preferences/Personal'
+
 export default {
   name: 'SignUp',
   components: {
-    DataForm: SignUpDataForm,
-    SocialButtons,
-    ConfirmEmail
+    DataField,
+    TheSignDataForm,
+    SocialButtons
   },
   data() {
     return {}

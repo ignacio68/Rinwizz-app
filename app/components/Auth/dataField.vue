@@ -1,26 +1,51 @@
 <template>
-  <StackLayout orientation="horizontal">
-    <FontIcon
-      class="dataField-icon"
-      :type="type"
-      :color="color"
-      :size="size"
-      :name="name"
-    />
-    <Label :text="title" class="dataField-title" />
-    <!-- <MDTextField
-      :v-model="data"
-      :name="name"
-      :keyboardType="keyboardType"
-      :maxLength="maxLength"
-      :text="text"
-      class="dataField__text"
-    /> -->
-  </StackLayout>
+  <GridLayout columns="56, *, 56" rows="56">
+    <StackLayout col="0">
+      <FontIcon
+        class="dataField-icon"
+        :type="type"
+        :color="color"
+        :size="size"
+        :name="name"
+        paddingRight="0"
+        paddingTop="30"
+      />
+    </StackLayout>
+
+    <StackLayout col="1">
+      <GridLayout class="nt-input" rows="16, auto" marginBottom="5">
+        <Label
+          ref="label"
+          opacity="0.4"
+          fontSize="16"
+          :text="labelText"
+          row="1"
+        />
+        <TextField
+          ref="textField"
+          :secure="secure"
+          :maxLength="maxLength"
+          :keyboardType="keyboardType"
+          editable="true"
+          row="1"
+          @focus="onFocus"
+          @blur="onBlur"
+          borderColor="transparent"
+          borderBottomWidth="2"
+          borderBottomColor="#cec8c8"
+          padding="0"
+        />
+      </GridLayout>
+    </StackLayout>
+    <StackLayout col="2">
+      <slot></slot>
+    </StackLayout>
+  </GridLayout>
 </template>
 
 <script>
 import FontIcon from '@components/Common/FontIcon'
+import { Color } from 'color'
 export default {
   name: 'DataField',
   components: {
@@ -45,36 +70,73 @@ export default {
       type: String,
       required: true
     },
-    title: {
+    maxLength: {
+      type: [String, Number],
+      default: 32,
+      validation: s => !isNaN(s)
+    },
+    keyboardType: {
       type: String,
-      required: true,
-      default: ''
+      validator: function(value) {
+        // The value must match one of these strings
+        return (
+          ['datetime', 'phone', 'number', 'url', 'email'].indexOf(value) !== -1
+        )
+      }
+    },
+    labelText: {
+      type: String,
+      default: '',
+      required: true
+    },
+    secure: {
+      type: String,
+      default: 'false'
     }
-    // data: {
-    //   type: String,
-    //   required: true,
-    //   default: ''
-    // },
-    // keyboardType: {
-    //   type: String,
-    //   default: ''
-    // },
-    // maxLength: {
-    //   type: Number,
-    //   default: 0
-    // },
-
-    // secure: {
-    //   type: Boolean,
-    //   default: false
-    // },
-    // visibility: {
-    //   type: String,
-    //   default: 'visible'
-    // }
   },
   data() {
     return {}
+  },
+  methods: {
+    onFocus() {
+      // Get our elements to manipulate
+      const label = this.$refs.label.nativeView
+      const textField = this.$refs.textField.nativeView
+
+      // Animate the label sliding up and less transparent
+      label
+        .animate({
+          translate: { x: 0, y: -16 },
+          opacity: 0.8
+        })
+        .then(
+          () => {},
+          () => {}
+        )
+
+      // Set the border bottom color to color focus to indicate focus
+      textField.borderBottomColor = new Color('#00b47e')
+    },
+    onBlur() {
+      // Get our elements to manipulate
+      const label = this.$refs.label.nativeView
+      const textField = this.$refs.textField.nativeView
+
+      // if there is text in our input then don't move the label back to it's initial position
+      if (!textField.text) {
+        label
+          .animate({
+            translate: { x: 0, y: 0 },
+            opacity: 0.4
+          })
+          .then(
+            () => {},
+            () => {}
+          )
+      }
+      //  Reset border bottom color
+      textField.borderBottomColor = new Color('#cec8c8')
+    }
   }
 }
 </script>

@@ -2,7 +2,6 @@
   <GridLayout
     class="nt-action-bar"
     columns="64,*,58"
-    rows="*"
     verticalAlignment="center"
     width="100%"
   >
@@ -13,7 +12,7 @@
       :backgroundImage="iconLeftSrc"
       horizontalAlignment="center"
       textWrap="true"
-      :@tap="iconLeftAction"
+      :@tap="$emit('iconLeftAction')"
     />
     <Label
       col="1"
@@ -28,7 +27,7 @@
       :backgroundImage="iconRightSrc"
       horizontalAlignment="center"
       textWrap="true"
-      :@tap="iconRightAction"
+      :@tap="$emit('iconRightAction')"
     />
   </GridLayout>
 </template>
@@ -40,18 +39,12 @@ export default {
     iconLeftSrc: {
       type: String
     },
-    iconLeftAction: {
-      type: String
-    },
     title: {
       type: String,
       required: true,
       default: ''
     },
     iconRighttSrc: {
-      type: String
-    },
-    iconRightAction: {
       type: String
     }
   },

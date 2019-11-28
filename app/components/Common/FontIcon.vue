@@ -6,6 +6,7 @@
     :text="name | fonticon"
     width="size"
     textAlignment="center"
+    @tap="$emit('tap')"
   />
 </template>
 <script>

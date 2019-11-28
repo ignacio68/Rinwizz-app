@@ -1,22 +1,42 @@
 <template>
   <Page actionBarHidden="true">
     <StackLayout>
+      <FontIcon
+        type="fab"
+        name="fa-reddit"
+        color="#0B87DE"
+        size="100"
+        class="p-t-20"
+      />
       <Label
-        class="h2 text-center font-weight-bold m-t-30"
+        class="h2 text-center bold p-t-10"
         :text="$t('lang.views.welcome.header')"
         textWrap="true"
       />
-      <Button text="SignUp" class="-primary" @tap="toSignUp" />
-      <FontIcon
-        type="fab"
-        name="fa-angular"
-        color="00A8C6"
-        size="50"
-        @tap="onTap"
+      <label
+        class="h3 text-center medium p-t-20"
+        :text="$t('lang.views.welcome.text')"
+        textWrap="true"
       />
-      <Label class="fab" fontSize="40" :text="'fa-android' | fonticon" />
-      <Label class="far" fontSize="50" :text="'fa-edit' | fonticon" />
-      <Label class="fas" fontSize="60" :text="'fa-address-card' | fonticon" />
+      <StackLayout class="p-x-30">
+        <ListView
+          for="(message, index) in messages"
+          separatorColor="transparent"
+          isUserInteractionEnabled="false"
+        >
+          <v-template>
+            <StackLayout>
+              <Label class="h3 text-center" :text="$t(message.text)" />
+            </StackLayout>
+          </v-template>
+        </ListView>
+      </StackLayout>
+
+      <Button
+        :text="$t('lang.views.welcome.signup')"
+        class="-primary"
+        @tap="toSignUp"
+      />
     </StackLayout>
   </Page>
 </template>
@@ -30,22 +50,25 @@ export default {
     FontIcon
   },
   data() {
-    return {}
+    return {
+      messages: [
+        { text: 'lang.views.welcome.text1' },
+        { text: 'lang.views.welcome.text2' },
+        { text: 'lang.views.welcome.text3' },
+        { text: 'lang.views.welcome.text4' }
+      ]
+    }
   },
   computed: {},
   methods: {
     toSignUp() {
       this.$navigateTo(SignUp)
     }
-  },
-  onTap() {
-    console.log('@tap funciona!!')
   }
 }
 </script>
 
 <style lang="scss" scoped>
-
 .text {
   vertical-align: center;
   text-align: center;
