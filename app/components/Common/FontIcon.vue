@@ -2,7 +2,7 @@
   <Label
     :class="type"
     :color="color"
-    :fontSize="size"
+    :fontSize="iconSize"
     :text="name | fonticon"
     width="size"
     textAlignment="center"
@@ -22,9 +22,9 @@ export default {
       type: String,
       default: 'black'
     },
-    size: {
+    iconSize: {
       type: [String, Number],
-      default: 16,
+      default: 24,
       validation: s => !isNaN(s)
     },
     name: {
