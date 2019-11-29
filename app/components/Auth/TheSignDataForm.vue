@@ -1,10 +1,5 @@
 <template>
-  <StackLayout
-    orientation="vertical"
-    marginTop="0"
-    paddingTop="0"
-  >
-    <!-- <DataField type="fas" name="fa-user" maxLength="32" labelText="name" /> -->
+  <StackLayout orientation="vertical" marginTop="0" paddingTop="0">
     <DataField
       type="far"
       name="fa-envelope"
