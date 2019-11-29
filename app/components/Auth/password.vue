@@ -2,14 +2,20 @@
   <StackLayout orientation="vertical">
     <DataField
       type="far"
-      name="fa-lock-alt"
+      iconName="fa-lock-alt"
       maxLength="32"
       labelText="password"
       :secure="isSecure"
       returnKey="done"
-      isError="isPasswordError"
+      :isError="isPasswordError"
+      v-model="password"
     >
-      <FontIcon type="far" :name="iconName" paddingleft="0" paddingTop="30" />
+      <FontIcon
+        type="far"
+        :iconName="iconName"
+        paddingleft="0"
+        paddingTop="30"
+      />
     </DataField>
   </StackLayout>
 </template>
@@ -30,7 +36,8 @@ export default {
   },
   data() {
     return {
-      isSecure: true
+      isSecure: true,
+      password: ''
     }
   },
   computed: {
