@@ -42,7 +42,7 @@
         <FontIcon
           v-if="isError"
           class="dataField-icon"
-          type="fas"
+          type="far"
           color="red"
           size="16"
           name="fa-exclamation-circle"
@@ -93,7 +93,7 @@ export default {
     },
     keyboard: {
       type: String,
-      default:'url',
+      default: 'url',
       validator: function(value) {
         // The value must match one of these strings
         return (
@@ -103,12 +103,10 @@ export default {
     },
     returnKey: {
       type: String,
-      default:'next',
+      default: 'next',
       validator: function(value) {
         // The value must match one of these strings
-        return (
-          ['done', 'go', 'next', 'search', 'send'].indexOf(value) !== -1
-        )
+        return ['done', 'go', 'next', 'search', 'send'].indexOf(value) !== -1
       }
     },
     labelText: {
