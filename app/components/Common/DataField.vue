@@ -5,7 +5,7 @@
         class="dataField-icon"
         :type="type"
         :color="color"
-        :size="size"
+        :iconSize="iconSize"
         :name="name"
         paddingRight="0"
         paddingTop="30"
@@ -17,7 +17,7 @@
         <Label
           ref="label"
           opacity="0.4"
-          fontSize="16"
+          fontSize="textSize"
           :text="labelText"
           row="1"
           col="0"
@@ -38,13 +38,14 @@
           padding="0"
           @focus="onFocus"
           @blur="onBlur"
+          `
         />
         <FontIcon
           v-if="isError"
           class="dataField-icon"
           type="far"
           color="red"
-          size="16"
+          size="24"
           name="fa-exclamation-circle"
           paddingRight="0"
           paddingTop="30"
@@ -77,7 +78,12 @@ export default {
       type: String,
       default: 'black'
     },
-    size: {
+    iconSize: {
+      type: [String, Number],
+      default: 24,
+      validation: s => !isNaN(s)
+    },
+    textSize: {
       type: [String, Number],
       default: 16,
       validation: s => !isNaN(s)
