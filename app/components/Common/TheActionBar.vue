@@ -44,7 +44,7 @@ export default {
       required: true,
       default: ''
     },
-    iconRighttSrc: {
+    iconRightSrc: {
       type: String
     }
   },

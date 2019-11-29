@@ -1,14 +1,17 @@
 <template>
   <Page actionBarHidden="true">
     <StackLayout>
-      <TextView
-        :text="$t('lang.views.signup.main.text1')"
-        class="mainText"
-        borderColor="transparent"
+      <Label :text="$t('lang.views.signup.main.text1')" class="mainText" />
+      <DataField
+        type="far"
+        iconName="fa-user"
+        maxLength="32"
+        labelText="name"
       />
-      <DataField type="far" name="fa-user" maxLength="32" labelText="name" />
-      <TheSignDataForm />
+      <TheSignDataForm v-model="user" />
       <SocialButtons />
+      <!-- <TextField :text="userName" textWrap="true" /> -->
+
       <Button
         class="-primary"
         :text="$t('lang.views.signup.main.text2')"
@@ -53,7 +56,14 @@ export default {
     SocialButtons
   },
   data() {
-    return {}
+    return {
+      userName: '',
+      user: {
+        name: '',
+        email: '',
+        password: ''
+      }
+    }
   },
   methods: {
     toLogIn() {

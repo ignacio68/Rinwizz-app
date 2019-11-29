@@ -2,12 +2,13 @@
   <StackLayout orientation="vertical" marginTop="0" paddingTop="0">
     <DataField
       type="far"
-      name="fa-envelope"
+      iconName="fa-envelope"
       maxLength="64"
       labelText="email"
       keyboard="email"
+      v-model="value.email"
     />
-    <Password />
+    <Password v-model="value.password" />
   </StackLayout>
 </template>
 <script>
@@ -19,18 +20,27 @@ export default {
     DataField,
     Password
   },
-  data() {
-    return {
-      user: {
-        name: '',
-        email: '',
-        password: ''
-      }
+  props: {
+    value: {
+      type: Object,
+      default: {},
+      required: true
     }
+    // email: {
+    //   type: String,
+    //   default: ''
+    // },
+    // password: {
+    //   type: String,
+    //   default: ''
+    // }
   },
-  methods: {
-    updateUserData() {
-      console.log('el usuario es: ' + JSON.stringify(this.user))
+  model: {
+    event: 'modified'
+  },
+  watch: {
+    value() {
+      this - $emit('modified', this.value)
     }
   }
 }

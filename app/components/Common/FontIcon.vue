@@ -3,7 +3,7 @@
     :class="type"
     :color="color"
     :fontSize="iconSize"
-    :text="name | fonticon"
+    :text="iconName | fonticon"
     width="size"
     textAlignment="center"
     @tap="$emit('tap')"
@@ -27,7 +27,7 @@ export default {
       default: 24,
       validation: s => !isNaN(s)
     },
-    name: {
+    iconName: {
       type: String,
       required: true
     }

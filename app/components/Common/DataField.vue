@@ -6,7 +6,7 @@
         :type="type"
         :color="color"
         :iconSize="iconSize"
-        :name="name"
+        :iconName="iconName"
         paddingRight="0"
         paddingTop="30"
       />
@@ -28,6 +28,7 @@
           :maxLength="maxLength"
           :keyboardType="keyboard"
           :returnKeyType="returnKey"
+          :text="textFieldValue"
           editable="true"
           row="1"
           col="0"
@@ -38,7 +39,7 @@
           padding="0"
           @focus="onFocus"
           @blur="onBlur"
-          `
+          @textChange="updateValue(textFieldValue)"
         />
         <FontIcon
           v-if="isError"
@@ -69,6 +70,7 @@ export default {
     FontIcon
   },
   props: {
+    // ----- ICON ----- //
     type: {
       type: String,
       required: true,
@@ -83,19 +85,29 @@ export default {
       default: 24,
       validation: s => !isNaN(s)
     },
+    iconName: {
+      type: String,
+      required: true
+    },
+    // ----- LABEL ----- //
+    labelText: {
+      type: String,
+      default: '',
+      required: true
+    },
+    // ----- TEXT FIELD ----- //
     textSize: {
       type: [String, Number],
       default: 16,
       validation: s => !isNaN(s)
     },
-    name: {
-      type: String,
-      required: true
-    },
     maxLength: {
       type: [String, Number],
       default: 32,
       validation: s => !isNaN(s)
+    },
+    textFieldValue: {
+      type: [String, Number]
     },
     keyboard: {
       type: String,
@@ -115,11 +127,6 @@ export default {
         return ['done', 'go', 'next', 'search', 'send'].indexOf(value) !== -1
       }
     },
-    labelText: {
-      type: String,
-      default: '',
-      required: true
-    },
     secure: {
       type: Boolean,
       default: false
@@ -129,10 +136,14 @@ export default {
       default: false
     }
   },
-  data() {
-    return {}
+  model: {
+    event: 'modified'
   },
   methods: {
+    updateValue(newValue) {
+      console.log(newValue)
+      this.$emit('modified', newValue)
+    },
     onFocus() {
       // Get our elements to manipulate
       const label = this.$refs.label.nativeView
