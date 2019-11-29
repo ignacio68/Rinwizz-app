@@ -7,13 +7,14 @@
       labelText="password"
       :secure="isSecure"
       returnKey="done"
+      :isError="isPasswordError"
     >
       <FontIcon
         type="far"
         name="!isSecure ? fa-eye-slash : fa-eye"
         paddingleft="0"
         paddingTop="30"
-        :tap="isSecure = !isSecure"
+        :tap="(isSecure = !isSecure)"
       />
     </DataField>
   </StackLayout>
@@ -27,7 +28,12 @@ export default {
     DataField,
     FontIcon
   },
-  props: {},
+  props: {
+    isPasswordError: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {
       isSecure: true
