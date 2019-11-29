@@ -5,7 +5,7 @@
         type="fab"
         name="fa-reddit"
         color="#0B87DE"
-        size="100"
+        iconSize="100"
         class="p-t-20"
       />
       <Label

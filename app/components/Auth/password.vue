@@ -1,21 +1,15 @@
 <template>
   <StackLayout orientation="vertical">
     <DataField
-      type="fas"
-      name="fa-key"
+      type="far"
+      name="fa-lock-alt"
       maxLength="32"
       labelText="password"
       :secure="isSecure"
       returnKey="done"
-      :isError="isPasswordError"
+      isError="isPasswordError"
     >
-      <FontIcon
-        type="far"
-        name="!isSecure ? fa-eye-slash : fa-eye"
-        paddingleft="0"
-        paddingTop="30"
-        :tap="(isSecure = !isSecure)"
-      />
+      <FontIcon type="far" :name="iconName" paddingleft="0" paddingTop="30" />
     </DataField>
   </StackLayout>
 </template>
@@ -37,6 +31,14 @@ export default {
   data() {
     return {
       isSecure: true
+    }
+  },
+  computed: {
+    iconName() {
+      !this.isSecure ? 'fa-eye-slash' : 'fa-eye'
+    },
+    tap() {
+      this.isSecure = !this.isSecure
     }
   },
   methods: {}

@@ -5,18 +5,18 @@
         <TabStripItem>
           <FontIcon
             class="nt-icon"
-            type="fas"
-            name="fa-home"
-            :color="iconColor.active"
+            type="far"
+            name="fa-home-alt"
+            color="iconColor.active"
             ref="home"
           />
         </TabStripItem>
         <TabStripItem>
           <FontIcon
             class="nt-icon"
-            type="fas"
+            type="far"
             name="fa-book"
-            :color="iconColor.inactive"
+            color="iconColor.inactive"
             ref="drawer"
           />
         </TabStripItem>
