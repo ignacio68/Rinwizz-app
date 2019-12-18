@@ -9,7 +9,7 @@
 
 import Vue from 'nativescript-vue'
 
-const Platform = require('platform')
+import { device, isAndroid, isIOS } from 'tns-core-modules/platform'
 
 import { store } from './store'
 
@@ -72,11 +72,13 @@ new Vue({
   store,
   beforeCreate() {
     // Set the platform OS global variable
-    Vue.prototype.IS_ANDROID = Platform.isAndroid
-    Vue.prototype.IS_IOS = Platform.isIos
+    Vue.prototype.IS_ANDROID = isAndroid
+    Vue.prototype.IS_IOS = isIOS
+    console.log(`Running on Android? ${isAndroid}`)
+    console.log(`Running on iOS? ${isIOS}`)
 
     // // Set app language
-    const val = Platform.device.language
+    const val = device.language
     const lang = val.slice(0, 2)
     if (lang) {
       // const lang = val.replace('-', '')
@@ -92,6 +94,5 @@ new Vue({
 
   // TODO: *** SOLO PARA PRUEBAS **//
   render: h => h('frame', [h(AppNavigator)])
-
 }).$start()
 /* eslint-disable no-new */
