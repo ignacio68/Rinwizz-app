@@ -7,7 +7,7 @@
             ref="home"
             class="nt-icon"
             type="far"
-            name="fa-home-alt"
+            iconName="fa-home-alt"
             color="iconColor.active"
           />
         </TabStripItem>
@@ -16,7 +16,7 @@
             ref="drawer"
             class="nt-icon"
             type="far"
-            name="fa-book"
+            iconName="fa-book"
             color="iconColor.inactive"
           />
         </TabStripItem>
