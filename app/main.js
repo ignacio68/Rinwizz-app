@@ -27,6 +27,8 @@ import { TNSFontIcon, fonticon } from 'nativescript-fonticon'
 
 // Add view components
 import AppNavigator from './AppNavigator'
+// import Welcome from '@views/Welcome'
+// import AppSplitter from '@views/AppSplitter'
 
 //Add UI components
 // import 'nativescript-ui-sidedrawer/vue'
@@ -62,6 +64,9 @@ Vue.use(RadListView)
 // Prints Vue logs when --env.production is *NOT* set while building
 Vue.config.silent = TNS_ENV === 'production'
 
+// TODO: *** SOLO PARA PRUEBAS **//
+// const user = 'Pepe'
+
 new Vue({
   i18n,
   store,
@@ -83,6 +88,10 @@ new Vue({
       console.log('No se encuentra el idioma del navegador')
     }
   },
+  // render: h => h('frame', [user ? h(Welcome) : h(AppSplitter)])
+
+  // TODO: *** SOLO PARA PRUEBAS **//
   render: h => h('frame', [h(AppNavigator)])
+
 }).$start()
 /* eslint-disable no-new */
