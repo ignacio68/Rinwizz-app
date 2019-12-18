@@ -38,7 +38,7 @@
 </template>
 <script>
 // Components
-import DataField from '@components/Common/DataField'
+import DataField from '@components/UI/DataField'
 import TheSignDataForm from '@components/Auth/TheSignDataForm'
 import SocialButtons from '@components/Auth/SocialButtons'
 

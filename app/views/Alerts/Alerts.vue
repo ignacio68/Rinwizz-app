@@ -31,7 +31,7 @@
 </template>
 <script>
 import AlertEditor from './AlertEditor'
-import TheActionBar from '@components/Common/TheActionBar'
+import TheActionBar from '@components/UI/TheActionBar'
 export default {
   name: 'Alerts',
   components: {

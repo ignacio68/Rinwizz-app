@@ -43,7 +43,7 @@
 
 <script>
 import SignUp from '@views/Auth/SignUp'
-import FontIcon from '@components/Common/FontIcon'
+import FontIcon from '@components/UI/FontIcon'
 export default {
   name: 'Welcome',
   components: {

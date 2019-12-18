@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import FontIcon from '@components/Common/FontIcon'
+import FontIcon from '@components/UI/FontIcon'
 import { Color } from 'color'
 export default {
   name: 'DataField',

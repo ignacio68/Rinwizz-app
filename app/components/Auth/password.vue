@@ -20,8 +20,8 @@
   </StackLayout>
 </template>
 <script>
-import DataField from '@components/Common/DataField'
-import FontIcon from '@components/Common/FontIcon'
+import DataField from '@components/UI/DataField'
+import FontIcon from '@components/UI/FontIcon'
 export default {
   name: 'Password',
   components: {
