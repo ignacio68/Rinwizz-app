@@ -4,20 +4,20 @@
       <TabStrip>
         <TabStripItem>
           <FontIcon
+            ref="home"
             class="nt-icon"
             type="far"
             name="fa-home-alt"
             color="iconColor.active"
-            ref="home"
           />
         </TabStripItem>
         <TabStripItem>
           <FontIcon
+            ref="drawer"
             class="nt-icon"
             type="far"
             name="fa-book"
             color="iconColor.inactive"
-            ref="drawer"
           />
         </TabStripItem>
       </TabStrip>
