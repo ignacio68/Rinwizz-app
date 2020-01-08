@@ -37,7 +37,8 @@ export default {
   name: 'TheActionBar',
   props: {
     iconLeftSrc: {
-      type: String
+      type: String,
+      default: void 0
     },
     title: {
       type: String,
@@ -45,7 +46,8 @@ export default {
       default: ''
     },
     iconRightSrc: {
-      type: String
+      type: String,
+      default: void 0
     }
   },
   data() {

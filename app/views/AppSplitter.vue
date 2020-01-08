@@ -8,13 +8,15 @@
       </StackLayout>
       <StackLayout ~mainContent>
         <Frame>
-          <HomePage @showSideDrawerParent="onOpenDrawerTap" />
+          <!-- <HomePage @showSideDrawerParent="onOpenDrawerTap" /> -->
+          <HomePage />
         </Frame>
       </StackLayout>
     </RadSideDrawer>
   </Page>
 </template>
 <script>
+import { EventBus } from '@utils/commons'
 import Settings from '@views/Main/Settings'
 import HomePage from '@views/Main/HomePage'
 
@@ -24,11 +26,17 @@ export default {
   data() {
     return {}
   },
-  methods: {
-    onOpenDrawerTap() {
-      console.log('showSideDrawerGrandParent')
+  created() {
+    EventBus.$on('OPEN_DRAWER', () => {
       this.$refs.drawer.showDrawer()
-    },
+      console.log('Activado OPEN_DRAWER')
+    })
+  },
+  methods: {
+    // onOpenDrawerTap() {
+    //   console.log('showSideDrawerGrandParent')
+    //   this.$refs.drawer.showDrawer()
+    // },
     onCloseDrawerTap() {
       // this.$refs.drawer.closeDrawer()
     },

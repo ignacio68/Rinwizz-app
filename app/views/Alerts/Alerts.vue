@@ -30,6 +30,7 @@
   </Page>
 </template>
 <script>
+import { EventBus } from '@utils/commons'
 import AlertEditor from './AlertEditor'
 import TheActionBar from '@components/UI/TheActionBar'
 export default {
@@ -49,11 +50,14 @@ export default {
         fullscreen: true,
         props: { message: 'Todo va dabuten' }
       })
+      console.log('Abierto el modal')
     },
     // TODO: Change the events name
     showSideDrawer() {
-      console.log('showSideDrawerChild')
-      this.$emit('showSideDrawerChild')
+      // console.log('showSideDrawerChild')
+      // this.$emit('showSideDrawerChild')
+      EventBus.$emit('OPEN_DRAWER')
+      console.log('Alerts emite OPEN_DRAWER')
     }
   }
 }
