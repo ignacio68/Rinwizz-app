@@ -7,16 +7,11 @@ import {
 
 export function checkNetwork() {
   const type = getConnectionType()
-  let isConnected
-
-  switch (type) {
-    case connectionType.none:
-      console.log('No hay conexión')
-      isConnected = false
-      break
-    default:
-      console.log('Está conectado')
-      isConnected = true
-      break
+  if (type === connectionType.none) {
+    console.log('No hay conexión')
+    return false
+  } else {
+    console.log('Hay conexión')
+    return true
   }
 }

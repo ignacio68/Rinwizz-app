@@ -29,7 +29,7 @@
         <Button
           text="Comprobar conectividad"
           class="-primary"
-          @tap="isConnected"
+          @tap="checkConnection"
         />
       </GridLayout>
     </StackLayout>
@@ -47,7 +47,7 @@ export default {
   data() {
     return {
       itemList: {},
-      connected: true
+      isConnected: true
     }
   },
   computed: {},
@@ -67,16 +67,16 @@ export default {
       EventBus.$emit('OPEN_DRAWER')
       console.log('Alerts emite OPEN_DRAWER')
     },
-    isConnected() {
-      this.connected = checkNetwork().isConnected
-      if (this.connected) {
+    checkConnection() {
+      this.isConnected = checkNetwork()
+      if (this.isConnected) {
         alert({
           message: 'Hay conexión',
           okButtonText: 'OK'
         })
       } else {
         alert({
-          message: 'N0 hay conexión',
+          message: 'No hay conexión',
           okButtonText: 'OK'
         })
       }
