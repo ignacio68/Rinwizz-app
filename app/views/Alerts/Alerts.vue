@@ -25,12 +25,18 @@
           class="fab-button"
           @tap="openAlertModal"
         />
+        <!-- SOLO PARA TESTEAR EN PRODUCCIÓN, LUEGO ELIMINAR -->
+        <Button
+          text="Comprobar conectividad"
+          class="-primary"
+          @tap="isConnected"
+        />
       </GridLayout>
     </StackLayout>
   </Page>
 </template>
 <script>
-import { EventBus } from '@utils/commons'
+import { EventBus, checkNetwork } from '@utils/commons'
 import AlertEditor from './AlertEditor'
 import TheActionBar from '@components/UI/TheActionBar'
 export default {
@@ -40,7 +46,8 @@ export default {
   },
   data() {
     return {
-      itemList: {}
+      itemList: {},
+      connected: true
     }
   },
   computed: {},
@@ -59,6 +66,20 @@ export default {
       // this.$emit('showSideDrawerChild')
       EventBus.$emit('OPEN_DRAWER')
       console.log('Alerts emite OPEN_DRAWER')
+    },
+    isConnected() {
+      this.connected = checkNetwork().isConnected
+      if (this.connected) {
+        alert({
+          message: 'Hay conexión',
+          okButtonText: 'OK'
+        })
+      } else {
+        alert({
+          message: 'N0 hay conexión',
+          okButtonText: 'OK'
+        })
+      }
     }
   }
 }
