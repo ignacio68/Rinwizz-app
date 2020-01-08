@@ -27,6 +27,7 @@ export default {
     return {}
   },
   created() {
+    // FIXME: resolver bug
     EventBus.$on('OPEN_DRAWER', () => {
       this.$refs.drawer.showDrawer()
       console.log('Activado OPEN_DRAWER')

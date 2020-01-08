@@ -54,6 +54,7 @@ export default {
     },
     // TODO: Change the events name
     showSideDrawer() {
+      // FIXME: resolver bug
       // console.log('showSideDrawerChild')
       // this.$emit('showSideDrawerChild')
       EventBus.$emit('OPEN_DRAWER')
