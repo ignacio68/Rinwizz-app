@@ -33,7 +33,6 @@ import AppNavigator from './AppNavigator'
 //Add UI components
 // import 'nativescript-ui-sidedrawer/vue'
 import RadSideDrawer from 'nativescript-ui-sidedrawer/vue'
-import RadListView from 'nativescript-ui-listview/vue'
 // import CheckBox
 Vue.registerElement(
   'CheckBox',
@@ -67,7 +66,6 @@ TNSFontIcon.loadCss()
 Vue.filter('fonticon', fonticon)
 
 Vue.use(RadSideDrawer)
-Vue.use(RadListView)
 // Vue.use(Fab)
 // Vue.component("RadSideDrawer", RadSideDrawer)
 
