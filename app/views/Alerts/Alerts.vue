@@ -37,6 +37,7 @@
 </template>
 <script>
 import { EventBus, checkNetwork } from '@utils/commons'
+import { SnackBar, SnackBarOptions } from '@nstudio/nativescript-snackbar'
 import AlertEditor from './AlertEditor'
 import TheActionBar from '@components/UI/TheActionBar'
 export default {
@@ -69,17 +70,25 @@ export default {
     },
     checkConnection() {
       this.isConnected = checkNetwork()
-      if (this.isConnected) {
-        alert({
-          message: 'Hay conexión',
-          okButtonText: 'OK'
-        })
+      if (!this.isConnected) {
+        this.showSnackBar('Error al cargar la alerta')
       } else {
-        alert({
-          message: 'No hay conexión',
-          okButtonText: 'OK'
-        })
+        return
       }
+    },
+    showSnackBar(text) {
+      const snackBar = new SnackBar()
+      // const options = Object.assign({}, SnackBarOptions)
+      const options = { ...SnackBarOptions }
+      options.actionText = 'REINTENTAR'
+      options.actionTextColor = '#fff'
+      options.snackText = text
+      options.textColor = '#fff'
+      options.hideDelay = 6000000000
+      options.backgroundColor = '#FF1600'
+      options.isRTL = false
+
+      snackBar.action(options)
     }
   }
 }

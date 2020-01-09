@@ -38,6 +38,7 @@
     "@nativescript/theme": "^2.2.1",
     "@nstudio/nativescript-checkbox": "^1.0.0",
     "@nstudio/nativescript-floatingactionbutton": "^1.1.0",
+    "@nstudio/nativescript-snackbar": "^1.1.1",
     "@vue/devtools": "^5.0.6",
     "nativescript-fonticon": "^2.0.0",
     "nativescript-socketio": "^3.2.1",
