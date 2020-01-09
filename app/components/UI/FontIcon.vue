@@ -6,7 +6,7 @@
     :text="iconName | fonticon"
     width="size"
     textAlignment="center"
-    @tap="$emit('tap')"
+    @tap.prevent="$emit('tap')"
   />
 </template>
 <script>
