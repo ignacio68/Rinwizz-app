@@ -16,7 +16,7 @@
           <check-box
             class="checkbox"
             :checked="gender.selected"
-            :text="gender.type"
+            :text="$t(gender.type)"
             boxType="circle"
             @checkedChange="changeCheckedRadio(gender)"
           />
@@ -42,30 +42,47 @@ export default {
   name: 'Gender',
   data() {
     return {
-      isChecked: false,
       genders: [
-        { type: 'Hombre', selected: false },
-        { type: 'Mujer', selected: false },
-        { type: 'Otro', selected: false }
+        { type: 'lang.views.gender.genders[0]', selected: false },
+        { type: 'lang.views.gender.genders[1]', selected: false },
+        { type: 'lang.views.gender.genders[2]', selected: false }
       ]
     }
   },
+  computed: {},
   methods: {
     changeCheckedRadio(item) {
       // FIXME: arreglar el bug que provoca que no se puedan elegir items superiores
-      item.selected = !item.selected
+      // item.selected = !item.selected
 
-      console.log(`el genero elegido es ${item.type}`)
+      console.log(`el genero elegido es ${this.$t(item.type)}`)
 
-      if(!item.selected) {
-        return
-      }
+      // if (!item.selected) {
+      //   return
+      // }
 
-      this.genders.forEach(gender => {
-        if(gender.type !== item.type) {
+      for (const gender of this.genders) {
+        if (gender.type === item.type) {
+          gender.selected = true
+          gender.type = this.genders
+        } else {
           gender.selected = false
         }
-      })
+      }
+
+      // for (const index in this.genders) {
+      //   if (this.genders[index].type !== item.type) {
+      //     this.genders[index].selected = false
+      //   }
+      // }
+
+      for (const gender of this.genders) {
+        console.log(
+          `El género es ${this.$t(gender.type)} y está seleccionado: ${
+            gender.selected
+          }`
+        )
+      }
     },
     toAvatar() {
       this.$navigateTo(Avatar)
