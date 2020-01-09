@@ -34,6 +34,17 @@ import AppNavigator from './AppNavigator'
 // import 'nativescript-ui-sidedrawer/vue'
 import RadSideDrawer from 'nativescript-ui-sidedrawer/vue'
 import RadListView from 'nativescript-ui-listview/vue'
+// import CheckBox
+Vue.registerElement(
+  'CheckBox',
+  () => require('@nstudio/nativescript-checkbox').CheckBox,
+  {
+    model: {
+      prop: 'checked',
+      event: 'checkedChange'
+    }
+  }
+)
 // import Fab from '@nstudio/nativescript-floatingactionbutton'
 Vue.registerElement(
   'Fab',
