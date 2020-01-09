@@ -6,11 +6,13 @@
         <Label
           class="text"
           :text="$t('lang.views.gender.main')"
-          textWrap="true" />
+          textWrap="true"
+        />
         <StackLayout
           v-for="(gender, index) in genders"
           :key="index"
-          class="genderlist">
+          class="genderlist"
+        >
           <check-box
             class="checkbox"
             :checked="gender.selected"
