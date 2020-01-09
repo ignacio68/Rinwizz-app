@@ -16,5 +16,7 @@ export default {
     phoneNumberAlreadyExist: 'phone munber already exist',
     userNotFound: 'user not found'
   },
-  alerts: {}
+  alerts: {
+    network: 'Load alert error'
+  }
 }

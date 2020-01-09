@@ -71,7 +71,7 @@ export default {
     checkConnection() {
       this.isConnected = checkNetwork()
       if (!this.isConnected) {
-        this.showSnackBar('Error al cargar la alerta')
+        this.showSnackBar('lang.errors.alerts.network')
       } else {
         return
       }
@@ -82,7 +82,7 @@ export default {
       const options = { ...SnackBarOptions }
       options.actionText = 'REINTENTAR'
       options.actionTextColor = '#fff'
-      options.snackText = text
+      options.snackText = this.$t(text)
       options.textColor = '#fff'
       options.hideDelay = 6000000000
       options.backgroundColor = '#FF1600'
