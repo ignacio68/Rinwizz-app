@@ -59,7 +59,7 @@ export default {
   },
   gender: {
     main: 'Choose your gendre',
-    genders: 'Male | Female | Other',
+    genders: ['Male', 'Female', 'Other'],
     button: 'To the location'
   },
   userLocation: {

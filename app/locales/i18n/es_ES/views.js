@@ -64,7 +64,7 @@ export default {
   },
   gender: {
     main: 'Elíge tu género',
-    genders: 'Hombre | Mujer | Otro',
+    genders: ['Hombre', 'Mujer', 'Otro'],
     button: 'A la localización'
   },
   userLocation: {
