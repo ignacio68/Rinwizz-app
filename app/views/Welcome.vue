@@ -18,18 +18,18 @@
         :text="$t('lang.views.welcome.text')"
         textWrap="true"
       />
+
       <StackLayout class="p-x-30">
-        <ListView
-          for="(message, index) in messages"
-          separatorColor="transparent"
-          isUserInteractionEnabled="false"
+        <StackLayout
+          v-for="(message, index) in messages"
+          :key="index"
+          class="p-t-10"
         >
-          <v-template>
-            <StackLayout>
-              <Label class="h3 text-center" :text="$t(message.text)" />
-            </StackLayout>
-          </v-template>
-        </ListView>
+          <Label
+            class="h3 text-center"
+            :text="$t(message.text)"
+          />
+        </StackLayout>
       </StackLayout>
 
       <Button
