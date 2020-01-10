@@ -1,12 +1,16 @@
 <template>
-  <StackLayout orientation="vertical" marginTop="0" paddingTop="0">
+  <StackLayout 
+    orientation="vertical" 
+    marginTop="0" 
+    paddingTop="0"
+  >
     <DataField
+      v-model="value.email"
       type="far"
       iconName="fa-envelope"
       maxLength="64"
       labelText="email"
       keyboard="email"
-      v-model="value.email"
     />
     <Password v-model="value.password" />
   </StackLayout>
@@ -20,10 +24,12 @@ export default {
     DataField,
     Password
   },
+  model: {
+    event: 'modified'
+  },
   props: {
     value: {
       type: Object,
-      default: {},
       required: true
     }
     // email: {
@@ -35,12 +41,9 @@ export default {
     //   default: ''
     // }
   },
-  model: {
-    event: 'modified'
-  },
   watch: {
     value() {
-      this - $emit('modified', this.value)
+      this.$emit('modified', this.value)
     }
   }
 }
