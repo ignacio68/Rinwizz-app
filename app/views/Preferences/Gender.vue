@@ -8,12 +8,10 @@
           :text="$t('lang.views.gender.main')"
           textWrap="true"
         />
-        <StackLayout
-          v-for="(gender, index) in genders"
-          :key="index"
-          class="genderlist"
-        >
+        <StackLayout class="genderlist">
           <check-box
+            v-for="(gender, index) in genders"
+            :key="index"
             class="checkbox"
             :checked="gender.selected"
             :text="$t(gender.type)"
@@ -53,36 +51,30 @@ export default {
   methods: {
     changeCheckedRadio(item) {
       // FIXME: arreglar el bug que provoca que no se puedan elegir items superiores
+      console.log(`PRINCIPIO`)
       // item.selected = !item.selected
-
-      console.log(`el genero elegido es ${this.$t(item.type)}`)
 
       // if (!item.selected) {
       //   return
       // }
 
+      console.log(`el genero elegido es ${this.$t(item.type)}`)
+
       for (const gender of this.genders) {
-        if (gender.type === item.type) {
-          gender.selected = true
-          gender.type = this.genders
-        } else {
+        if (gender.type !== item.type) {
           gender.selected = false
+          console.log(
+            `los otros son ${this.$t(gender.type)} y : ${gender.selected}`
+          )
+        } else {
+          gender.selected = true
         }
       }
-
-      // for (const index in this.genders) {
-      //   if (this.genders[index].type !== item.type) {
-      //     this.genders[index].selected = false
-      //   }
-      // }
-
-      for (const gender of this.genders) {
-        console.log(
-          `El género es ${this.$t(gender.type)} y está seleccionado: ${
-            gender.selected
-          }`
-        )
-      }
+      console.log(`FINAL`)
+    },
+    updateGender(item) {
+      const userData = { personal: { age: '', gender: '' } }
+      userData.personal.gender = item.type
     },
     toAvatar() {
       this.$navigateTo(Avatar)
