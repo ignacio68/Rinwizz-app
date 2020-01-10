@@ -51,7 +51,8 @@ Vue.registerElement(
 )
 
 if (TNS_ENV !== 'production') {
-  Vue.use(VueDevtools)
+  // Vue.use(VueDevtools)
+  Vue.use(VueDevtools, { host: '192.168.1.46' }) // Estudio
 }
 
 // Load TNSFonticon
