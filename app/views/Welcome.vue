@@ -3,7 +3,7 @@
     <StackLayout>
       <FontIcon
         type="fab"
-        name="fa-reddit"
+        iconName="fa-reddit"
         color="#0B87DE"
         iconSize="100"
         class="p-t-20"
