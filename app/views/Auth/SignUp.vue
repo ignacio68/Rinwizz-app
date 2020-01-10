@@ -1,7 +1,10 @@
 <template>
   <Page actionBarHidden="true">
     <StackLayout>
-      <Label :text="$t('lang.views.signup.main.text1')" class="mainText" />
+      <Label
+        :text="$t('lang.views.signup.main.text1')"
+        class="mainText"
+      />
       <DataField
         type="far"
         iconName="fa-user"
@@ -32,7 +35,11 @@
         text="Password Confirmation"
         @tap="toPasswordConfirmation"
       />
-      <Button class="-rounded-sm text-primary" text="Ok" @tap="toPersonal" />
+      <Button
+        class="-rounded-sm text-primary"
+        text="Ok"
+        @tap="toPersonal"
+      />
     </StackLayout>
   </Page>
 </template>
