@@ -12,7 +12,7 @@
       :backgroundImage="iconLeftSrc"
       horizontalAlignment="center"
       textWrap="true"
-      @tap.prevent="$emit('iconLeftAction')"
+      @tap="$emit('iconLeftAction')"
     />
     <Label
       col="1"
@@ -27,7 +27,7 @@
       :backgroundImage="iconRightSrc"
       horizontalAlignment="center"
       textWrap="true"
-      @tap.prevent="$emit('iconRightAction')"
+      @tap="$emit('iconRightAction')"
     />
   </GridLayout>
 </template>
