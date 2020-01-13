@@ -9,21 +9,14 @@
           textWrap="true"
         />
         <StackLayout class="genderlist">
-          <!-- <check-box
+          <RadioButton
             v-for="(gender, index) in genders"
             :key="index"
             class="checkbox"
-            :checked="gender.selected"
             :text="$t(gender.type)"
-            boxType="circle"
-            @checkedChange="changeCheckedRadio(gender)"
-          /> -->
-          <Button
-            v-for="(gender, index) in genders"
-            :key="index"
-            class="checkbox"
-            :color="gender.color"
-            :text="$t(gender.type)"
+            fontSize="24"
+            size="36"
+            :backgroundColor="gender.color"
             @tap="changeCheckedRadio(gender)"
           />
         </StackLayout>
@@ -42,10 +35,14 @@
   </Page>
 </template>
 <script>
+import RadioButton from '@components/UI/RadioButton'
 import Avatar from './Avatar'
 import Greetings from './Greetings'
 export default {
   name: 'Gender',
+  components: {
+    RadioButton
+  },
   data() {
     return {
       genderSelected: '',
@@ -91,7 +88,7 @@ export default {
 
       for (const gender of this.genders) {
         if (gender.type !== item.type) {
-          gender.color = '#dcdde1'
+          gender.color = '#00a8ff'
           console.log(
             `los otros son ${this.$t(gender.type)} y : ${gender.color}`
           )
