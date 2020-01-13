@@ -118,7 +118,8 @@ export default {
       validation: s => !isNaN(s)
     },
     textFieldValue: {
-      type: [String, Number]
+      type: [String, Number],
+      default: ''
     },
     keyboard: {
       type: String,
