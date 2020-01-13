@@ -18,7 +18,15 @@
             boxType="circle"
             @checkedChange="changeCheckedRadio(gender)"
           /> -->
-          <check-box
+          <Button
+            v-for="(gender, index) in genders"
+            :key="index"
+            class="checkbox"
+            :color="gender.color"
+            :text="$t(gender.type)"
+            @tap="changeCheckedRadio(gender)"
+          />
+          <!-- <check-box
             class="checkbox"
             :checked="genders[0].selected"
             :text="$t(genders[0].type)"
@@ -38,7 +46,7 @@
             :text="$t(genders[2].type)"
             boxType="circle"
             @checkedChange="changeCheckedRadio(genders[2])"
-          />
+          /> -->
         </StackLayout>
       </StackLayout>
       <Button
@@ -63,9 +71,9 @@ export default {
     return {
       genderSelected: '',
       genders: [
-        { type: 'lang.views.gender.genders[0]', selected: false },
-        { type: 'lang.views.gender.genders[1]', selected: false },
-        { type: 'lang.views.gender.genders[2]', selected: false }
+        { type: 'lang.views.gender.genders[0]', selected: false, color: '#dcdde1' },
+        { type: 'lang.views.gender.genders[1]', selected: false, color: '#dcdde1'},
+        { type: 'lang.views.gender.genders[2]', selected: false, color: '#dcdde1'}
       ]
     }
   },
@@ -93,35 +101,36 @@ export default {
       console.log(`PRINCIPIO`)
       this.genderSelected = this.$t(item.type)
 
-      this.genders[0].type = false
-      this.genders[1].type = false
-      this.genders[2].type = false
+      // this.genders[0].selected = false
+      // this.genders[1].selected = false
+      // this.genders[2].selected = false
 
-      item.selected = !item.selected
+      // item.selected = !item.selected
+      item.color = '#718093'
 
       // if (!item.selected) {
       //   return
       // }
 
       console.log(`el genero elegido es ${this.genderSelected }`)
-      console.log(
-            `los otros son ${this.$t(this.genders[0].type)} y : ${this.genders[0].selected}`
-          )
-      console.log(
-            `los otros son ${this.$t(this.genders[1].type)} y : ${this.genders[1].selected}`
-          )
-      console.log(
-            `los otros son ${this.$t(this.genders[2].type)} y : ${this.genders[2].selected}`
-          )
-
-      // for (const gender of this.genders) {
-      //   if (gender.type !== item.type) {
-      //     gender.selected = false
-      //     console.log(
-      //       `los otros son ${this.$t(gender.type)} y : ${gender.selected}`
+      // console.log(
+      //       `los otros son ${this.$t(this.genders[0].type)} y : ${this.genders[0].color}`
       //     )
-      //   }
-      // }
+      // console.log(
+      //       `los otros son ${this.$t(this.genders[1].type)} y : ${this.genders[1].selected}`
+      //     )
+      // console.log(
+      //       `los otros son ${this.$t(this.genders[2].type)} y : ${this.genders[2].selected}`
+      //     )
+
+      for (const gender of this.genders) {
+        if (gender.type !== item.type) {
+          gender.color = '#dcdde1'
+          console.log(
+            `los otros son ${this.$t(gender.type)} y : ${gender.color}`
+          )
+        }
+      }
       console.log(`FINAL`)
     },
     updateGender(item) {
