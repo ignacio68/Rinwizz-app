@@ -47,12 +47,30 @@ export default {
       ]
     }
   },
-  computed: {},
+  computed: {
+    changeSelected() {
+      for (const gender of this.genders) {
+          if (gender.selected === true )
+                  gender.selected = false
+          console.log(
+            `los otros son ${this.$t(gender.type)} y : ${gender.selected}`
+          )
+      }
+      return this.genders
+    }
+  },
   methods: {
+    // changeSelected(item) {
+    //   item.selected = false
+    //    console.log(
+    //         `los otros son ${this.$t(item.type)} y : ${item.selected}`
+    //       )
+    // },
     changeCheckedRadio(item) {
       // FIXME: arreglar el bug que provoca que no se puedan elegir items superiores
       console.log(`PRINCIPIO`)
-      // item.selected = !item.selected
+      this.changeSelected
+      item.selected = !item.selected
 
       // if (!item.selected) {
       //   return
@@ -60,16 +78,15 @@ export default {
 
       console.log(`el genero elegido es ${this.$t(item.type)}`)
 
-      for (const gender of this.genders) {
-        if (gender.type !== item.type) {
-          gender.selected = false
-          console.log(
-            `los otros son ${this.$t(gender.type)} y : ${gender.selected}`
-          )
-        } else {
-          gender.selected = true
-        }
-      }
+
+      // for (const gender of this.genders) {
+      //   if (gender.type !== item.type) {
+      //     gender.selected = false
+      //     console.log(
+      //       `los otros son ${this.$t(gender.type)} y : ${gender.selected}`
+      //     )
+      //   }
+      // }
       console.log(`FINAL`)
     },
     updateGender(item) {
