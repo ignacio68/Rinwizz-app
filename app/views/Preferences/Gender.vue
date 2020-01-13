@@ -13,11 +13,12 @@
             v-for="(gender, index) in genders"
             :key="index"
             class="checkbox"
+            fontSize="16"
+            size="24"
+            :backgroundColor="blue"
             :text="$t(gender.type)"
-            fontSize="24"
-            size="36"
-            :backgroundColor="gender.color"
-            @tap="changeCheckedRadio(gender)"
+            :checked="gender.selected"
+            @onChangeChecked="changeCheckedRadio(gender)"
           />
         </StackLayout>
       </StackLayout>
@@ -47,54 +48,36 @@ export default {
     return {
       genderSelected: '',
       genders: [
-        { type: 'lang.views.gender.genders[0]', selected: false, color: '#dcdde1' },
-        { type: 'lang.views.gender.genders[1]', selected: false, color: '#dcdde1'},
-        { type: 'lang.views.gender.genders[2]', selected: false, color: '#dcdde1'}
+        { type: 'lang.views.gender.genders[0]', selected: false },
+        { type: 'lang.views.gender.genders[1]', selected: false },
+        { type: 'lang.views.gender.genders[2]', selected: false }
       ]
     }
   },
   computed: {
-    changeSelected() {
-      for (const gender of this.genders) {
-          if (gender.selected === true )
-                  gender.selected = false
-          console.log(
-            `los otros son ${this.$t(gender.type)} y : ${gender.selected}`
-          )
-      }
-      return this.genders
-    }
   },
   methods: {
-    // changeSelected(item) {
-    //   item.selected = false
-    //    console.log(
-    //         `los otros son ${this.$t(item.type)} y : ${item.selected}`
-    //       )
-    // },
     changeCheckedRadio(item) {
       // FIXME: arreglar el bug que provoca que no se puedan elegir items superiores
-      console.log(`PRINCIPIO`)
       this.genderSelected = this.$t(item.type)
 
-      // item.selected = !item.selected
-      item.color = '#718093'
+      item.selected = !item.selected
 
-      // if (!item.selected) {
-      //   return
-      // }
-
-      console.log(`el genero elegido es ${this.genderSelected }`)
+      if (!item.selected) {
+        return
+      }
 
       for (const gender of this.genders) {
         if (gender.type !== item.type) {
-          gender.color = '#00a8ff'
+          gender.selected = false
           console.log(
-            `los otros son ${this.$t(gender.type)} y : ${gender.color}`
+            `los otros son ${this.$t(gender.type)} y : ${gender.selected}`
           )
+        } else {
+          console.log(`el genero elegido es ${this.genderSelected} y ${gender.selected}`)
         }
       }
-      console.log(`FINAL`)
+      this.updateGender(item)
     },
     updateGender(item) {
       const userData = { personal: { age: '', gender: '' } }

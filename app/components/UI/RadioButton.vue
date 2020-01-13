@@ -1,39 +1,60 @@
 <template>
   <StackLayout
-    class="radio-btn"
+    class="radio-btn p-4"
     orientation="horizontal"
     verticalAlignment="middle"
+    @tap="onTap"
   >
-    <Label
-      :heigth="size"
-      :width="size"
+    <StackLayout
+      class="radio-btn__radio"
     >
       <Label
-        class="radio-btn__inner"
-        :bakgroundColor="backgroundColor"
-        :fontSize="fontSize"
-        @tap.prevent="$emit('onTap')"
+        ref="radioOutside"
+        class="radio-btn__radio--outside"
+        left="0"
+        top="0"
+        :height="size"
+        :width="size"
+        borderRadius="50%"
+        borderWidth="4"
+        borderColor="blue"
+        backgroundColor="transparent"
       />
-    </Label>
+      <!-- <Label
+        ref="radioInside"
+        cklass="radio-btn__radio--inside"
+        left="4"
+        top="4"
+        :height="20"
+        :width="20"
+        :bakgroundColor="backgroundColor"
+      /> -->
+    </StackLayout>
+
     <Label
-      class="radio-btn__label"
+      class="radio-btn__label p-x-8"
       :text="text"
+      :fontSize="fontSize"
       textWrap="true"
     />
   </StackLayout>
 </template>
 <script>
+import { Color } from 'color'
 export default {
   name: 'RadioButton',
-  model: [],
+  // model: {
+  //   prop: 'checked',
+  //   event: 'changeChecked'
+  // },
   props: {
     text: {
       type: String,
       default: ''
     },
     size: {
-      type: Number,
-      default: 36
+      type: String,
+      default: '24'
     },
     backgroundColor: {
       type: String,
@@ -42,16 +63,45 @@ export default {
     fontSize: {
       type: String,
       default: '16'
+    },
+    checked: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data() {
+    return {}
+  },
+  computed: {
+  },
+  methods: {
+    onTap() {
+      this.changeColor()
+      this.$emit('onChangeChecked', this.checked)
+      console.log(`checked: ${this.checked}`)
+    },
+    changeColor() {
+      const radioOutside = this.$refs.radioOutside.nativeView
+      if (this.checked) {
+        radioOutside.borderColor = new Color('#00b47e')
+      } else {
+        radioOutside.borderColor = new Color(this.backgroundColor)
+      }
     }
   }
 }
 </script>
 <style lang="scss" scoped>
 .radio-btn {
-  border-radius: 50%;
-  &__inner {
-    background-color: #dcdde1;
-    padding: 4;
+  &__radio {
+    &--outside {
+    }
+    &--inside {
+      border-radius: 50%;
+    }
+    &--ripple {
+
+    }
   }
   &__label {
   }
