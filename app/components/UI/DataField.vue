@@ -1,5 +1,8 @@
 <template>
-  <GridLayout columns="56, *, 56" rows="56">
+  <GridLayout
+    columns="56, *, 56"
+    rows="56"
+  >
     <StackLayout col="0">
       <FontIcon
         class="dataField-icon"
@@ -13,7 +16,12 @@
     </StackLayout>
 
     <StackLayout col="1">
-      <GridLayout class="nt-input" rows="16, auto" col="*, 16" marginBottom="5">
+      <GridLayout
+        class="nt-input"
+        rows="16, auto"
+        col="*, 16"
+        marginBottom="5"
+      >
         <Label
           ref="label"
           opacity="0.4"
@@ -68,6 +76,9 @@ export default {
   name: 'DataField',
   components: {
     FontIcon
+  },
+  model: {
+    event: 'modified'
   },
   props: {
     // ----- ICON ----- //
@@ -135,9 +146,6 @@ export default {
       type: Boolean,
       default: false
     }
-  },
-  model: {
-    event: 'modified'
   },
   methods: {
     updateValue(newValue) {
