@@ -14,7 +14,7 @@
             :key="index"
             class="checkbox"
             :text="$t(gender.type)"
-            :checked="gender.selected"
+            :checked.sync="gender.selected"
             @onChangeChecked="changeCheckedRadio(gender)"
           />
         </StackLayout>
@@ -58,24 +58,24 @@ export default {
       // FIXME: arreglar el bug que provoca que no se puedan elegir items superiores
       // this.genderSelected = this.$t(item.type)
 
-      // item.selected = !item.selected
+      item.selected = !item.selected
 
-      // if (!item.selected) {
-      //   return
-      // }
+      if (!item.selected) {
+        return
+      }
 
-      // for (const gender of this.genders) {
-      //   if (gender.type !== item.type) {
-      //     gender.selected = false
-      //     console.log(
-      //       `los otros son ${this.$t(gender.type)} y : ${gender.selected}`
-      //     )
-      //   } else {
-      //     console.log(`el genero elegido es ${this.genderSelected} y ${gender.selected}`)
-      //   }
-      // }
-      // this.updateGender(item)
-      console.log(`elegido ${this.$t(item.type)}`)
+      for (const gender of this.genders) {
+        if (gender.type !== item.type) {
+          gender.selected = false
+          console.log(
+            `los otros son ${this.$t(gender.type)} y : ${gender.selected}`
+          )
+        } else {
+          console.log(`el genero elegido es ${this.genderSelected} y ${gender.selected}`)
+        }
+      }
+      this.updateGender(item)
+      console.log(`elegido ${this.$t(item.type)} y checked: ${item.selected}`)
     },
     updateGender(item) {
       const userData = { personal: { age: '', gender: '' } }
