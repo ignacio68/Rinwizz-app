@@ -165,10 +165,8 @@ export default {
           opacity: 0.8,
           fontSize: label.fontSize - 2
         })
-        .then(
-          () => {},
-          () => {}
-        )
+        .then(() => {})
+        .catch(() => {})
 
       // Set the border bottom color to color focus to indicate focus
       textField.borderBottomColor = new Color('#00b47e')
@@ -186,10 +184,8 @@ export default {
             opacity: 0.4,
             fontSize: label.fontSize + 2
           })
-          .then(
-            () => {},
-            () => {}
-          )
+          .then(() => {})
+          .catch(() => {})
       }
       //  Reset border bottom color
       textField.borderBottomColor = new Color('#cec8c8')
