@@ -5,42 +5,61 @@
     verticalAlignment="middle"
     @tap="onTap"
   >
-    <StackLayout
+    <GridLayout
       class="radio-btn__radio"
+      rows="32"
     >
-      <Label
-        ref="radioOutside"
-        class="radio-btn__radio--outside"
+      <!-- <Label
+        ref="radioRipple"
+        class="radio-btn__radio-riple"
+        row="0"
         left="0"
         top="0"
-        :height="size"
-        :width="size"
+        :height="32"
+        :width="32"
         borderRadius="50%"
-        borderWidth="4"
-        borderColor="blue"
+        borderWidth="8"
+        :borderColor="innerColor"
+        backgroundColor="transparent"
+      /> -->
+      <Label
+        ref="radioOuter"
+        class="radio-btn__radio-outer"
+        row="0"
+        left="0"
+        top="0"
+        :height="radioSize"
+        :width="radioSize"
+        borderRadius="50%"
+        borderWidth="1"
+        :borderColor="innerColor"
         backgroundColor="transparent"
       />
-      <!-- <Label
-        ref="radioInside"
-        cklass="radio-btn__radio--inside"
+    </GridLayout>
+      <Label
+        ref="radioInner"
+        class="radio-btn__radio-inner"
+        row="0"
         left="4"
         top="4"
-        :height="20"
-        :width="20"
-        :bakgroundColor="backgroundColor"
-      /> -->
+        borderRadius="50%"
+        :height="16"
+        :width="16"
+        :bakgroundColor="innerColor"
+      />
+    <StackLayout verticalAlignment="middle">
+      <Label
+        class="radio-btn__label p-x-8"
+        :text="text"
+        :fontSize="fontSize"
+        textWrap="true"
+      />
     </StackLayout>
-
-    <Label
-      class="radio-btn__label p-x-8"
-      :text="text"
-      :fontSize="fontSize"
-      textWrap="true"
-    />
   </StackLayout>
 </template>
 <script>
 import { Color } from 'color'
+import { validateColor } from 'validate-color'
 export default {
   name: 'RadioButton',
   // model: {
@@ -48,44 +67,74 @@ export default {
   //   event: 'changeChecked'
   // },
   props: {
+    enabled:{
+      type: Boolean,
+      default: true
+    },
     text: {
       type: String,
-      default: ''
+      default: null
     },
-    size: {
+    innerColor: {
       type: String,
-      default: '24'
+      default: 'blue',
+      // validator: color => this.isColor(color)
     },
-    backgroundColor: {
-      type: String,
-      default: ''
+    checked: {
+      type: Boolean,
+      default: false
     },
     fontSize: {
       type: String,
       default: '16'
     },
-    checked: {
-      type: Boolean,
-      default: false
+    radioSize: {
+      type: String,
+      default: '24'
+    },
+    value: {
+      type: String,
+      default: null
     }
   },
   data() {
     return {}
   },
   computed: {
+
   },
   methods: {
+    isColor(color){
+      if (typeof color !== 'string' || color.length === 0) {
+        return false
+      }
+
+      try {
+        validateColor(color)
+        console.log(`El color es válido: ${color}`)
+        return true
+      } catch(err) {
+        console.log(`Error en validateColor: ${err}`)
+        return false
+      }
+    },
+    isEnabled() {
+     this.enabled = !this.enabled
+    },
     onTap() {
       this.changeColor()
       this.$emit('onChangeChecked', this.checked)
       console.log(`checked: ${this.checked}`)
     },
+    toggle() {
+
+    },
     changeColor() {
-      const radioOutside = this.$refs.radioOutside.nativeView
+      const radioOuter = this.$refs.radioOuter.nativeView
       if (this.checked) {
-        radioOutside.borderColor = new Color('#00b47e')
+        radioOuter.borderColor = new Color('#00b47e')
       } else {
-        radioOutside.borderColor = new Color(this.backgroundColor)
+        radioOuter.borderColor = new Color(this.innerColor)
       }
     }
   }
@@ -94,16 +143,15 @@ export default {
 <style lang="scss" scoped>
 .radio-btn {
   &__radio {
-    &--outside {
+    &-outer {
     }
-    &--inside {
-      border-radius: 50%;
+    &-inner {
     }
-    &--ripple {
-
+    &-ripple {
     }
   }
   &__label {
+    vertical-align: middle;
   }
 }
 </style>
