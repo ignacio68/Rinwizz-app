@@ -1,52 +1,51 @@
 <template>
   <StackLayout
-    class="radio-btn p-4"
+    class="radio-btn"
     orientation="horizontal"
-    verticalAlignment="middle"
     @tap="onTap"
   >
     <GridLayout
       class="radio-btn__radio"
-      rows="32"
+      columns="auto"
+      rows="auto"
     >
-      <!-- <Label
+      <Label
         ref="radioRipple"
         class="radio-btn__radio-riple"
+        col="0"
         row="0"
-        left="0"
-        top="0"
-        :height="32"
-        :width="32"
+        :height="radioRippleSize"
+        :width="radioRippleSize"
         borderRadius="50%"
-        borderWidth="8"
-        :borderColor="innerColor"
+        borderWidth="6"
+        :borderColor="radioColor"
         backgroundColor="transparent"
-      /> -->
+        opacity="0"
+      />
       <Label
         ref="radioOuter"
         class="radio-btn__radio-outer"
+        col="0"
         row="0"
-        left="0"
-        top="0"
         :height="radioSize"
         :width="radioSize"
         borderRadius="50%"
-        borderWidth="1"
-        :borderColor="innerColor"
+        borderWidth="2"
+        :borderColor="radioColor"
         backgroundColor="transparent"
       />
-    </GridLayout>
       <Label
         ref="radioInner"
         class="radio-btn__radio-inner"
+        col="0"
         row="0"
-        left="4"
-        top="4"
         borderRadius="50%"
-        :height="16"
-        :width="16"
-        :bakgroundColor="innerColor"
+        :height="radioInnerSize"
+        :width="radioInnerSize"
+        :backgroundColor="radioColor"
+        opacity="0"
       />
+    </GridLayout>
     <StackLayout verticalAlignment="middle">
       <Label
         class="radio-btn__label p-x-8"
@@ -60,12 +59,9 @@
 <script>
 import { Color } from 'color'
 import { validateColor } from 'validate-color'
+const AnimationCurve = require("tns-core-modules/ui/enums").AnimationCurve;
 export default {
   name: 'RadioButton',
-  // model: {
-  //   prop: 'checked',
-  //   event: 'changeChecked'
-  // },
   props: {
     enabled:{
       type: Boolean,
@@ -75,7 +71,9 @@ export default {
       type: String,
       default: null
     },
-    innerColor: {
+    radioColor: {
+      // TODO: resolve validator
+      //  TODO: set theme colors like default
       type: String,
       default: 'blue',
       // validator: color => this.isColor(color)
@@ -89,8 +87,8 @@ export default {
       default: '16'
     },
     radioSize: {
-      type: String,
-      default: '24'
+      type: Number,
+      default: 24
     },
     value: {
       type: String,
@@ -98,10 +96,26 @@ export default {
     }
   },
   data() {
-    return {}
+    return {
+      originalradioColor: null
+    }
   },
   computed: {
-
+    radioRippleSize() {
+      return this.radioSize + 12
+    },
+    radioInnerSize() {
+      return this.radioSize - 12
+    }
+  },
+  watch: {
+    immediate: true,
+    checked() {
+      this.changeColor()
+    }
+  },
+  created() {
+    this.originalradioColor = this.radioColor
   },
   methods: {
     isColor(color){
@@ -122,21 +136,47 @@ export default {
      this.enabled = !this.enabled
     },
     onTap() {
-      this.changeColor()
-      this.$emit('onChangeChecked', this.checked)
-      console.log(`checked: ${this.checked}`)
+      this.$emit('onChangeChecked')
+      this.radioRipple()
     },
     toggle() {
 
     },
+    radioRipple() {
+      const radioRipple = this.$refs.radioRipple.nativeView
+      radioRipple
+        .animate({
+          curve: AnimationCurve.linear,
+          duration: 100,
+          opacity: 0.4,
+        })
+        .then(() => {
+          radioRipple
+            .animate({
+              curve: AnimationCurve.linear,
+              duration: 100,
+              opacity: 0.0
+            })
+            .then(() => {})
+          })
+        .catch(() => {})
+    },
     changeColor() {
+      const radioRipple = this.$refs.radioRipple.nativeView
       const radioOuter = this.$refs.radioOuter.nativeView
+      const radioInner = this.$refs.radioInner.nativeView
       if (this.checked) {
+        radioRipple.borderColor = new Color('#00b47e')
         radioOuter.borderColor = new Color('#00b47e')
+        radioInner.backgroundColor = new Color('#00b47e')
+        radioInner.opacity = 1
       } else {
-        radioOuter.borderColor = new Color(this.innerColor)
+        radioRipple.borderColor = new Color(this.radioColor)
+        radioOuter.borderColor = new Color(this.radioColor)
+        radioInner.backgroundColor = new Color(this.radioColor)
+        radioInner.opacity = 0
       }
-    }
+    },
   }
 }
 </script>
