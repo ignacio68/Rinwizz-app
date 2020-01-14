@@ -13,9 +13,6 @@
             v-for="(gender, index) in genders"
             :key="index"
             class="checkbox"
-            fontSize="16"
-            size="24"
-            :backgroundColor="blue"
             :text="$t(gender.type)"
             :checked="gender.selected"
             @onChangeChecked="changeCheckedRadio(gender)"
@@ -59,25 +56,26 @@ export default {
   methods: {
     changeCheckedRadio(item) {
       // FIXME: arreglar el bug que provoca que no se puedan elegir items superiores
-      this.genderSelected = this.$t(item.type)
+      // this.genderSelected = this.$t(item.type)
 
-      item.selected = !item.selected
+      // item.selected = !item.selected
 
-      if (!item.selected) {
-        return
-      }
+      // if (!item.selected) {
+      //   return
+      // }
 
-      for (const gender of this.genders) {
-        if (gender.type !== item.type) {
-          gender.selected = false
-          console.log(
-            `los otros son ${this.$t(gender.type)} y : ${gender.selected}`
-          )
-        } else {
-          console.log(`el genero elegido es ${this.genderSelected} y ${gender.selected}`)
-        }
-      }
-      this.updateGender(item)
+      // for (const gender of this.genders) {
+      //   if (gender.type !== item.type) {
+      //     gender.selected = false
+      //     console.log(
+      //       `los otros son ${this.$t(gender.type)} y : ${gender.selected}`
+      //     )
+      //   } else {
+      //     console.log(`el genero elegido es ${this.genderSelected} y ${gender.selected}`)
+      //   }
+      // }
+      // this.updateGender(item)
+      console.log(`elegido ${this.$t(item.type)}`)
     },
     updateGender(item) {
       const userData = { personal: { age: '', gender: '' } }
