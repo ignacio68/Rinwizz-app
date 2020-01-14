@@ -97,7 +97,7 @@ export default {
   },
   data() {
     return {
-      originalradioColor: null
+
     }
   },
   computed: {
@@ -113,9 +113,6 @@ export default {
     checked() {
       this.changeColor()
     }
-  },
-  created() {
-    this.originalradioColor = this.radioColor
   },
   methods: {
     isColor(color){
