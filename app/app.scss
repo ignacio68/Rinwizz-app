@@ -3,9 +3,8 @@
 @import '~@nativescript/theme/core';
 @import '~@nativescript/theme/default';
 
-// Load old generic theme
-// @import '~@nativescript/theme/core.compat';
-// @import '~@nativescript/theme/default.compat';
-
 // Override variables here
 @import '~@nativescript/theme/index';
+
+// Load variables and mixins
+@import '~@nativescript/theme/scss/variables'
