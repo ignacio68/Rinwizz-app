@@ -1,7 +1,8 @@
 <template>
   <StackLayout
+    ref="radioButtonWrap"
     class="radio-btn"
-    orientation="horizontal"
+    :orientation="orientation"
     @tap="onTap"
   >
     <GridLayout
@@ -46,37 +47,56 @@
         opacity="0"
       />
     </GridLayout>
-    <StackLayout verticalAlignment="middle">
-      <Label
-        class="radio-btn__label p-x-8"
-        :text="text"
-        :fontSize="fontSize"
-        textWrap="true"
-      />
-    </StackLayout>
+    <Label
+      ref="radioText"
+      class="radio-btn__label p-x-8"
+      :text="text"
+      :fontSize="fontSize"
+      :color="textColor"
+      textWrap="true"
+      verticalAlignment="middle"
+    />
   </StackLayout>
 </template>
 <script>
 import { Color } from 'color'
-import { validateColor } from 'validate-color'
-const AnimationCurve = require("tns-core-modules/ui/enums").AnimationCurve;
+import { isColor } from '@utils/commons/isColor'
+const AnimationCurve = require('tns-core-modules/ui/enums').AnimationCurve
 export default {
   name: 'RadioButton',
   props: {
-    enabled:{
+    enabled: {
       type: Boolean,
-      default: true
+      default: false
+    },
+    orientation: {
+      type: String,
+      default: 'horizontal',
+      validator: prop => ['horizontal', 'vertical'].includes(prop)
     },
     text: {
       type: String,
       default: null
     },
     radioColor: {
-      // TODO: resolve validator
-      //  TODO: set theme colors like default
       type: String,
-      default: 'blue',
-      // validator: color => this.isColor(color)
+      default: 'teal',
+      validator: color => isColor(color)
+    },
+    activatedColor: {
+      type: String,
+      default: 'orange',
+      validator: color => isColor(color)
+    },
+    disabledColor: {
+      type: String,
+      default: '#a4a4a4',
+      validator: color => isColor(color)
+    },
+    textColor: {
+      type: String,
+      default: '#2c2c2c',
+      validator: color => isColor(color)
     },
     checked: {
       type: Boolean,
@@ -97,10 +117,17 @@ export default {
   },
   data() {
     return {
-
+      lastColor: this.radioColor
     }
   },
   computed: {
+    setColor(propColor, defaultColor) {
+      if (isColor(propColor)) {
+        return propColor
+      } else {
+        return defaultColor
+      }
+    },
     radioRippleSize() {
       return this.radioSize + 12
     },
@@ -112,32 +139,39 @@ export default {
     immediate: true,
     checked() {
       this.changeColor()
+    },
+    enabled() {
+      this.isEnabled()
     }
   },
+  mounted() {
+    this.isEnabled()
+  },
   methods: {
-    isColor(color){
-      if (typeof color !== 'string' || color.length === 0) {
-        return false
-      }
-
-      try {
-        validateColor(color)
-        console.log(`El color es válido: ${color}`)
-        return true
-      } catch(err) {
-        console.log(`Error en validateColor: ${err}`)
-        return false
-      }
-    },
     isEnabled() {
-     this.enabled = !this.enabled
+      const radioRipple = this.$refs.radioRipple.nativeView
+      const radioOuter = this.$refs.radioOuter.nativeView
+      const radioInner = this.$refs.radioInner.nativeView
+      const radioText = this.$refs.radioText.nativeView
+      if (!this.enabled) {
+        radioRipple.borderColor = new Color(this.disabledColor)
+        radioOuter.borderColor = new Color(this.disabledColor)
+        radioInner.backgroundColor = new Color(this.disabledColor)
+        radioText.color = new Color(this.disabledColor)
+      } else {
+        radioRipple.borderColor = new Color(this.lastColor)
+        radioOuter.borderColor = new Color(this.lastColor)
+        radioInner.backgroundColor = new Color(this.lastColor)
+        radioText.color = new Color(this.textColor)
+      }
     },
     onTap() {
+      if (!this.enabled) {
+        this.isEnabled()
+        return
+      }
       this.$emit('onChangeChecked')
       this.radioRipple()
-    },
-    toggle() {
-
     },
     radioRipple() {
       const radioRipple = this.$refs.radioRipple.nativeView
@@ -145,7 +179,7 @@ export default {
         .animate({
           curve: AnimationCurve.linear,
           duration: 100,
-          opacity: 0.4,
+          opacity: 0.4
         })
         .then(() => {
           radioRipple
@@ -155,7 +189,7 @@ export default {
               opacity: 0.0
             })
             .then(() => {})
-          })
+        })
         .catch(() => {})
     },
     changeColor() {
@@ -163,17 +197,19 @@ export default {
       const radioOuter = this.$refs.radioOuter.nativeView
       const radioInner = this.$refs.radioInner.nativeView
       if (this.checked) {
-        radioRipple.borderColor = new Color('#00b47e')
-        radioOuter.borderColor = new Color('#00b47e')
-        radioInner.backgroundColor = new Color('#00b47e')
+        radioRipple.borderColor = new Color(this.activatedColor)
+        radioOuter.borderColor = new Color(this.activatedColor)
+        radioInner.backgroundColor = new Color(this.activatedColor)
         radioInner.opacity = 1
+        this.lastColor = this.activatedColor
       } else {
         radioRipple.borderColor = new Color(this.radioColor)
         radioOuter.borderColor = new Color(this.radioColor)
         radioInner.backgroundColor = new Color(this.radioColor)
         radioInner.opacity = 0
+        this.lastColor = this.radioColor
       }
-    },
+    }
   }
 }
 </script>
@@ -188,7 +224,6 @@ export default {
     }
   }
   &__label {
-    vertical-align: middle;
-  }
+    }
 }
 </style>
