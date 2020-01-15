@@ -13,12 +13,18 @@
             v-for="(gender, index) in genders"
             :key="index"
             class="checkbox"
+            :enabled="isEnabled"
             :text="$t(gender.type)"
             :checked.sync="gender.selected"
             @onChangeChecked="changeCheckedRadio(gender)"
           />
         </StackLayout>
       </StackLayout>
+      <Button
+        class="-primary"
+        text="Habilita/Desabilita"
+        @tap="toggleEnabled()"
+      />
       <Button
         class="-primary"
         :text="$t('lang.views.gender.button')"
@@ -43,6 +49,7 @@ export default {
   },
   data() {
     return {
+      isEnabled: true,
       genderSelected: '',
       genders: [
         { type: 'lang.views.gender.genders[0]', selected: false },
@@ -54,28 +61,23 @@ export default {
   computed: {
   },
   methods: {
+    toggleEnabled() {
+      this.isEnabled = !this.isEnabled
+    },
     changeCheckedRadio(item) {
-      // FIXME: arreglar el bug que provoca que no se puedan elegir items superiores
-      // this.genderSelected = this.$t(item.type)
-
-      item.selected = !item.selected
-
-      if (!item.selected) {
+      if (item.selected === true) {
         return
       }
+
+      this.updateGender(item)
+
+      item.selected = !item.selected
 
       for (const gender of this.genders) {
         if (gender.type !== item.type) {
           gender.selected = false
-          console.log(
-            `los otros son ${this.$t(gender.type)} y : ${gender.selected}`
-          )
-        } else {
-          console.log(`el genero elegido es ${this.genderSelected} y ${gender.selected}`)
         }
       }
-      this.updateGender(item)
-      console.log(`elegido ${this.$t(item.type)} y checked: ${item.selected}`)
     },
     updateGender(item) {
       const userData = { personal: { age: '', gender: '' } }
