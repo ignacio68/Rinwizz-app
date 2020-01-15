@@ -5,11 +5,7 @@ export function isColor(color) {
     return false
   }
 
-  try {
-    validateColor(color)
-    return true
-  } catch(err) {
-    console.log(`Error en validateColor: ${err}`)
-    return false
-  }
+  const isColor = validateColor(color) ? true : false
+
+  return isColor
 }
