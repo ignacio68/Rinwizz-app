@@ -1,9 +1,10 @@
-// import { getCssFileName } from 'tns-core-modules/application'
-// FIXME: fix getCssVariable bug
-import * as Style from 'tns-core-modules/ui/styling/style'
+import { getRootView } from 'tns-core-modules/application'
+import { Theme } from '@nativescript/theme'
+import { isValid } from 'tns-core-modules/color'
 import validateColor from 'validate-color'
 
 export const isColor = color => color && validateColor(color) ? true : false
+// export const isColor = color => color && isValid(color) ? true : false
 
 export function setColor(propColor, defaultColor) {
   if (isColor(propColor)) {
@@ -15,8 +16,9 @@ export function setColor(propColor, defaultColor) {
 
 // Only for production
 export function getCss() {
-  const cssVariableValue = Style.getCssVariable('$accent')
-  console.log(`El valor de CSS es: ${ cssVariableValue }`)
-  return cssVariableValue
-}
+  const mode = Theme.getMode()
+  // const root = getRootView()
 
+  console.log(mode)
+  // console.log(root)
+}
