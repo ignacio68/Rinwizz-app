@@ -20,6 +20,19 @@
           />
         </StackLayout>
       </StackLayout>
+
+      <!-- For production only -->
+      <!-- <Label
+        class="p-x-20"
+        :text="getCssName"
+        textWrap="true"
+      /> -->
+      <!------------------------->
+      <Button
+        class="-primary"
+        text="CssPath"
+        @tap="toCssPath()"
+      />
       <Button
         class="-primary"
         text="Habilita/Desabilita"
@@ -39,6 +52,7 @@
   </Page>
 </template>
 <script>
+import { getCss } from '@utils/commons/theme'
 import RadioButton from '@components/UI/RadioButton'
 import Avatar from './Avatar'
 import Greetings from './Greetings'
@@ -59,8 +73,14 @@ export default {
     }
   },
   computed: {
+    getCssName() {
+      return getCss()
+    }
   },
   methods: {
+    toCssPath() {
+      getCss()
+    },
     toggleEnabled() {
       this.isEnabled = !this.isEnabled
     },
