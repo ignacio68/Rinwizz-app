@@ -60,7 +60,7 @@
 </template>
 <script>
 import { Color } from 'color'
-import { isColor } from '@utils/commons/isColor'
+import { isColor } from '@utils/commons/theme'
 const AnimationCurve = require('tns-core-modules/ui/enums').AnimationCurve
 export default {
   name: 'RadioButton',
@@ -121,13 +121,6 @@ export default {
     }
   },
   computed: {
-    setColor(propColor, defaultColor) {
-      if (isColor(propColor)) {
-        return propColor
-      } else {
-        return defaultColor
-      }
-    },
     radioRippleSize() {
       return this.radioSize + 12
     },
