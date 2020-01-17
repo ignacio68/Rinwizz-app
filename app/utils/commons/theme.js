@@ -1,6 +1,7 @@
-import { getRootView } from 'tns-core-modules/application'
-import { Theme } from '@nativescript/theme'
-import { isValid } from 'tns-core-modules/color'
+import { getRootView, getCssFileName, getNativeApplication } from 'tns-core-modules/application'
+import { Theme, ClassList } from '@nativescript/theme'
+import { getCssVariable } from '@nativescript/core/ui/styling/style'
+// import { isValid } from 'tns-core-modules/color'
 import validateColor from 'validate-color'
 
 export const isColor = color => color && validateColor(color) ? true : false
@@ -14,11 +15,21 @@ export function setColor(propColor, defaultColor) {
   }
 }
 
+
+
 // Only for production
 export function getCss() {
   const mode = Theme.getMode()
-  // const root = getRootView()
+  const cssFileName = getCssFileName()
+  const nativeApp = getNativeApplication()
+  const root = getRootView().className
+  // const cssVariable = getCssVariable('background')
 
-  console.log(mode)
-  // console.log(root)
+
+  console.log(`El modo es: ${mode}`)
+  console.log(`El archivo es: ${cssFileName}`)
+  console.log(`La aplicacion es: ${nativeApp}`)
+  console.log(`El rootView es: ${root}`)
+  // console.log(`css variable es: ${cssVariable}`)
 }
+
