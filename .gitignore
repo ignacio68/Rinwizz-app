@@ -1,3 +1,5 @@
+# VSC
+*.code-workspace
 # JetBrains project files
 .idea
 
