@@ -34,6 +34,8 @@ import AppNavigator from './AppNavigator'
 // import 'nativescript-ui-sidedrawer/vue'
 import RadSideDrawer from 'nativescript-ui-sidedrawer/vue'
 
+import VueRadioButton from 'nativescript-vue-radio-button'
+
 // import Fab from '@nstudio/nativescript-floatingactionbutton'
 Vue.registerElement(
   'Fab',

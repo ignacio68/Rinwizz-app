@@ -1,6 +1,10 @@
 <template>
   <Page actionBarHidden="true">
     <StackLayout>
+      <VueRadioButton
+        text="Funciona!!"
+        :enabled="true"
+      />
       <FontIcon
         type="fab"
         iconName="fa-reddit"
