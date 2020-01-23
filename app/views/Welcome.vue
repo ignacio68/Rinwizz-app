@@ -46,12 +46,14 @@
 </template>
 
 <script>
+import RadioButton from 'nativescript-vue-radio-button'
 import SignUp from '@views/Auth/SignUp'
 import FontIcon from '@components/UI/FontIcon'
 export default {
   name: 'Welcome',
   components: {
-    FontIcon
+    FontIcon,
+    "VueRadioButton": RadioButton
   },
   data() {
     return {
