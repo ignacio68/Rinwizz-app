@@ -45,6 +45,7 @@
     "nativescript-ui-sidedrawer": "^8.0.0",
     "nativescript-vue": "^2.4.0",
     "nativescript-vue-devtools": "^1.2.0",
+    "nativescript-vue-radio-button": "file:../nativescript-vue-radio-button/src",
     "tns-core-modules": "^6.0.0",
     "validate-color": "^1.0.3",
     "vue-i18n": "^8.15.0",
