@@ -2,21 +2,30 @@ const firebase = require('nativescript-plugin-firebase')
 // import '@firebase/auth'
 // import '@firebase/database'
 // import '@firebase/storage'
-import { config } from '@setup/firebase'
+// import { config } from '@setup/firebase'
 
-try {
-  const firebaseConfig = {
-    apiKey: config.apiKey,
-    authDomain: config.authDomain,
-    databaseURL: config.databaseURL,
-    projectId: config.projectId,
-    storageBucket: config.storageBucket,
-    messagingSenderId: config.messagingSenderId
-  }
-  firebase.initializeApp(firebaseConfig)
-} catch (error) {
-  console.log('initializeApp error: ' + error)
-}
+// firebase.init({
+//   onAuthStateChanged: function(data) { // optional but useful to immediately re-logon the user when they re-visit your app
+//     console.log(data.loggedIn ? "Logged in to firebase" : "Logged out from firebase");
+//     if (data.loggedIn) {
+//       console.log("user's email address: " + (data.user.email ? data.user.email : "N/A"));
+//     }
+//   }
+// });
+
+// try {
+//   const firebaseConfig = {
+//     apiKey: config.apiKey,
+//     authDomain: config.authDomain,
+//     databaseURL: config.databaseURL,
+//     projectId: config.projectId,
+//     storageBucket: config.storageBucket,
+//     messagingSenderId: config.messagingSenderId
+//   }
+//   firebase.initializeApp(firebaseConfig)
+// } catch (error) {
+//   console.log('initializeApp error: ' + error)
+// }
 
 // - Storage reference
 export const storage = firebase.storage()
