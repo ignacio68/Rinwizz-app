@@ -11,7 +11,7 @@ import Vue from 'nativescript-vue'
 
 import { device, isAndroid, isIOS } from 'tns-core-modules/platform'
 
-const firebase = require('nativescript-plugin-firebase')
+import { firebaseInit } from './services/firebase'
 
 import { store } from './store'
 
@@ -28,9 +28,9 @@ import VueDevtools from 'nativescript-vue-devtools'
 import { TNSFontIcon, fonticon } from 'nativescript-fonticon'
 
 // Add view components
-import AppNavigator from './AppNavigator'
-// import Welcome from '@views/Welcome'
-// import AppSplitter from '@views/AppSplitter'
+// import AppNavigator from './AppNavigator'
+import Welcome from '@views/Welcome'
+import AppSplitter from '@views/AppSplitter'
 
 //Add UI components
 // import 'nativescript-ui-sidedrawer/vue'
@@ -72,24 +72,12 @@ Vue.config.silent = TNS_ENV === 'production'
 
 // TODO: *** SOLO PARA PRUEBAS **//
 // const user = 'Pepe'
-
-firebase.init({
-  onAuthStateChanged: data => {
-    console.log(JSON.stringify(data))
-  }
-  // Optionally pass in properties for database, authentication and cloud messaging,
-}).then(
-  () => {
-    console.log("firebase.init done")
-  },
-  error => {
-    console.log(`firebase.init error: ${error}`)
-  }
-)
+const user = firebaseInit()
 
 new Vue({
   i18n,
   store,
+  user,
   beforeCreate() {
     // Set the platform OS global variable
     Vue.prototype.IS_ANDROID = isAndroid
@@ -110,11 +98,9 @@ new Vue({
       console.log('No se encuentra el idioma del navegador')
     }
   },
-
-
-  // render: h => h('frame', [user ? h(Welcome) : h(AppSplitter)])
+  render: h => h('frame', [!user ? h(Welcome) : h(AppSplitter)])
 
   // TODO: *** SOLO PARA PRUEBAS **//
-  render: h => h('frame', [h(AppNavigator)])
+//   render: h => h('frame', [h(AppNavigator)])
 }).$start()
 /* eslint-disable no-new */

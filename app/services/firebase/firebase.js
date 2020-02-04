@@ -1,68 +1,69 @@
 const firebase = require('nativescript-plugin-firebase')
-// import '@firebase/auth'
-// import '@firebase/database'
-// import '@firebase/storage'
-// import { config } from '@setup/firebase'
-
-// firebase.init({
-//   onAuthStateChanged: function(data) { // optional but useful to immediately re-logon the user when they re-visit your app
-//     console.log(data.loggedIn ? "Logged in to firebase" : "Logged out from firebase");
-//     if (data.loggedIn) {
-//       console.log("user's email address: " + (data.user.email ? data.user.email : "N/A"));
-//     }
-//   }
-// });
-
-// try {
-//   const firebaseConfig = {
-//     apiKey: config.apiKey,
-//     authDomain: config.authDomain,
-//     databaseURL: config.databaseURL,
-//     projectId: config.projectId,
-//     storageBucket: config.storageBucket,
-//     messagingSenderId: config.messagingSenderId
-//   }
-//   firebase.initializeApp(firebaseConfig)
-// } catch (error) {
-//   console.log('initializeApp error: ' + error)
-// }
 
 // - Storage reference
-export const storage = firebase.storage()
-export const storageRef = firebase.storage().ref()
+// export const storage = firebase.storage()
+// export const storageRef = firebase.storage().ref()
 
 // Initialize Database through Firebase Database
-export const firebaseDb = firebase.database()
-/* Se utiliza con Firestore
-  const settings = {
-  timestampsInSnapshots: true
-}
-db.settings(settings)
-export { db }
-*/
+// export const firebaseDb = firebase.database()
 
 // - Database authorize
-export let firebaseAuth = firebase.auth
+// export let firebaseAuth = firebase.auth
 // export let functions = firebase.functions()
 // export let firebaseRef = firebaseDb().ref()
 
 // - Firebase default
-export default firebase
+// export default firebase
 
 // firebase collections
 // const alertsCollection = db.collection('alerts')
+
+/**
+ * Init Firebase and set a listener
+ */
+export function firebaseInit() {
+  firebase
+    .init({
+      onAuthStateChanged: data => {
+        console.log(JSON.stringify(data))
+        return data
+      }
+    })
+    .then(() => console.log('firebase.init done'))
+    .catch(error => console.log(`firebase.init error: ${error}`))
+}
+
+/**
+ *  Get current user
+ * */
+export const CURRENT_USER = () => {
+  firebase
+    .getCurrentUser()
+    .then(user => {
+      console.log(`El user es ${user}`)
+      return user
+    })
+    .catch(error => console.log(`Error getCurrentUser: ${error}`))
+}
 
 /**
  * Signup the user
  *
  * @param {object} userData
  */
-export async function signUp(signUpData) {
-  const { user } = await firebaseAuth()
-    .createUserWithEmailAndPassword(signUpData.email, signUpData.password)
-   // Actualizamos el perfil de firebase con el displayName
-  setUserProfile({ displayName: signUpData.name })
-  return Promise.resolve(user)
+export function signUp(userData) {
+  firebase.createUser({
+    email: userData.email,
+    password: userData.password
+  })
+    .then(user => {
+      setUserProfile({ displayName: userData.displayName })
+      return user
+    })
+    .catch(error => {
+      console.log(error)
+      return error
+    })
 }
 
 /**
@@ -71,18 +72,14 @@ export async function signUp(signUpData) {
  * @param {object} userData
  */
 export const setUserProfile = userData => {
-  new Promise((resolve, reject) => {
-    console.log('Estoy en setUpProfile')
-    const currentUser = firebaseAuth().currentUser
-    if (currentUser) {
-      currentUser.updateProfile(userData).then(() => {
-        console.log('setUpProfile: ' + currentUser.displayName)
-        resolve()
-      })
-    } else {
-      reject('auth/user-empty')
-    }
+  firebase.updateProfile({
+    displayName: userData.displayName,
+    photoUrl: userData.displayURL
   })
+    .then(() => {
+      console.log(`setUpProfile:  ${CURRENT_USER.displayName}`)
+  })
+  .catch(() => {return 'auth/user-empty'})
 }
 
 /**
@@ -92,7 +89,7 @@ export const setUserProfile = userData => {
  */
 export const sendEmailVerification = actionCodeSettings => {
   return new Promise((resolve, reject) => {
-    const currentUser = firebaseAuth().currentUser
+    const currentUser = CURRENT_USER
     if (currentUser) {
       currentUser
         .sendEmailVerification(actionCodeSettings)
@@ -110,26 +107,39 @@ export const sendEmailVerification = actionCodeSettings => {
 }
 
 // TODO: revisar
-export const applyActionCode = code => {
-  new Promise((resolve, reject) => {
-    firebaseAuth
-      .applyActionCode(code)
-      .then(() => resolve())
-      .catch(error => reject(error))
-  })
-}
+// export const applyActionCode = code => {
+//   new Promise((resolve, reject) => {
+//     firebaseAuth
+//       .applyActionCode(code)
+//       .then(() => resolve())
+//       .catch(error => reject(error))
+//   })
+// }
 
 /**
  * Login the user
  *
  * @param {object} userData
  */
-export async function logIn(logInData) {
-  const { user } = await firebaseAuth().signInWithEmailAndPassword(
-    logInData.email,
-    logInData.password
+export function logIn(userData) {
+  firebase.login(
+    {
+      type: firebase.LoginType.PASSWORD,
+      passwordOptions: {
+        email: userData.email,
+       password: userData.password
+      }
+    }
   )
-  return Promise.resolve(user)
+    .then(result => {
+      console.log(`logIn user: ${JSON.stringify(result)})`)
+      return result
+    })
+    .catch(error => {
+      console.log(`logIn error: ${error}`)
+      return error
+  })
+
 }
 
 /**
@@ -137,26 +147,23 @@ export async function logIn(logInData) {
  *
  */
 export const logOut = () => {
-  new Promise(reject => {
-    firebaseAuth()
-      .signOut()
-      .catch(error => reject(error))
-  })
+  firebase.logout()
+    .then(() => console.log('User logout'))
+  .catch((error) => console.log(`logOut error: ${error}`))
 }
 
 /**
  * User authorization changed event
  */
-export const onAuthStateChange = () => {
+export const onAuthStateChange = data => {
   console.log('Estoy en onAuthStateChange')
-  firebaseAuth().onAuthStateChanged(user => {
-    if (user) {
-      console.log('user: ' + user)
-      return user
-    } else {
-      console.log('No hay user')
-    }
-  })
+  console.log(JSON.stringify(data))
+  if (data) {
+    console.log('user: ' + data)
+    return data
+  } else {
+    console.log('No hay user')
+  }
 }
 
 /**
@@ -166,7 +173,7 @@ export const onAuthStateChange = () => {
  * @param {string} credential
  */
 export async function deleteUser(providerId) {
-  const currentUser = firebaseAuth().currentUser
+  const currentUser = CURRENT_USER
   await fetchCredential(providerId)
     .then(async credential => {
       await currentUser.reauthenticateAndRetrieveDataWithCredential(credential)
@@ -183,7 +190,7 @@ export async function deleteUser(providerId) {
  * @param {string} providerId
  */
 export async function fetchCredential(password) {
-  const currentUser = firebaseAuth().currentUser
+  const currentUser = CURRENT_USER
   const providerId = currentUser.providerId
   await getTokenId().then(idToken => {
     // eslint-disable-next-line no-unused-vars
@@ -220,7 +227,7 @@ export async function fetchCredential(password) {
  * Get the user TokenId
  */
 export async function getTokenId() {
-  const currentUser = firebaseAuth().currentUser
+  const currentUser = CURRENT_USER
   const idToken = await currentUser
     .getIdToken()
     .then(() => Promise.resolve(idToken))
@@ -243,7 +250,7 @@ export async function updateUserName(userName) {
  * reauthenticate the user
  */
 export async function reauthenticateUser() {
-  const currentUser = firebaseAuth().currentUser
+  const currentUser = CURRENT_USER
   await fetchCredential().then(credential => {
     currentUser.reauthenticateAndRetrieveDataWithCredential(credential)
   })
