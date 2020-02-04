@@ -11,6 +11,8 @@ import Vue from 'nativescript-vue'
 
 import { device, isAndroid, isIOS } from 'tns-core-modules/platform'
 
+const firebase = require('nativescript-plugin-firebase')
+
 import { store } from './store'
 
 // Load theme
@@ -34,8 +36,9 @@ import AppNavigator from './AppNavigator'
 // import 'nativescript-ui-sidedrawer/vue'
 import RadSideDrawer from 'nativescript-ui-sidedrawer/vue'
 
-import RadioButton from 'nativescript-vue-radio-button'
-Vue.component('VueRadioButton', RadioButton)
+// TODO: Revisar
+// import RadioButton from 'nativescript-vue-radio-button'
+// Vue.component('VueRadioButton', RadioButton)
 
 // import Fab from '@nstudio/nativescript-floatingactionbutton'
 Vue.registerElement(
@@ -70,6 +73,20 @@ Vue.config.silent = TNS_ENV === 'production'
 // TODO: *** SOLO PARA PRUEBAS **//
 // const user = 'Pepe'
 
+firebase.init({
+  onAuthStateChanged: data => {
+    console.log(JSON.stringify(data))
+  }
+  // Optionally pass in properties for database, authentication and cloud messaging,
+}).then(
+  () => {
+    console.log("firebase.init done")
+  },
+  error => {
+    console.log(`firebase.init error: ${error}`)
+  }
+)
+
 new Vue({
   i18n,
   store,
@@ -93,6 +110,8 @@ new Vue({
       console.log('No se encuentra el idioma del navegador')
     }
   },
+
+
   // render: h => h('frame', [user ? h(Welcome) : h(AppSplitter)])
 
   // TODO: *** SOLO PARA PRUEBAS **//
