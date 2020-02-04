@@ -24,7 +24,7 @@
     "url": "http://www.lopezamor.com"
   },
   "nativescript": {
-    "id": "app.rinwizz.com",
+    "id": "com.rinwizz.app",
     "templateVersion": "v2",
     "tns-android": {
       "version": "6.2.0"
