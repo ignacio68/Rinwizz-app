@@ -1,10 +1,10 @@
 <template>
   <Page actionBarHidden="true">
     <StackLayout>
-      <VueRadioButton
+      <!-- <VueRadioButton
         text="Funciona!!"
         :enabled="true"
-      />
+      /> -->
       <FontIcon
         type="fab"
         iconName="fa-reddit"
@@ -46,14 +46,14 @@
 </template>
 
 <script>
-import RadioButton from 'nativescript-vue-radio-button'
+// import RadioButton from 'nativescript-vue-radio-button'
 import SignUp from '@views/Auth/SignUp'
 import FontIcon from '@components/UI/FontIcon'
 export default {
   name: 'Welcome',
   components: {
     FontIcon,
-    "VueRadioButton": RadioButton
+    // "VueRadioButton": RadioButton
   },
   data() {
     return {
