@@ -2,7 +2,6 @@ import {
   SET_ERROR,
   CLEAR_ERROR,
   LOAD_ACTION,
-  SET_PLATFORM,
   SET_LANGUAGE
 } from '@/store/types/mutations_types'
 // TODO: Repasar el funcionamiento del control de errores --> ELIMINAR!
@@ -33,15 +32,6 @@ export default {
    */
   [LOAD_ACTION]: (state, payload) => {
     state.loading = payload
-  },
-  /**
-   *Establece la plattaforma en la que corre la app
-   *
-   * @param {String} platform
-   */
-  [SET_PLATFORM]: (state, platform) => {
-    state.platform = platform
-    console.log('La plataforma de la app es: ' + platform)
   },
   /**
    * Establece el idioma del navegador
