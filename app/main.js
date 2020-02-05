@@ -77,7 +77,6 @@ const user = firebaseInit()
 new Vue({
   i18n,
   store,
-  user,
   beforeCreate() {
     // Set the platform OS global variable
     Vue.prototype.IS_ANDROID = isAndroid
@@ -98,7 +97,7 @@ new Vue({
       console.log('No se encuentra el idioma del navegador')
     }
   },
-  render: h => h('frame', [!user ? h(Welcome) : h(AppSplitter)])
+  render: h => h('frame', [user ? h(AppSplitter) : h(Welcome)])
 
   // TODO: *** SOLO PARA PRUEBAS **//
 //   render: h => h('frame', [h(AppNavigator)])
