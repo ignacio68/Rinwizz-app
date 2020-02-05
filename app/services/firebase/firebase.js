@@ -29,8 +29,10 @@ export function firebaseInit() {
         return data
       }
     })
-    .then(() => console.log('firebase.init done'))
-    .catch(error => console.log(`firebase.init error: ${error}`))
+    .then(
+      () => console.log('firebase.init done'),
+      error => console.log(`firebase.init error: ${error}`)
+    )
 }
 
 /**
@@ -51,17 +53,18 @@ export const CURRENT_USER = () => {
  *
  * @param {object} userData
  */
-export function signUp(userData) {
-  firebase.createUser({
-    email: userData.email,
-    password: userData.password
-  })
+export async function signUp(userData) {
+  await firebase
+    .createUser({
+      email: userData.email,
+      password: userData.password
+    })
     .then(user => {
       setUserProfile({ displayName: userData.displayName })
       return user
     })
     .catch(error => {
-      console.log(error)
+      console.log(`signUp error: ${error}`)
       return error
     })
 }
@@ -72,14 +75,17 @@ export function signUp(userData) {
  * @param {object} userData
  */
 export const setUserProfile = userData => {
-  firebase.updateProfile({
-    displayName: userData.displayName,
-    photoUrl: userData.displayURL
-  })
+  firebase
+    .updateProfile({
+      displayName: userData.displayName,
+      photoUrl: userData.displayURL
+    })
     .then(() => {
       console.log(`setUpProfile:  ${CURRENT_USER.displayName}`)
-  })
-  .catch(() => {return 'auth/user-empty'})
+    })
+    .catch(() => {
+      return 'auth/user-empty'
+    })
 }
 
 /**
@@ -87,23 +93,11 @@ export const setUserProfile = userData => {
  *
  * @param {string} actionCodeSettings
  */
-export const sendEmailVerification = actionCodeSettings => {
-  return new Promise((resolve, reject) => {
-    const currentUser = CURRENT_USER
-    if (currentUser) {
-      currentUser
-        .sendEmailVerification(actionCodeSettings)
-        .then(() => {
-          resolve()
-          console.log('email enviado')
-        })
-        .catch(error => {
-          reject(error)
-        })
-    } else {
-      reject('auth/user-empty')
-    }
-  })
+export function sendEmailVerification(actionCodeSettings) {
+  firebase.sendEmailVerification(actionCodeSettings).then(
+    () => console.log('email enviado'),
+    error => console.log(`sendEmailVerification Error: ${error}`)
+  )
 }
 
 // TODO: revisar
@@ -121,25 +115,25 @@ export const sendEmailVerification = actionCodeSettings => {
  *
  * @param {object} userData
  */
-export function logIn(userData) {
-  firebase.login(
-    {
+export async function logIn(userData) {
+  await firebase
+    .login({
       type: firebase.LoginType.PASSWORD,
       passwordOptions: {
         email: userData.email,
-       password: userData.password
+        password: userData.password
       }
-    }
-  )
-    .then(result => {
-      console.log(`logIn user: ${JSON.stringify(result)})`)
-      return result
     })
-    .catch(error => {
-      console.log(`logIn error: ${error}`)
-      return error
-  })
-
+    .then(
+      user => {
+        console.log(`logIn user: ${JSON.stringify(user)})`)
+        return user
+      },
+      error => {
+        console.log(`logIn error: ${error}`)
+        return error
+      }
+    )
 }
 
 /**
@@ -147,24 +141,25 @@ export function logIn(userData) {
  *
  */
 export const logOut = () => {
-  firebase.logout()
+  firebase
+    .logout()
     .then(() => console.log('User logout'))
-  .catch((error) => console.log(`logOut error: ${error}`))
+    .catch(error => console.log(`logOut error: ${error}`))
 }
 
 /**
  * User authorization changed event
  */
-export const onAuthStateChange = data => {
-  console.log('Estoy en onAuthStateChange')
-  console.log(JSON.stringify(data))
-  if (data) {
-    console.log('user: ' + data)
-    return data
-  } else {
-    console.log('No hay user')
-  }
-}
+// export const onAuthStateChange = data => {
+//   console.log('Estoy en onAuthStateChange')
+//   console.log(JSON.stringify(data))
+//   if (data) {
+//     console.log('user: ' + data)
+//     return data
+//   } else {
+//     console.log('No hay user')
+//   }
+// }
 
 /**
  * TODO: añadir fetchUser para conseguir la credencial
