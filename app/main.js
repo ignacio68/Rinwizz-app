@@ -97,6 +97,13 @@ new Vue({
       console.log('No se encuentra el idioma del navegador')
     }
   },
+  created() {
+    if(user) {
+      this.$store.commit('user/SET_USER', user)
+    } else {
+      console.log('El usuario no existe')
+    }
+  },
   render: h => h('frame', [user ? h(AppSplitter) : h(Welcome)])
 
   // TODO: *** SOLO PARA PRUEBAS **//
