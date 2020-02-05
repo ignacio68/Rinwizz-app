@@ -157,7 +157,7 @@ module.exports = env => {
         '@mixins': resolve(projectRoot, 'app/mixins'),
         '@services': resolve(projectRoot, 'app/services'),
         '@setup': resolve(projectRoot, 'app/setup'),
-        '@mstore': resolve(projectRoot, 'app/store'),
+        '@store': resolve(projectRoot, 'app/store'),
         '@modules': resolve(projectRoot, 'app/store/modules'),
         '@types': resolve(projectRoot, 'app/store/types'),
         '@utils': resolve(projectRoot, 'app/utils'),
