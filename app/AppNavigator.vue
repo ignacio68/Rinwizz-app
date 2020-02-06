@@ -8,7 +8,6 @@
             class="nt-icon"
             type="far"
             iconName="fa-home-alt"
-            color="iconColor.active"
           />
         </TabStripItem>
         <TabStripItem>
@@ -17,7 +16,6 @@
             class="nt-icon"
             type="far"
             iconName="fa-book"
-            color="iconColor.inactive"
           />
         </TabStripItem>
       </TabStrip>
