@@ -1,7 +1,6 @@
 <template>
   <StackLayout orientation="vertical">
     <DataField
-      v-model="password"
       type="far"
       iconName="fa-lock-alt"
       maxLength="32"
@@ -9,12 +8,15 @@
       :secure="isSecure"
       returnKey="done"
       :isError="isPasswordError"
+      keyboard="url"
+      @modified="passwordModified"
     >
       <FontIcon
         type="far"
         :iconName="iconName"
         paddingleft="0"
         paddingTop="30"
+        @tap="changeSecurity"
       />
     </DataField>
   </StackLayout>
@@ -36,17 +38,19 @@ export default {
   },
   data() {
     return {
-      isSecure: true,
-      password: ''
+      isSecure: true
     }
   },
   computed: {
     iconName() {
-      return !this.isSecure ? 'fa-eye-slash' : 'fa-eye'
+      return this.isSecure ? 'fa-eye-slash' : 'fa-eye'
     }
   },
   methods: {
-    tap() {
+    passwordModified(newValue){
+      this.$emit('passwordModified', newValue)
+    },
+    changeSecurity() {
       this.isSecure = !this.isSecure
     }
   }

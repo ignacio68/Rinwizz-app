@@ -5,16 +5,20 @@
         :text="$t('lang.views.signup.main.text1')"
         class="mainText"
       />
-      <DataField
-        type="far"
-        iconName="fa-user"
-        maxLength="32"
-        labelText="name"
+      <TheSignDataForm
+        :isDisplayName="true"
+        @displayNameModified="setDisplayName"
+        @emailModified="setEmail"
+        @passwordModified="setPassword"
       />
-      <TheSignDataForm v-model="user" />
       <SocialButtons />
       <!-- <TextField :text="userName" textWrap="true" /> -->
 
+      <Button
+        class="-primary"
+        text="Terminado"
+        @tap="toSignUp"
+      />
       <Button
         class="-primary"
         :text="$t('lang.views.signup.main.text2')"
@@ -45,7 +49,6 @@
 </template>
 <script>
 // Components
-import DataField from '@components/UI/DataField'
 import TheSignDataForm from '@components/Auth/TheSignDataForm'
 import SocialButtons from '@components/Auth/SocialButtons'
 
@@ -58,21 +61,36 @@ import Personal from '@views/Preferences/Personal'
 export default {
   name: 'SignUp',
   components: {
-    DataField,
     TheSignDataForm,
     SocialButtons
   },
   data() {
     return {
-      userName: '',
-      user: {
-        name: '',
+      userData: {
+        displayName: '',
         email: '',
         password: ''
       }
     }
   },
   methods: {
+    toSignUp(){
+      const signUpData = {
+        displayName: this.userData.displayName,
+        email: this.userData.email,
+        password: this.userData.password
+      }
+      console.log(signUpData)
+    },
+    setDisplayName(newValue) {
+      this.userData.displayName = newValue
+    },
+    setEmail(newValue){
+      this.userData.email = newValue
+    },
+    setPassword(newValue) {
+      this.userData.password = newValue
+    },
     toLogIn() {
       this.$navigateTo(LogIn)
     },

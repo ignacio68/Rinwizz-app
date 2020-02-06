@@ -1,18 +1,29 @@
 <template>
-  <StackLayout 
-    orientation="vertical" 
-    marginTop="0" 
+  <StackLayout
+    orientation="vertical"
+    marginTop="0"
     paddingTop="0"
   >
     <DataField
-      v-model="value.email"
+      v-if="isDisplayName"
+      type="far"
+      iconName="fa-user"
+      maxLength="16"
+      labelText="name"
+      keyboard="url"
+      @modified="displayNameModified"
+    />
+    <DataField
       type="far"
       iconName="fa-envelope"
       maxLength="64"
       labelText="email"
       keyboard="email"
+      @modified="emailModified"
     />
-    <Password v-model="value.password" />
+    <Password
+      @passwordModified="passwordModified"
+    />
   </StackLayout>
 </template>
 <script>
@@ -24,26 +35,22 @@ export default {
     DataField,
     Password
   },
-  model: {
-    event: 'modified'
-  },
   props: {
-    value: {
-      type: Object,
-      required: true
+    isDisplayName: {
+      type: Boolean,
+      default: false
     }
-    // email: {
-    //   type: String,
-    //   default: ''
-    // },
-    // password: {
-    //   type: String,
-    //   default: ''
-    // }
   },
-  watch: {
-    value() {
-      this.$emit('modified', this.value)
+  methods: {
+    displayNameModified(newValue) {
+      this.$emit('displayNameModified', newValue)
+    },
+    emailModified(newValue) {
+      this.$emit('emailModified', newValue)
+    },
+    passwordModified(newValue) {
+      console.log(`password: ${newValue}`)
+      this.$emit('passwordModified', newValue)
     }
   }
 }

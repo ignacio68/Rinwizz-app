@@ -1,12 +1,37 @@
 <template>
   <Page actionBarHidden="true">
     <StackLayout>
-      <TheSignDataForm />
+      <Label
+        :text="$t('lang.views.login.toolbar.title')"
+        textWrap="true"
+      />
+
+      <TheSignDataForm
+        @emailModified="setEmail"
+        @passwordModified="setPassword"
+      />
+
+      <!-- FORGOT PASSWORD -->
       <Button
         class="-primary"
-        text="SignUp"
+        :text="$t('lang.views.login.main.text1')"
+        @tap="onForgotPassword"
+      />
+
+      <!-- BUTTON LOGIN -->
+      <Button
+        class="-primary"
+        :text="$t('lang.views.login.button')"
+        @tap="onLogIn"
+      />
+
+      <!-- SIGNUP BUTTON -->
+      <Button
+        class="-primary"
+        :text="$t('lang.views.login.main.text2')"
         @tap="toSignUp"
       />
+
       <Button
         class="-primary"
         text="Ok"
@@ -16,7 +41,7 @@
   </Page>
 </template>
 <script>
-import { mapAction } from 'vuex'
+import { mapActions } from 'vuex'
 // Components
 import TheSignDataForm from '@components/Auth/TheSignDataForm'
 
@@ -31,19 +56,30 @@ export default {
   },
   data() {
     return {
-      email:'',
-      password:''
+      userData: {
+        email: '',
+        password: ''
+      }
     }
   },
   methods: {
-    ...mapAction('auth', ['LOGIN_USER']),
-
+    ...mapActions('auth', ['LOGIN_USER']),
+    setEmail(newValue){
+      this.userData.email = newValue
+    },
+    setPassword(newValue) {
+      this.userData.password = newValue
+    },
     onLogIn() {
       const logInData = {
-        email: this.email,
-        password: this.password
+        email: this.userData.email,
+        password: this.userData.password
       }
-      this.LOGIN_USER(logInData)
+      console.log(logInData)
+      // this.LOGIN_USER(logInData)
+    },
+    onForgotPassword() {
+      console.log('He olvidado la contraseña')
     },
     toSignUp() {
       this.$navigateTo(SignUp)

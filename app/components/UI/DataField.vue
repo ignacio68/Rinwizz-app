@@ -36,8 +36,9 @@
           :maxLength="maxLength"
           :keyboardType="keyboard"
           :returnKeyType="returnKey"
-          :text="textFieldValue"
+          :text="userData"
           editable="true"
+          autocorrect="false"
           row="1"
           col="0"
           colSpan="2"
@@ -47,7 +48,7 @@
           padding="0"
           @focus="onFocus"
           @blur="onBlur"
-          @textChange="updateValue(textFieldValue)"
+          @textChange="updateValue($event)"
         />
         <FontIcon
           v-if="isError"
@@ -77,9 +78,6 @@ export default {
   components: {
     FontIcon
   },
-  model: {
-    event: 'modified'
-  },
   props: {
     // ----- ICON ----- //
     type: {
@@ -107,6 +105,7 @@ export default {
       required: true
     },
     // ----- TEXT FIELD ----- //
+
     textSize: {
       type: [String, Number],
       default: 16,
@@ -148,8 +147,14 @@ export default {
       default: false
     }
   },
+  data() {
+    return {
+      userData:''
+    }
+  },
   methods: {
-    updateValue(newValue) {
+    updateValue(args) {
+      let newValue = args.value
       console.log(newValue)
       this.$emit('modified', newValue)
     },
