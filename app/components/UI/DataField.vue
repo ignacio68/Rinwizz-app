@@ -5,7 +5,7 @@
   >
     <StackLayout col="0">
       <FontIcon
-        class="dataField-icon"
+        class="dataField__icon"
         :type="type"
         :color="color"
         :iconSize="iconSize"
@@ -52,7 +52,7 @@
         />
         <FontIcon
           v-if="isError"
-          class="dataField-icon"
+          class="dataField__icon"
           type="far"
           color="red"
           size="24"
@@ -200,8 +200,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.dataField_-icon {
-}
-.dataField-title {
+.dataField__icon {
 }
 </style>
