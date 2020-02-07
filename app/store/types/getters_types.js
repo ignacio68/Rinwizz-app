@@ -26,7 +26,7 @@ export const INDEX = 'INDEX'
 
 // shared
 export const LOADING = 'LOADING'
-export const ERROR = 'ERROR'
+export const GET_ERROR = 'GET_ERROR'
 export const GET_LANG = 'GET_LANG'
 
 // social
