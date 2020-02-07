@@ -15,7 +15,7 @@ export default {
     main: {
       title: 'CREA UNA CUENTA',
       social: 'o accede con',
-      logIn_1: '¿Tienes una cuenta?',
+      logIn_1: '¿Tienes una cuenta? ',
       logIn_2: 'Accede',
       accept_1: 'Al registrarte aceptas los ',
       accept_2: ' y la ',
@@ -23,7 +23,7 @@ export default {
       privacy: 'Política de Privacidad'
     },
     input: {
-      name: 'nombre de usuario',
+      name: 'nombre',
       email: 'correo electrónico',
       password: 'contraseña'
     },

@@ -15,7 +15,7 @@ export default {
     main: {
       title: 'CREATE AN ACCOUNT',
       social: 'or login with',
-      logIn_1: 'Already have an account?',
+      logIn_1: 'Already have an account? ',
       logIn_2: 'Log In',
       accept_1: 'By signin up you accept the ',
       accept_2: ' & ',
@@ -23,7 +23,7 @@ export default {
       privacy: 'Privacy Politicy'
     },
     input: {
-      name: 'user name',
+      name: 'name',
       email: 'email',
       password: 'password'
     },
