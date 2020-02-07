@@ -12,17 +12,15 @@ export default {
     tabbar: 'Alerts! | Profile | Search'
   },
   signup: {
-    toolbar: {
-      backLabel: '',
-      title: 'SIGN UP'
-    },
     main: {
-      text1: 'Sign Up and start receiving your favorite alerts!',
-      text2: 'I have a user account',
-      text3: 'When you sign up you accept our {terms} & {privacy}',
-      terms: 'Terms of Use',
-      privacy: 'Privacy Politicy',
-      socialText: 'You can also login with'
+      title: 'CREATE AN ACCOUNT',
+      social: 'or login with',
+      logIn_1: 'Already have an account?',
+      logIn_2: 'Log In',
+      accept_1: 'By signin up you accept the ',
+      accept_2: ' & ',
+      terms: 'Terms of Service',
+      privacy: 'Privacy Politicy'
     },
     input: {
       name: 'user name',

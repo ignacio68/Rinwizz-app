@@ -12,24 +12,22 @@ export default {
     tabbar: '¡Alertas! | Perfil | Buscar'
   },
   signup: {
-    toolbar: {
-      backLabel: '',
-      title: 'REGISTRO'
-    },
     main: {
-      text1: '¡Regístrate y comienza a recibir tus alertas favoritas!',
-      text2: 'Ya tengo una cuenta',
-      text3: 'Al registrarte aceptas nuestros {terms} y la {privacy}',
-      terms: 'Términos de Uso',
-      privacy: 'Política de Privacidad',
-      socialText: 'También puedes acceder con'
+      title: 'CREA UNA CUENTA',
+      social: 'o accede con',
+      logIn_1: '¿Tienes una cuenta?',
+      logIn_2: 'Accede',
+      accept_1: 'Al registrarte aceptas los ',
+      accept_2: ' y la ',
+      terms: 'Términos de Servicio',
+      privacy: 'Política de Privacidad'
     },
     input: {
       name: 'nombre de usuario',
       email: 'correo electrónico',
       password: 'contraseña'
     },
-    button: 'CREAR CUENTA'
+    button: 'CREAR UNA CUENTA'
   },
   login: {
     toolbar: {
