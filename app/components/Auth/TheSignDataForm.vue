@@ -9,7 +9,7 @@
       type="far"
       iconName="fa-user"
       maxLength="16"
-      labelText="name"
+      :labelText="$t('lang.views.signup.main.input.name')"
       keyboard="url"
       @modified="displayNameModified"
     />
@@ -17,7 +17,7 @@
       type="far"
       iconName="fa-envelope"
       maxLength="64"
-      labelText="email"
+      :labelText="$t('lang.views.signup.main.input.email')"
       keyboard="email"
       @modified="emailModified"
     />

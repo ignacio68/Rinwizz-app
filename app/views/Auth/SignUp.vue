@@ -1,49 +1,103 @@
 <template>
   <Page actionBarHidden="true">
-    <StackLayout>
-      <Label
-        :text="$t('lang.views.signup.main.text1')"
-        class="mainText"
-      />
-      <TheSignDataForm
-        :isDisplayName="true"
-        @displayNameModified="setDisplayName"
-        @emailModified="setEmail"
-        @passwordModified="setPassword"
-      />
-      <SocialButtons />
-      <!-- <TextField :text="userName" textWrap="true" /> -->
+    <StackLayout class="signUp">
+      <StackLayout class="signUp__wrapper">
+        <!-- TITLE -->
+        <Label
+          class="title"
+          :text="$t('lang.views.signup.main.title')"
+        />
 
-      <Button
-        class="-primary"
-        text="Terminado"
-        @tap="toSignUp"
-      />
-      <Button
-        class="-primary"
-        :text="$t('lang.views.signup.main.text2')"
-        @tap="toLogIn"
-      />
-      <Button
-        class="-outline -rounded-lg"
-        text="PrivacyPolicy"
-        @tap="toPrivacyPolicy"
-      />
-      <Button
-        class="-outline -rounded-sm"
-        text="Terms of Service"
-        @tap="toTermsOfService"
-      />
-      <Button
-        class="-rounded-lg -ruby PasswordConfirmation-button"
-        text="Password Confirmation"
-        @tap="toPasswordConfirmation"
-      />
-      <Button
-        class="-rounded-sm text-primary"
-        text="Ok"
-        @tap="toPersonal"
-      />
+        <!-- ERROR -->
+        <Label
+          v-if="isError"
+          class="text-danger"
+          :text="errorMessage"
+          textWrap="true"
+        />
+
+        <!-- DATA FORM -->
+        <TheSignDataForm
+          :isDisplayName="true"
+          @displayNameModified="setDisplayName"
+          @emailModified="setEmail"
+          @passwordModified="setPassword"
+        />
+
+        <!-- SOCIAL BUTTONS -->
+        <StackLayout
+          horizontalAlignment="center"
+        >
+          <Label
+            :text="$t('lang.views.signup.main.social')"
+            textWrap="true"
+          />
+          <StackLayout orientation="horizontal">
+            <SocialButtons
+              v-for="(socialButton, index) in socialButtons"
+              :key="index"
+              :iconName="socialButton.icon"
+              :color="socialButton.color"
+              :provider="socialButton.provider"
+            />
+          </StackLayout>
+        </StackLayout>
+
+        <!-- TERMS OF SERVICE $ PRIVACY POLICY -->
+
+        <Label
+          class="accept_wrapper"
+          textWrap="true"
+        >
+          <FormattedString class="accept__text-wrapper">
+            <Span
+              class="accept__text-text"
+              :text="$t('lang.views.signup.main.accept_1')"
+            />
+            <Span
+              class="accept__text-link"
+              :text="$t('lang.views.signup.main.terms')"
+              @tap="toTermsOfService"
+            />
+            <Span
+              class="accept__text-text"
+              :text="$t('lang.views.signup.main.accept_2')"
+            />
+            <Span
+              class="accept__text-link"
+              :text="$t('lang.views.signup.main.privacy')"
+              @tap="toPrivacyPolicy"
+            />
+          </FormattedString>
+        </Label>
+
+        <!-- SIGN UP BUTTON -->
+
+        <Button
+          class="-primary -rounded-lg"
+          :text="$t('lang.views.signup.main.button')"
+          @tap="toSignUp"
+        />
+      </StackLayout>
+
+      <!-- LOG IN -->
+
+      <Label
+        class="logIn__wrapper"
+        textWrap="true"
+      >
+        <FormattedString class="logIn__text-wrapper">
+          <Span
+            class="logIn__text-text"
+            :text="$t('lang.views.signup.main.logIn_1')"
+          />
+          <Span
+            class="logIn__text-link"
+            :text="$t('lang.views.signup.main.logIn_2')"
+            @tap="toLogIn"
+          />
+        </FormattedString>
+      </Label>
     </StackLayout>
   </Page>
 </template>
@@ -58,6 +112,9 @@ import PrivacyPolicy from '@views/Shared/PrivacyPolicy'
 import TermsOfService from '@views/Shared/TermsOfService'
 import Personal from '@views/Preferences/Personal'
 
+// Store
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'SignUp',
   components: {
@@ -66,6 +123,7 @@ export default {
   },
   data() {
     return {
+      hasError: false,
       userData: {
         displayName: '',
         email: '',
@@ -73,19 +131,25 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapGetters('errors', { errorMessage: 'ERROR_MESSAGE' }),
+    ...mapGetters('shared', { isError: 'ERROR', loading: 'LOADING' }),
+    ...mapGetters('social', { socialButtons: 'SOCIAL_BUTTONS' })
+  },
   methods: {
-    toSignUp(){
+    toSignUp() {
       const signUpData = {
         displayName: this.userData.displayName,
         email: this.userData.email,
         password: this.userData.password
       }
       console.log(signUpData)
+      this.toPasswordConfirmation()
     },
     setDisplayName(newValue) {
       this.userData.displayName = newValue
     },
-    setEmail(newValue){
+    setEmail(newValue) {
       this.userData.email = newValue
     },
     setPassword(newValue) {
@@ -115,13 +179,26 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-Page {
-  margin {
-    left: 72;
-    right: 72;
+.page {
+  background-color: red;
+}
+.signUp {
+  background-color: teal;
+}
+.signUp__wrapper {
+  background-color: whitesmoke;
+  margin: {
+    top: 80;
+    left: 24;
+    right: 24;
+  }
+  border: {
+    radius: 25%;
+    width: 2;
+    color: gray;
   }
 }
-.mainText {
+.title {
   vertical-align: center;
   text-align: center;
   margin-top: 16px;
@@ -131,6 +208,27 @@ Page {
     left: 16px;
   }
   color: darkred;
+}
+.error {
+  color: red;
+}
+.logIn__wrapper {
+  padding-top: 30;
+}
+.logIn__text-wrapper {
+}
+.logIn__text-text {
+}
+.logIn__text-link {
+  color: red;
+  font-weight: bold;
+}
+accept_wrapper {
+  padding-bottom: 20;
+}
+accept__text-link {
+  color: blue;
+  font-weight: bold;
 }
 .PasswordConfirmation-button {
   margin-top: 32px;
