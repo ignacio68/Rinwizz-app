@@ -75,7 +75,7 @@
 
         <Button
           class="-primary -rounded-lg"
-          :text="$t('lang.views.signup.main.button')"
+          :text="$t('lang.views.signup.button')"
           @tap="toSignUp"
         />
       </StackLayout>
@@ -133,7 +133,7 @@ export default {
   },
   computed: {
     ...mapGetters('errors', { errorMessage: 'ERROR_MESSAGE' }),
-    ...mapGetters('shared', { isError: 'ERROR', loading: 'LOADING' }),
+    ...mapGetters('shared', { isError: 'GET_ERROR', loading: 'LOADING' }),
     ...mapGetters('social', { socialButtons: 'SOCIAL_BUTTONS' })
   },
   methods: {

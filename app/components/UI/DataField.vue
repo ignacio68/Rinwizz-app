@@ -148,8 +148,10 @@ export default {
     }
   },
   data() {
+    this.$i18n.locale = 'es'
     return {
-      userData:''
+      userData:'',
+      locale: 'es'
     }
   },
   methods: {

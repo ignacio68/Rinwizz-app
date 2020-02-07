@@ -4,7 +4,7 @@
       type="far"
       iconName="fa-lock-alt"
       maxLength="32"
-      :labelText="$t('lang.views.signup.main.input.password')"
+      :labelText="$t('lang.views.signup.input.password')"
       :secure="isSecure"
       returnKey="done"
       :isError="isPasswordError"

@@ -9,7 +9,7 @@
       type="far"
       iconName="fa-user"
       maxLength="16"
-      :labelText="$t('lang.views.signup.main.input.name')"
+      :labelText="$t('lang.views.signup.input.name')"
       keyboard="url"
       @modified="displayNameModified"
     />
@@ -17,7 +17,7 @@
       type="far"
       iconName="fa-envelope"
       maxLength="64"
-      :labelText="$t('lang.views.signup.main.input.email')"
+      :labelText="$t('lang.views.signup.input.email')"
       keyboard="email"
       @modified="emailModified"
     />
@@ -40,6 +40,8 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  computed: {
   },
   methods: {
     displayNameModified(newValue) {
