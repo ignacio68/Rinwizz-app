@@ -111,13 +111,13 @@ new Vue({
 }).$start()
 /* eslint-disable no-new */
 
-// // Hot updates
-// if (module.hot) {
-//   module.hot.accept(
-//     ['./locales/i18n/en_US', './locales/i18n/es_ES'],
-//     () => {
-//       i18n.setLocaleMessage('en', require('./locales/i18n/en_US').default)
-//       i18n.setLocaleMessage('es', require('./locales/i18n/es_ES').default)
-//     }
-//   )
-// }
+// Hot updates
+if (module.hot) {
+  module.hot.accept(
+    ['./locales/i18n/en_US', './locales/i18n/es_ES'],
+    () => {
+      i18n.setLocaleMessage('en', require('./locales/i18n/en_US').default)
+      i18n.setLocaleMessage('es', require('./locales/i18n/es_ES').default)
+    }
+  )
+}
