@@ -4,7 +4,7 @@
       <StackLayout class="signUp__wrapper">
         <!-- TITLE -->
         <Label
-          class="title"
+          class="signup__title"
           :text="$t('lang.views.signup.main.title')"
         />
 
@@ -33,13 +33,16 @@
             textWrap="true"
           />
           <StackLayout orientation="horizontal">
-            <SocialButtons
+            <StackLayout
               v-for="(socialButton, index) in socialButtons"
               :key="index"
-              :iconName="socialButton.icon"
-              :color="socialButton.color"
-              :provider="socialButton.provider"
-            />
+            >
+              <SocialButton
+                :iconName="socialButton.icon"
+                :color="socialButton.color"
+                :provider="socialButton.provider"
+              />
+            </StackLayout>
           </StackLayout>
         </StackLayout>
 
@@ -104,7 +107,7 @@
 <script>
 // Components
 import TheSignDataForm from '@components/Auth/TheSignDataForm'
-import SocialButtons from '@components/Auth/SocialButtons'
+import SocialButton from '@components/Auth/SocialButton'
 
 // Views
 import LogIn from './LogIn'
@@ -119,7 +122,7 @@ export default {
   name: 'SignUp',
   components: {
     TheSignDataForm,
-    SocialButtons
+    SocialButton
   },
   data() {
     return {
@@ -128,6 +131,11 @@ export default {
         displayName: '',
         email: '',
         password: ''
+      },
+      numeros: {
+        "1": 1,
+        "2": 2,
+        "3": 3
       }
     }
   },
@@ -143,6 +151,7 @@ export default {
         email: this.userData.email,
         password: this.userData.password
       }
+      console.log(this.socialButtons[1].icon)
       console.log(signUpData)
       this.toPasswordConfirmation()
     },
@@ -179,11 +188,25 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.page {
-  background-color: red;
-}
+
 .signUp {
   background-color: teal;
+}
+.signup__title {
+  text-align: left;
+  font: {
+    size: 20;
+    weight: 900;
+  }
+  margin: {
+    top: 24;
+    left: 16;
+  }
+  padding {
+    right: 16px;
+    left: 16px;
+  }
+  color:teal;;
 }
 .signUp__wrapper {
   background-color: whitesmoke;
@@ -194,20 +217,9 @@ export default {
   }
   border: {
     radius: 25%;
-    width: 2;
+    width: 1;
     color: gray;
   }
-}
-.title {
-  vertical-align: center;
-  text-align: center;
-  margin-top: 16px;
-  font-size: 16;
-  padding {
-    right: 16px;
-    left: 16px;
-  }
-  color: darkred;
 }
 .error {
   color: red;

@@ -13,7 +13,7 @@ export default {
   },
   signup: {
     main: {
-      title: 'CREA UNA CUENTA',
+      title: 'Crea una cuenta',
       social: 'o accede con',
       logIn_1: '¿Tienes una cuenta? ',
       logIn_2: 'Accede',

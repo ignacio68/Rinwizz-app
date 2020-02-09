@@ -13,7 +13,7 @@
 <script>
 import FontIcon from '../UI/FontIcon'
 export default {
-  name: 'SocialButtons',
+  name: 'SocialButton',
   components: {
     FontIcon
   },
@@ -21,17 +21,17 @@ export default {
     provider: {
       type: String,
       default: null,
-      required: true
+      // required: true
     },
     iconName : {
       type: String,
       default: null,
-      required: true
+      // required: true
     },
     color: {
       type: String,
       default: "orange",
-      required: true
+      // required: true
     }
   },
 }
@@ -40,6 +40,8 @@ export default {
 .socialButton {
   height: 36;
   width: 64;
+  border-radius: 50%;
+  border-width: 2;
 }
 .socialButton__icon {
   vertical-align: center;
