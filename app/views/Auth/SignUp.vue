@@ -17,12 +17,12 @@
         />
 
         <!-- DATA FORM -->
-        <TheSignDataForm
+        <!-- <TheSignDataForm
           :isDisplayName="true"
           @displayNameModified="setDisplayName"
           @emailModified="setEmail"
           @passwordModified="setPassword"
-        />
+        /> -->
 
         <!-- SOCIAL BUTTONS -->
         <StackLayout
@@ -38,8 +38,9 @@
               :key="index"
             >
               <SocialButton
+                :iconSize="24"
                 :iconName="socialButton.icon"
-                :color="socialButton.color"
+                :backgroundColor="socialButton.color"
                 :provider="socialButton.provider"
               />
             </StackLayout>
@@ -105,6 +106,8 @@
   </Page>
 </template>
 <script>
+// import { Color } from 'color'
+
 // Components
 import TheSignDataForm from '@components/Auth/TheSignDataForm'
 import SocialButton from '@components/Auth/SocialButton'
@@ -116,7 +119,7 @@ import TermsOfService from '@views/Shared/TermsOfService'
 import Personal from '@views/Preferences/Personal'
 
 // Social Buttons data
-import socialButtons from '@utils/social'
+import { socialButtons } from '@utils/social'
 
 // Store
 import { mapGetters } from 'vuex'
@@ -153,6 +156,9 @@ export default {
       console.log(signUpData)
       this.toPasswordConfirmation()
     },
+    setValue(value) {
+      this.userData[value] = value
+    },
     setDisplayName(newValue) {
       this.userData.displayName = newValue
     },
@@ -161,9 +167,6 @@ export default {
     },
     setPassword(newValue) {
       this.userData.password = newValue
-    },
-    setColor(color) {
-
     },
     toLogIn() {
       this.$navigateTo(LogIn)

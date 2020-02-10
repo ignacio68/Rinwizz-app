@@ -3,10 +3,11 @@
     <FontIcon
       class="socialButton__icon"
       type="fab"
-      iconSize="24"
+      :iconSize="iconSize"
       :provider="provider"
       :iconName="iconName"
       :color="color"
+      :backgroundColor="backgroundColor"
     />
   </Label>
 </template>
@@ -18,6 +19,11 @@ export default {
     FontIcon
   },
   props:{
+    iconSize: {
+      type: [String, Number],
+      default: 24,
+      validation: s => !isNaN(s)
+    },
     provider: {
       type: String,
       default: null,
@@ -30,10 +36,15 @@ export default {
     },
     color: {
       type: String,
-      default: "orange",
+      default: "black",
       // required: true
-    }
-  },
+    },
+    backgroundColor: {
+      type: String,
+      default: 'white'
+      // required: true
+    },
+  }
 }
 </script>
 <style lang="scss" scoped>

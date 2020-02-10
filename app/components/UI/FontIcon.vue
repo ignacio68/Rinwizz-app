@@ -1,18 +1,27 @@
 <template>
   <Label
+    ref="fontIcon"
     :class="type"
     :color="color"
+    :backgroundColor="setColor(backgroundColor)"
     :fontSize="iconSize"
     :text="iconName | fonticon"
-    width="size"
+    :width="iconSize"
+    :height="iconSize"
     textAlignment="center"
     @tap="$emit('tap')"
   />
 </template>
 <script>
+import { Color } from 'color'
+
 export default {
   name: 'FontIcon',
   props: {
+    // ref: {
+    //   type: String,
+    //   default: null
+    // },
     type: {
       type: String,
       required: true,
@@ -21,6 +30,10 @@ export default {
     color: {
       type: String,
       default: 'black'
+    },
+    backgroundColor: {
+      type: String,
+      default: 'orange'
     },
     iconSize: {
       type: [String, Number],
@@ -34,7 +47,13 @@ export default {
   },
   data() {
     return {}
+  },
+  methods: {
+    setColor(backgroundColor) {
+      console.log(`backgroundColor: ${backgroundColor}`)
+      const fontIcon = this.$refs.fontIcon.nativeView
+      fontIcon.backgroundColor = new Color(backgroundColor)
+    }
   }
 }
 </script>
-<style lang="scss" scoped></style>
