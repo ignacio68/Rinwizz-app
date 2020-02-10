@@ -115,6 +115,7 @@ import PrivacyPolicy from '@views/Shared/PrivacyPolicy'
 import TermsOfService from '@views/Shared/TermsOfService'
 import Personal from '@views/Preferences/Personal'
 
+import socialButtons from '@utils/social'
 // Store
 import { mapGetters } from 'vuex'
 
@@ -132,17 +133,12 @@ export default {
         email: '',
         password: ''
       },
-      numeros: {
-        "1": 1,
-        "2": 2,
-        "3": 3
-      }
+      socialButtons: socialButtons,
     }
   },
   computed: {
     ...mapGetters('errors', { errorMessage: 'ERROR_MESSAGE' }),
     ...mapGetters('shared', { isError: 'GET_ERROR', loading: 'LOADING' }),
-    ...mapGetters('social', { socialButtons: 'SOCIAL_BUTTONS' })
   },
   methods: {
     toSignUp() {
