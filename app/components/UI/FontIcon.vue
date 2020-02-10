@@ -2,8 +2,7 @@
   <Label
     ref="fontIcon"
     :class="type"
-    :color="color"
-    :backgroundColor="setColor(backgroundColor)"
+    :color="iconColor"
     :fontSize="iconSize"
     :text="iconName | fonticon"
     :width="iconSize"
@@ -13,7 +12,7 @@
   />
 </template>
 <script>
-import { Color } from 'color'
+// import { Color } from 'color'
 
 export default {
   name: 'FontIcon',
@@ -27,13 +26,9 @@ export default {
       required: true,
       default: 'fa'
     },
-    color: {
+    iconColor: {
       type: String,
       default: 'black'
-    },
-    backgroundColor: {
-      type: String,
-      default: 'orange'
     },
     iconSize: {
       type: [String, Number],
@@ -49,11 +44,11 @@ export default {
     return {}
   },
   methods: {
-    setColor(backgroundColor) {
-      console.log(`backgroundColor: ${backgroundColor}`)
-      const fontIcon = this.$refs.fontIcon.nativeView
-      fontIcon.backgroundColor = new Color(backgroundColor)
-    }
+    // setColor(backgroundColor) {
+    //   console.log(`backgroundColor: ${backgroundColor}`)
+    //   const fontIcon = this.$el.$refs.fontIcon.nativeView
+    //   fontIcon.backgroundColor = new Color(backgroundColor)
+    // }
   }
 }
 </script>

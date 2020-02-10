@@ -7,7 +7,7 @@
       <FontIcon
         class="dataField__icon"
         :type="type"
-        :color="color"
+        :iconColor="iconColor"
         :iconSize="iconSize"
         :iconName="iconName"
         paddingRight="0"
@@ -54,7 +54,7 @@
           v-if="isError"
           class="dataField__icon"
           type="far"
-          color="red"
+          iconColor="red"
           size="24"
           name="fa-exclamation-circle"
           paddingRight="0"
@@ -85,7 +85,7 @@ export default {
       required: true,
       default: 'fa'
     },
-    color: {
+    iconColor: {
       type: String,
       default: 'black'
     },

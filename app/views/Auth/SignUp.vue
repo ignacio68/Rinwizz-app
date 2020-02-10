@@ -17,12 +17,12 @@
         />
 
         <!-- DATA FORM -->
-        <!-- <TheSignDataForm
+        <TheSignDataForm
           :isDisplayName="true"
           @displayNameModified="setDisplayName"
           @emailModified="setEmail"
           @passwordModified="setPassword"
-        /> -->
+        />
 
         <!-- SOCIAL BUTTONS -->
         <StackLayout
@@ -32,23 +32,24 @@
             :text="$t('lang.views.signup.main.social')"
             textWrap="true"
           />
-          <StackLayout orientation="horizontal">
-            <StackLayout
+          <StackLayout
+            class="socialButtonGroup"
+            orientation="horizontal"
+          >
+            <SocialButton
               v-for="(socialButton, index) in socialButtons"
               :key="index"
-            >
-              <SocialButton
-                :iconSize="24"
-                :iconName="socialButton.icon"
-                :backgroundColor="socialButton.color"
-                :provider="socialButton.provider"
-              />
-            </StackLayout>
+              ref="item"
+              class="socialButton__button"
+              :iconSize="24"
+              :iconName="socialButton.icon"
+              :socialButtonBackgroundColor="socialButton.color"
+              :provider="socialButton.provider"
+            />
           </StackLayout>
         </StackLayout>
 
         <!-- TERMS OF SERVICE $ PRIVACY POLICY -->
-
         <Label
           class="accept_wrapper"
           textWrap="true"
@@ -78,7 +79,7 @@
         <!-- SIGN UP BUTTON -->
 
         <Button
-          class="-primary -rounded-lg"
+          class="-primary -rounded-lg accept__button"
           :text="$t('lang.views.signup.button')"
           @tap="toSignUp"
         />
@@ -210,7 +211,7 @@ export default {
     right: 16px;
     left: 16px;
   }
-  color:teal;;
+  color:teal;
 }
 .signUp__wrapper {
   background-color: whitesmoke;
@@ -223,6 +224,12 @@ export default {
     radius: 25%;
     width: 1;
     color: gray;
+  }
+}
+.socialButton__button {
+  margin: {
+    left: 4;
+    right: 4;
   }
 }
 .error {
@@ -239,15 +246,19 @@ export default {
   color: red;
   font-weight: bold;
 }
-accept_wrapper {
-  padding-bottom: 20;
+.accept_wrapper {
+  padding: {
+    top: 16;
+    right: 16;
+    left: 16;
+    bottom: 8;
+  }
 }
-accept__text-link {
-  color: blue;
+.accept__text-link {
+  color: teal;
   font-weight: bold;
 }
-.PasswordConfirmation-button {
-  margin-top: 32px;
-  margin-bottom: 32px;
+.accept__button {
+  margin-bottom: 16;
 }
 </style>

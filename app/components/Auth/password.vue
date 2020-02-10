@@ -13,6 +13,7 @@
     >
       <FontIcon
         type="far"
+        :iconColor="eyeColor"
         :iconName="iconName"
         paddingleft="0"
         paddingTop="30"
@@ -34,6 +35,10 @@ export default {
     isPasswordError: {
       type: Boolean,
       default: false
+    },
+    eyeColor: {
+      type: String,
+      default: 'black'
     }
   },
   data() {

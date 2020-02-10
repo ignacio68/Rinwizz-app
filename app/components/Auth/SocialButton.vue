@@ -1,13 +1,14 @@
 <template>
-  <Label class="socialButton">
+  <Label
+    class="socialButton"
+    :socialButtonBackgroundColor="socialButtonBackgroundColor"
+  >
     <FontIcon
       class="socialButton__icon"
       type="fab"
       :iconSize="iconSize"
       :provider="provider"
       :iconName="iconName"
-      :color="color"
-      :backgroundColor="backgroundColor"
     />
   </Label>
 </template>
@@ -34,14 +35,18 @@ export default {
       default: null,
       // required: true
     },
-    color: {
+    // iconColor: {
+    //   type: String,
+    //   default: "black",
+    //   // required: true
+    // },
+    // iconBackgroundColor: {
+    //   type: String,
+    //   default: 'white'
+    //   // required: true
+    socialButtonBackgroundColor: {
       type: String,
-      default: "black",
-      // required: true
-    },
-    backgroundColor: {
-      type: String,
-      default: 'white'
+      default: 'green'
       // required: true
     },
   }

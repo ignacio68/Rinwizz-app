@@ -8,7 +8,7 @@
       <FontIcon
         type="fab"
         iconName="fa-reddit"
-        color="#0B87DE"
+        iconColor="#0B87DE"
         iconSize="100"
         class="p-t-20"
       />
