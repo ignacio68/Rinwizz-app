@@ -115,7 +115,9 @@ import PrivacyPolicy from '@views/Shared/PrivacyPolicy'
 import TermsOfService from '@views/Shared/TermsOfService'
 import Personal from '@views/Preferences/Personal'
 
+// Social Buttons data
 import socialButtons from '@utils/social'
+
 // Store
 import { mapGetters } from 'vuex'
 
@@ -159,6 +161,9 @@ export default {
     },
     setPassword(newValue) {
       this.userData.password = newValue
+    },
+    setColor(color) {
+
     },
     toLogIn() {
       this.$navigateTo(LogIn)
