@@ -1,6 +1,5 @@
-export default {
-  socialButtons: [
-    {
+export const socialButtons = [
+      {
       provider: 'Facebook',
       color: '#3b5998',
       icon: 'fa-facebook'
@@ -15,5 +14,4 @@ export default {
       color: '#0084b4',
       icon: 'fa-twitter'
     }
-  ]
-}
+]
