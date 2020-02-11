@@ -13,6 +13,8 @@ android {
   defaultConfig {
     minSdkVersion 17
     generatedDensities = []
+    multiDexEnabled true
+    applicationId = "com.rinwizz.app"
   }
   aaptOptions {
     additionalParameters "--no-version-vectors"
