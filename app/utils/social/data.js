@@ -2,7 +2,7 @@ export const socialButtons = [
       {
       provider: 'Facebook',
       color: '#3b5998',
-      icon: 'fa-facebook'
+      icon: 'fa-facebook-f'
     },
     {
       provider: 'Google',

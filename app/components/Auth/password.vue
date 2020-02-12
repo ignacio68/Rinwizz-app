@@ -1,7 +1,7 @@
 <template>
   <StackLayout orientation="vertical">
     <DataField
-      type="far"
+      iconType="far"
       iconName="fa-lock-alt"
       maxLength="32"
       :labelText="$t('lang.views.signup.input.password')"
@@ -14,7 +14,7 @@
       <FontIcon
         type="far"
         :iconColor="eyeColor"
-        :iconName="iconName"
+        :name="iconName"
         paddingleft="0"
         paddingTop="30"
         @tap="changeSecurity"

@@ -26,32 +26,35 @@
 
         <!-- SOCIAL BUTTONS -->
         <StackLayout
+          class="socialButons__wrapper"
           horizontalAlignment="center"
         >
           <Label
+            class="socialButtons__loginText"
             :text="$t('lang.views.signup.main.social')"
             textWrap="true"
           />
           <StackLayout
-            class="socialButtonGroup"
+            class="socialButtons__group"
             orientation="horizontal"
           >
             <SocialButton
               v-for="(socialButton, index) in socialButtons"
               :key="index"
-              ref="item"
               class="socialButton__button"
-              :iconSize="24"
+              :iconSize="16"
+              iconColor="white"
               :iconName="socialButton.icon"
               :socialButtonBackgroundColor="socialButton.color"
               :provider="socialButton.provider"
+              @providerSelected="providerSelected"
             />
           </StackLayout>
         </StackLayout>
 
         <!-- TERMS OF SERVICE $ PRIVACY POLICY -->
         <Label
-          class="accept_wrapper"
+          class="accept__wrapper"
           textWrap="true"
         >
           <FormattedString class="accept__text-wrapper">
@@ -62,7 +65,7 @@
             <Span
               class="accept__text-link"
               :text="$t('lang.views.signup.main.terms')"
-              @tap="toTermsOfService"
+              @focus="toTermsOfService"
             />
             <Span
               class="accept__text-text"
@@ -71,7 +74,7 @@
             <Span
               class="accept__text-link"
               :text="$t('lang.views.signup.main.privacy')"
-              @tap="toPrivacyPolicy"
+              @focus="toPrivacyPolicy"
             />
           </FormattedString>
         </Label>
@@ -99,7 +102,7 @@
           <Span
             class="logIn__text-link"
             :text="$t('lang.views.signup.main.logIn_2')"
-            @tap="toLogIn"
+            @focus="toLogIn"
           />
         </FormattedString>
       </Label>
@@ -169,6 +172,9 @@ export default {
     setPassword(newValue) {
       this.userData.password = newValue
     },
+    providerSelected(provider) {
+      console.log(`provider: ${provider}`)
+    },
     toLogIn() {
       this.$navigateTo(LogIn)
     },
@@ -196,6 +202,21 @@ export default {
 
 .signUp {
   background-color: teal;
+  opacity: 80%
+}
+.signUp__wrapper {
+  background-color: whitesmoke;
+  margin: {
+    top: 80;
+    left: 24;
+    right: 24;
+  }
+  border: {
+    radius: 25%;
+    width: 1;
+    color: teal;
+    opacity: 60%;
+  }
 }
 .signup__title {
   text-align: left;
@@ -208,23 +229,19 @@ export default {
     left: 16;
   }
   padding {
-    right: 16px;
-    left: 16px;
+    right: 16;
+    left: 16;
   }
   color:teal;
 }
-.signUp__wrapper {
-  background-color: whitesmoke;
-  margin: {
-    top: 80;
-    left: 24;
-    right: 24;
-  }
-  border: {
-    radius: 25%;
-    width: 1;
-    color: gray;
-  }
+.socialButons__wrapper {
+  padding-top: 8;
+}
+.socialButtons__loginText {
+  text-align: center;
+}
+.socialButtons__group {
+  padding-top: 8;
 }
 .socialButton__button {
   margin: {
@@ -246,7 +263,7 @@ export default {
   color: red;
   font-weight: bold;
 }
-.accept_wrapper {
+.accept__wrapper {
   padding: {
     top: 16;
     right: 16;

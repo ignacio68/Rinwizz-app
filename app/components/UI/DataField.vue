@@ -1,21 +1,28 @@
 <template>
   <GridLayout
+    class="dataField"
     columns="56, *, 56"
     rows="56"
   >
-    <StackLayout col="0">
+    <StackLayout
+      class="dataField__icon-left"
+      col="0"
+    >
       <FontIcon
-        class="dataField__icon"
-        :type="type"
-        :iconColor="iconColor"
-        :iconSize="iconSize"
-        :iconName="iconName"
+        :type="iconType"
+        :color="iconColor"
+        :fontSize="iconSize"
+        :name="iconName"
+        :backgroundColor="iconBackgroundColor"
         paddingRight="0"
         paddingTop="30"
       />
     </StackLayout>
 
-    <StackLayout col="1">
+    <StackLayout
+      class="dataField__text-wrapper"
+      col="1"
+    >
       <GridLayout
         class="nt-input"
         rows="16, auto"
@@ -54,8 +61,8 @@
           v-if="isError"
           class="dataField__icon"
           type="far"
-          iconColor="red"
-          size="24"
+          color="red"
+          fontSize="24"
           name="fa-exclamation-circle"
           paddingRight="0"
           paddingTop="30"
@@ -64,7 +71,10 @@
         />
       </GridLayout>
     </StackLayout>
-    <StackLayout col="2">
+    <StackLayout
+      class="dataField__icon-right"
+      col="2"
+    >
       <slot />
     </StackLayout>
   </GridLayout>
@@ -80,7 +90,7 @@ export default {
   },
   props: {
     // ----- ICON ----- //
-    type: {
+    iconType: {
       type: String,
       required: true,
       default: 'fa'
@@ -98,6 +108,11 @@ export default {
       type: String,
       required: true
     },
+    iconBackgroundColor: {
+      type:String,
+      default: 'transparent'
+    },
+
     // ----- LABEL ----- //
     labelText: {
       type: String,
@@ -200,6 +215,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.dataField__icon {
-}
 </style>

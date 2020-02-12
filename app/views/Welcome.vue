@@ -7,9 +7,9 @@
       /> -->
       <FontIcon
         type="fab"
-        iconName="fa-reddit"
-        iconColor="#0B87DE"
-        iconSize="100"
+        name="fa-reddit"
+        color="#0B87DE"
+        :fontSize="100"
         class="p-t-20"
       />
       <Label
@@ -48,6 +48,7 @@
 <script>
 // import RadioButton from 'nativescript-vue-radio-button'
 import SignUp from '@views/Auth/SignUp'
+// import Personal from '@views/Preferences/Personal'
 import FontIcon from '@components/UI/FontIcon'
 export default {
   name: 'Welcome',
@@ -69,11 +70,12 @@ export default {
   methods: {
     toSignUp() {
       this.$navigateTo(SignUp)
+      // this.$navigateTo(Personal)
     }
   }
 }
 </script>
-
+//
 <style lang="scss" scoped>
 .text {
   vertical-align: center;

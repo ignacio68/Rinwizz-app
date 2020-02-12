@@ -1,19 +1,24 @@
 <template>
-  <Label
+  <StackLayout
     class="socialButton"
-    :socialButtonBackgroundColor="socialButtonBackgroundColor"
+    horizontalAlingment="center"
+    verticalAlignment="center"
+    :backgroundColor="socialButtonBackgroundColor"
+    @tap="onTap(provider)"
   >
     <FontIcon
       class="socialButton__icon"
       type="fab"
-      :iconSize="iconSize"
+      :color="iconColor"
+      :fontSize="iconSize"
+      :name="iconName"
+      :backgroundColor="iconBackgroundColor"
       :provider="provider"
-      :iconName="iconName"
     />
-  </Label>
+  </StackLayout>
 </template>
 <script>
-import FontIcon from '../UI/FontIcon'
+import FontIcon from '@components/UI/FontIcon'
 export default {
   name: 'SocialButton',
   components: {
@@ -35,31 +40,33 @@ export default {
       default: null,
       // required: true
     },
-    // iconColor: {
-    //   type: String,
-    //   default: "black",
-    //   // required: true
-    // },
-    // iconBackgroundColor: {
-    //   type: String,
-    //   default: 'white'
-    //   // required: true
-    socialButtonBackgroundColor: {
+    iconColor: {
       type: String,
-      default: 'green'
+      default: "white",
       // required: true
     },
+    iconBackgroundColor: {
+      type: String,
+      default: "transparent"
+      // required: true
+    },
+    socialButtonBackgroundColor: {
+      type: String,
+      default: "lime"
+    }
+  },
+  methods: {
+    onTap(provider) {
+      this.$emit('providerSelected', provider)
+    }
   }
 }
 </script>
 <style lang="scss" scoped>
 .socialButton {
   height: 36;
-  width: 64;
+  width: 36;
+  text-align: center;
   border-radius: 50%;
-  border-width: 2;
-}
-.socialButton__icon {
-  vertical-align: center;
 }
 </style>

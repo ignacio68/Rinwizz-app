@@ -6,16 +6,20 @@
   >
     <DataField
       v-if="isDisplayName"
-      type="far"
+      iconType="far"
       iconName="fa-user"
+      :fontSize="24"
+      iconColor="black"
       maxLength="16"
       :labelText="$t('lang.views.signup.input.name')"
       keyboard="url"
       @modified="displayNameModified"
     />
     <DataField
-      type="far"
+      iconType="far"
       iconName="fa-envelope"
+      :fontSize="24"
+      iconColor="black"
       maxLength="64"
       :labelText="$t('lang.views.signup.input.email')"
       keyboard="email"
