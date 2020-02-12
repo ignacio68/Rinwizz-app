@@ -53,34 +53,35 @@
         </StackLayout>
 
         <!-- TERMS OF SERVICE $ PRIVACY POLICY -->
-        <Label
+        <FlexboxLayout
+          flexWrap="wrap"
           class="accept__wrapper"
-          textWrap="true"
         >
-          <FormattedString class="accept__text-wrapper">
-            <Span
-              class="accept__text-text"
-              :text="$t('lang.views.signup.main.accept_1')"
-            />
-            <Span
-              class="accept__text-link"
-              :text="$t('lang.views.signup.main.terms')"
-              @focus="toTermsOfService"
-            />
-            <Span
-              class="accept__text-text"
-              :text="$t('lang.views.signup.main.accept_2')"
-            />
-            <Span
-              class="accept__text-link"
-              :text="$t('lang.views.signup.main.privacy')"
-              @focus="toPrivacyPolicy"
-            />
-          </FormattedString>
-        </Label>
+          <Label
+            class="accept__text-text"
+            :text="$t('lang.views.signup.main.accept_1')"
+            textWrap="true"
+          />
+          <Label
+            class="accept__text-link"
+            :text="$t('lang.views.signup.main.terms')"
+            textWrap="true"
+            @tap="toTermsOfService"
+          />
+          <Label
+            class="accept__text-text"
+            :text="$t('lang.views.signup.main.accept_2')"
+            textWrap="true"
+          />
+          <Label
+            class="accept__text-link"
+            :text="$t('lang.views.signup.main.privacy')"
+            textWrap="true"
+            @tap="toPrivacyPolicy"
+          />
+        </flexboxlayout>
 
         <!-- SIGN UP BUTTON -->
-
         <Button
           class="-primary -rounded-lg accept__button"
           :text="$t('lang.views.signup.button')"
@@ -89,23 +90,22 @@
       </StackLayout>
 
       <!-- LOG IN -->
-
-      <Label
+      <FlexboxLayout
         class="logIn__wrapper"
-        textWrap="true"
+        flexWrap="wrap"
       >
-        <FormattedString class="logIn__text-wrapper">
-          <Span
-            class="logIn__text-text"
-            :text="$t('lang.views.signup.main.logIn_1')"
-          />
-          <Span
-            class="logIn__text-link"
-            :text="$t('lang.views.signup.main.logIn_2')"
-            @focus="toLogIn"
-          />
-        </FormattedString>
-      </Label>
+        <Label
+          class="logIn__text-text"
+          textWrap="true"
+          :text="$t('lang.views.signup.main.logIn_1')"
+        />
+        <Label
+          class="logIn__text-link"
+          :text="$t('lang.views.signup.main.logIn_2')"
+          textWrap="true"
+          @tap="toLogIn"
+        />
+      </FlexboxLayout>
     </StackLayout>
   </Page>
 </template>
@@ -201,8 +201,7 @@ export default {
 <style lang="scss" scoped>
 
 .signUp {
-  background-color: teal;
-  opacity: 80%
+  background-color: white;
 }
 .signUp__wrapper {
   background-color: whitesmoke;
@@ -215,7 +214,6 @@ export default {
     radius: 25%;
     width: 1;
     color: teal;
-    opacity: 60%;
   }
 }
 .signup__title {
@@ -253,7 +251,10 @@ export default {
   color: red;
 }
 .logIn__wrapper {
-  padding-top: 30;
+  padding: {
+    top: 16;
+    left: 40;
+  }
 }
 .logIn__text-wrapper {
 }
@@ -262,6 +263,7 @@ export default {
 .logIn__text-link {
   color: red;
   font-weight: bold;
+  padding-left: 2;
 }
 .accept__wrapper {
   padding: {
