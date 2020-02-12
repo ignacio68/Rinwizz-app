@@ -207,8 +207,8 @@ export default {
   background-color: whitesmoke;
   margin: {
     top: 80;
-    left: 24;
-    right: 24;
+    left: 16;
+    right: 16;
   }
   border: {
     radius: 25%;
@@ -227,8 +227,8 @@ export default {
     left: 16;
   }
   padding {
-    right: 16;
-    left: 16;
+    right: 24;
+    left: 24;
   }
   color:teal;
 }
@@ -250,6 +250,21 @@ export default {
 .error {
   color: red;
 }
+.accept__wrapper {
+  padding: {
+    top: 16;
+    right: 16;
+    left: 24;
+    bottom: 8;
+  }
+}
+.accept__text-link {
+  color: teal;
+  font-weight: bold;
+}
+.accept__button {
+  margin-bottom: 16;
+}
 .logIn__wrapper {
   padding: {
     top: 16;
@@ -264,20 +279,5 @@ export default {
   color: red;
   font-weight: bold;
   padding-left: 2;
-}
-.accept__wrapper {
-  padding: {
-    top: 16;
-    right: 16;
-    left: 16;
-    bottom: 8;
-  }
-}
-.accept__text-link {
-  color: teal;
-  font-weight: bold;
-}
-.accept__button {
-  margin-bottom: 16;
 }
 </style>
