@@ -62,7 +62,7 @@
           class="dataField__icon"
           type="far"
           color="red"
-          fontSize="24"
+          :fontSize="20"
           name="fa-exclamation-circle"
           paddingRight="0"
           paddingTop="30"

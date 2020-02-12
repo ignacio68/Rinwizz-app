@@ -3,6 +3,7 @@
     <DataField
       iconType="far"
       iconName="fa-lock-alt"
+      :iconSize="20"
       maxLength="32"
       :labelText="$t('lang.views.signup.input.password')"
       :secure="isSecure"
@@ -15,6 +16,7 @@
         type="far"
         :iconColor="eyeColor"
         :name="iconName"
+        :fontSize="20"
         paddingleft="0"
         paddingTop="30"
         @tap="changeSecurity"

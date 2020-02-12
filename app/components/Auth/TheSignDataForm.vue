@@ -8,7 +8,7 @@
       v-if="isDisplayName"
       iconType="far"
       iconName="fa-user"
-      :fontSize="24"
+      :iconSize="20"
       iconColor="black"
       maxLength="16"
       :labelText="$t('lang.views.signup.input.name')"
@@ -18,7 +18,7 @@
     <DataField
       iconType="far"
       iconName="fa-envelope"
-      :fontSize="24"
+      :iconSize="20"
       iconColor="black"
       maxLength="64"
       :labelText="$t('lang.views.signup.input.email')"
