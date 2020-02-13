@@ -15,32 +15,28 @@ export default {
     main: {
       title: 'Crea una cuenta',
       social: 'o accede con',
-      logIn_1: '¿Tienes una cuenta? ',
-      logIn_2: 'Accede',
-      accept_1: 'Al registrarte aceptas los ',
-      accept_2: ' y la ',
-      terms: 'Términos de Servicio',
-      privacy: 'Política de Privacidad'
+      accept_text_1: 'Al registrarte aceptas los ',
+      accept_terms: 'Términos de Servicio',
+      accept_text_2: ' y la ',
+      accept_privacy: 'Política de Privacidad',
+      logIn_text: '¿Tienes una cuenta? ',
+      logIn_link: 'Accede'
     },
     input: {
-      name: 'nombre',
+      userName: 'nombre de usuario',
       email: 'correo electrónico',
       password: 'contraseña'
     },
     button: 'CREAR UNA CUENTA'
   },
   login: {
-    toolbar: {
-      backLabel: '',
-      title: 'ACCESO'
-    },
+    title: 'INICIA SESIÓN',
     main: {
-      text1: 'He olvidado la contraseña',
-      text2: 'Necesito una cuenta',
-      text3: 'Al registrarte aceptas nuestros {terms} y la {privacy}',
-      terms: 'Términos de Uso',
-      privacy: 'Política de Privacidad',
-      socialText: 'Prefiero entrar con'
+      forgot_text: 'He olvidado la ',
+      forgot_link: 'contraseña',
+      signUp_text: '¿No tienes todavía una cuenta?',
+      signUp_link: 'REGÍSTRATE',
+      social: 'o continuar con'
     },
     input: {
       email: 'email',

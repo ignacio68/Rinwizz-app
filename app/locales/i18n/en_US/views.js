@@ -15,32 +15,32 @@ export default {
     main: {
       title: 'CREATE AN ACCOUNT',
       social: 'or login with',
-      logIn_1: 'Already have an account? ',
-      logIn_2: 'Log In',
-      accept_1: 'By signin up you accept the ',
-      accept_2: ' & ',
-      terms: 'Terms of Service',
-      privacy: 'Privacy Politicy'
+      accept_text_1: 'By signin up you accept the ',
+      accept_terms: 'Terms of Service',
+      accept_text_2: ' & ',
+      accept_privacy: 'Privacy Politicy',
+      logIn_text: 'Already have an account? ',
+      logIn_link: 'Log In'
     },
     input: {
-      name: 'name',
+      userName: 'user name',
       email: 'email',
       password: 'password'
     },
     button: 'SIGN UP'
   },
   login: {
-    toolbar: {
-      backLabel: '',
-      title: 'LOG IN'
-    },
+    title: 'WELCOME AGAIN',
     main: {
-      text1: 'I forgot the password',
-      text2: 'I need a user account',
-      text3: 'When you sign up you accept our {terms} & {privacy}',
-      terms: 'Terms of use',
-      privacy: 'Privacy Policity',
-      socialText: 'I prefer login with'
+      forgot_text: 'I forgot the ',
+      forgot_link: 'password',
+      signUp_text: "Don't have an account?",
+      signUp_link: 'SIGN UP',
+      social: 'or continue with'
+    },
+    input: {
+      email: 'email',
+      password: 'contraseña'
     },
     button: 'LOG IN'
   },
