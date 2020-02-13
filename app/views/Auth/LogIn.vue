@@ -1,47 +1,60 @@
 <template>
   <Page actionBarHidden="true">
-    <StackLayout>
-      <Label
-        :text="$t('lang.views.login.toolbar.title')"
-        textWrap="true"
-      />
+    <StackLayout class="logIn">
+      <StackLayout class="logIn__wrapper">
+        <!-- TITLE -->
+        <Label
+          class="logIn__title"
+          :text="$t('lang.views.login.toolbar.title')"
+          textWrap="true"
+        />
 
-      <TheSignDataForm
-        @emailModified="setEmail"
-        @passwordModified="setPassword"
-      />
+        <!-- ERROR -->
+        <!-- TODO: add feedback component -->
+        <Label
+          v-if="isError"
+          class="text-danger"
+          :text="errorMessage"
+          textWrap="true"
+        />
 
-      <!-- FORGOT PASSWORD -->
-      <Button
-        class="-primary"
-        :text="$t('lang.views.login.main.text1')"
-        @tap="onForgotPassword"
-      />
+        <!-- DATA FORM -->
+        <TheSignDataForm
+          :isDisplayName="false"
+          @emailModified="setEmail"
+          @passwordModified="setPassword"
+        />
 
-      <!-- BUTTON LOGIN -->
-      <Button
-        class="-primary"
-        :text="$t('lang.views.login.button')"
-        @tap="onLogIn"
-      />
+        <!-- FORGOT PASSWORD -->
+        <!-- TODO: cambiar a FlexboxLayout -->
+        <Label
+          class="-primary forgotPassword"
+          :text="$t('lang.views.login.main.text1')"
+          @tap="onForgotPassword"
+        />
+
+        <!-- LOGIN BUTTON -->
+        <Button
+          class="-primary -rounded-lg accept__button"
+          :text="$t('lang.views.login.button')"
+          @tap="onLogIn"
+        />
+      </StackLayout>
 
       <!-- SIGNUP BUTTON -->
+      <!-- TODO: cambiar a FlexboxLayout -->
       <Button
-        class="-primary"
+        class="-primary signUp__button"
         :text="$t('lang.views.login.main.text2')"
         @tap="toSignUp"
-      />
-
-      <Button
-        class="-primary"
-        text="Ok"
-        @tap="toAlerts"
       />
     </StackLayout>
   </Page>
 </template>
 <script>
+// Store
 import { mapActions } from 'vuex'
+
 // Components
 import TheSignDataForm from '@components/Auth/TheSignDataForm'
 
@@ -77,9 +90,14 @@ export default {
       }
       console.log(logInData)
       // this.LOGIN_USER(logInData)
+      this.toAlerts()
     },
     onForgotPassword() {
-      console.log('He olvidado la contraseña')
+      alert({
+        message: 'He olvidado la contraseña',
+        cancelable: true,
+        okButtonText: 'Ok'
+      })
     },
     toSignUp() {
       this.$navigateTo(SignUp)
@@ -91,10 +109,39 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.text {
-  vertical-align: center;
-  text-align: center;
-  margin-top: 16px;
-  font-size: 20;
+.signIn {
+  background-color: white;
+}
+.signIn__wrapper {
+  background-color: whitesmoke;
+  margin: {
+    top: 80;
+    left: 16;
+    right: 16;
+  }
+  border: {
+    radius: 25%;
+    width: 1;
+    color: teal;
+  }
+}
+.signIn__title {
+  text-align: left;
+  font: {
+    size: 20;
+    weight: 900;
+  }
+  margin: {
+    top: 24;
+    left: 16;
+  }
+  padding {
+    right: 24;
+    left: 24;
+  }
+  color:teal;
+}
+.error {
+  color: red;
 }
 </style>
