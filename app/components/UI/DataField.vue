@@ -43,7 +43,7 @@
           :maxLength="maxLength"
           :keyboardType="keyboard"
           :returnKeyType="returnKey"
-          :text="userData"
+          :text="dataText"
           editable="true"
           autocorrect="false"
           row="1"
@@ -164,7 +164,7 @@ export default {
   },
   data() {
     return {
-      userData:'',
+      dataText:'',
     }
   },
   methods: {
