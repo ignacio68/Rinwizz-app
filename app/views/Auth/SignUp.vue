@@ -4,7 +4,7 @@
       <StackLayout class="signUp__wrapper">
         <!-- TITLE -->
         <Label
-          class="signup__title"
+          class="signUp__title"
           :text="$t('lang.views.signup.main.title')"
         />
 
@@ -218,7 +218,7 @@ export default {
     color: teal;
   }
 }
-.signup__title {
+.signUp__title {
   text-align: left;
   font: {
     size: 20;
