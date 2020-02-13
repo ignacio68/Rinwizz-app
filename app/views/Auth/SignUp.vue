@@ -9,6 +9,7 @@
         />
 
         <!-- ERROR -->
+        <!-- TODO: add feedback component -->
         <Label
           v-if="isError"
           class="text-danger"
