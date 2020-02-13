@@ -1,6 +1,9 @@
 <template>
   <Page actionBarHidden="true">
-    <StackLayout class="signUp">
+    <StackLayout
+      class="signUp"
+      @tap="onDimissed"
+    >
       <StackLayout class="signUp__wrapper">
         <!-- TITLE -->
         <Label
@@ -20,6 +23,9 @@
         <!-- DATA FORM -->
         <TheSignDataForm
           :isDisplayName="true"
+          :isDisplayNameError="isDisplayNameError"
+          :isDisplayEmail="isEmailError"
+          :isPasswordError="isPasswordError"
           @displayNameModified="setDisplayName"
           @emailModified="setEmail"
           @passwordModified="setPassword"
@@ -109,6 +115,18 @@
           @tap="toLogIn"
         />
       </FlexboxLayout>
+      <Button
+        class="btn"
+        height="24"
+        text="Show feedback (error)"
+        @tap="showFeedbackError"
+      />
+      <Button
+        class="btn"
+        height="24"
+        text="Cerrar feedback"
+        @tap="onDismissed"
+      />
     </StackLayout>
   </Page>
 </template>
@@ -116,6 +134,8 @@
 // Components
 import TheSignDataForm from '@components/Auth/TheSignDataForm'
 import SocialButton from '@components/Auth/SocialButton'
+import { Feedback, FeedbackPosition } from 'nativescript-feedback'
+// import { Color } from 'color'
 
 // Views
 import LogIn from './LogIn'
@@ -129,6 +149,8 @@ import { socialButtons } from '@utils/social'
 // Store
 import { mapGetters } from 'vuex'
 
+const feedback = new Feedback()
+
 export default {
   name: 'SignUp',
   components: {
@@ -137,13 +159,19 @@ export default {
   },
   data() {
     return {
-      hasError: false,
       userData: {
         displayName: '',
         email: '',
         password: ''
       },
+      isDimissed: false,
+      feedbackErrorMessage: 'Hay un puto error 👎',
       socialButtons: socialButtons,
+      isError: false,
+      isDisplayNameError: false,
+      isEmailError: false,
+      isPasswordError: false,
+
     }
   },
   computed: {
@@ -151,6 +179,9 @@ export default {
     ...mapGetters('shared', { isError: 'GET_ERROR', loading: 'LOADING' }),
   },
   methods: {
+    onDismmissed() {
+      this.isDimissed = false
+    },
     toSignUp() {
       const signUpData = {
         displayName: this.userData.displayName,
@@ -195,6 +226,18 @@ export default {
         cancelable: true,
         okButtonText: 'Ok'
       }).then(() => this.toPersonal())
+    },
+    showFeedbackError() {
+      feedback.error({
+        position: FeedbackPosition.Bottom, // iOS only
+        title:"ERROR!!",
+        message: this.feedbackErrorMessage,
+        duration: 500000,
+        onTap: () => this.feedback.hide()
+      })
+    },
+    onDismissed() {
+      this.isDimissed = true
     }
   }
 }
