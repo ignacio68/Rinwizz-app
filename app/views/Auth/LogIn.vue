@@ -20,6 +20,8 @@
         <!-- DATA FORM -->
         <TheSignDataForm
           :isDisplayName="false"
+          :isDisplayEmail="isEmailError"
+          :isPasswordError="isPasswordError"
           @emailModified="setEmail"
           @passwordModified="setPassword"
         />
@@ -93,7 +95,9 @@ export default {
         email: '',
         password: ''
       },
-      isError: false
+      isError: false,
+      isEmailError: true,
+      isPasswordError: true,
     }
   },
   methods: {
