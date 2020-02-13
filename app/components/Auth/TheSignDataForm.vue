@@ -13,6 +13,7 @@
       maxLength="16"
       :labelText="$t('lang.views.signup.input.userName')"
       keyboard="url"
+      :isError="isDisplayNameError"
       @modified="displayNameModified"
     />
     <DataField
@@ -23,9 +24,11 @@
       maxLength="64"
       :labelText="$t('lang.views.signup.input.email')"
       keyboard="email"
+      :isError="isEmailError"
       @modified="emailModified"
     />
     <Password
+      :isPasswordError="isPasswordError"
       @passwordModified="passwordModified"
     />
   </StackLayout>
@@ -41,6 +44,18 @@ export default {
   },
   props: {
     isDisplayName: {
+      type: Boolean,
+      default: false
+    },
+    isDisplayNameError: {
+      type: Boolean,
+      default: false
+    },
+    isEmailError: {
+      type: Boolean,
+      default: false
+    },
+    isPasswordError: {
       type: Boolean,
       default: false
     }
