@@ -3,6 +3,8 @@
     class="socialButton"
     horizontalAlingment="center"
     verticalAlignment="center"
+    width="socialButtonWidth"
+    height="socialButtonHeight"
     :backgroundColor="socialButtonBackgroundColor"
     @tap="onTap(provider)"
   >
@@ -25,34 +27,43 @@ export default {
     FontIcon
   },
   props:{
+    socialButtonWidth: {
+      type: [String, Number],
+      default: 24,
+      validation: s => !isNaN(s)
+    },
+    socialButtonHeight: {
+      type: [String, Number],
+      default: 24,
+      validation: s => !isNaN(s)
+    },
+    socialButtonBackgroundColor: {
+      type: String,
+      default: "lime",
+      required: true
+    },
     iconSize: {
       type: [String, Number],
       default: 24,
       validation: s => !isNaN(s)
     },
-    provider: {
-      type: String,
-      default: null,
-      // required: true
-    },
     iconName : {
       type: String,
       default: null,
-      // required: true
+      required: true
     },
     iconColor: {
       type: String,
       default: "white",
-      // required: true
     },
     iconBackgroundColor: {
       type: String,
       default: "transparent"
-      // required: true
     },
-    socialButtonBackgroundColor: {
+    provider: {
       type: String,
-      default: "lime"
+      default: null,
+      required: true
     }
   },
   methods: {

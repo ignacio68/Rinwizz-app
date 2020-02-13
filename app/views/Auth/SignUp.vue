@@ -42,10 +42,12 @@
               v-for="(socialButton, index) in socialButtons"
               :key="index"
               class="socialButton__button"
+              :socialButtonWidth="16"
+              :socialButtonHeight="16"
+              :socialButtonBackgroundColor="socialButton.color"
               :iconSize="16"
               iconColor="white"
               :iconName="socialButton.icon"
-              :socialButtonBackgroundColor="socialButton.color"
               :provider="socialButton.provider"
               @providerSelected="providerSelected"
             />
