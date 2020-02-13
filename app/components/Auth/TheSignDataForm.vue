@@ -11,7 +11,7 @@
       :iconSize="20"
       iconColor="black"
       maxLength="16"
-      :labelText="$t('lang.views.signup.input.name')"
+      :labelText="$t('lang.views.signup.input.userName')"
       keyboard="url"
       @modified="displayNameModified"
     />

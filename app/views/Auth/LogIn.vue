@@ -5,12 +5,11 @@
         <!-- TITLE -->
         <Label
           class="logIn__title"
-          :text="$t('lang.views.login.toolbar.title')"
+          :text="$t('lang.views.login.title')"
           textWrap="true"
         />
 
         <!-- ERROR -->
-        <!-- TODO: add feedback component -->
         <Label
           v-if="isError"
           class="text-danger"
@@ -26,16 +25,26 @@
         />
 
         <!-- FORGOT PASSWORD -->
-        <!-- TODO: cambiar a FlexboxLayout -->
-        <Label
-          class="-primary forgotPassword"
-          :text="$t('lang.views.login.main.text1')"
-          @tap="onForgotPassword"
-        />
+        <FlexboxLayout
+          flexWrap="wrap"
+          class="forgotPassword__wrapper"
+        >
+          <Label
+            class="forgotPassword__text"
+            :text="$t('lang.views.login.main.forgot_text')"
+            textWrap="true"
+          />
+          <Label
+            class="forgotPassword__link"
+            :text="$t('lang.views.login.main.forgot_link')"
+            textWrap="true"
+            @tap="onForgotPassword"
+          />
+        </FlexboxLayout>
 
         <!-- LOGIN BUTTON -->
         <Button
-          class="-primary -rounded-lg accept__button"
+          class="-primary -rounded-lg logIn__button"
           :text="$t('lang.views.login.button')"
           @tap="onLogIn"
         />
@@ -43,11 +52,22 @@
 
       <!-- SIGNUP BUTTON -->
       <!-- TODO: cambiar a FlexboxLayout -->
-      <Button
-        class="-primary signUp__button"
-        :text="$t('lang.views.login.main.text2')"
-        @tap="toSignUp"
-      />
+      <FlexboxLayout
+        class="signUp__wrapper"
+        flexWrap="wrap"
+      >
+        <Label
+          class="signUp__text-text"
+          textWrap="true"
+          :text="$t('lang.views.login.main.signUp_text')"
+        />
+        <Label
+          class="signUp__text-link"
+          :text="$t('lang.views.login.main.signUp_link')"
+          textWrap="true"
+          @tap="toSignUp"
+        />
+      </FlexboxLayout>
     </StackLayout>
   </Page>
 </template>
@@ -72,7 +92,8 @@ export default {
       userData: {
         email: '',
         password: ''
-      }
+      },
+      isError: false
     }
   },
   methods: {
@@ -109,10 +130,10 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.signIn {
+.logIn {
   background-color: white;
 }
-.signIn__wrapper {
+.logIn__wrapper {
   background-color: whitesmoke;
   margin: {
     top: 80;
@@ -125,7 +146,7 @@ export default {
     color: teal;
   }
 }
-.signIn__title {
+.logIn__title {
   text-align: left;
   font: {
     size: 20;
@@ -141,7 +162,35 @@ export default {
   }
   color:teal;
 }
+.forgotPassword__wrapper {
+  padding: {
+    top: 4;
+    left: 72;
+  }
+}
+.forgotPassword__link {
+  color: teal;
+  font-weight: bold;
+}
 .error {
   color: red;
+}
+.logIn__button {
+  margin-bottom: 16;
+  padding: {
+    left:24;
+    right: 24;
+  }
+}
+.signUp__wrapper {
+  padding: {
+    top: 16;
+    left: 40;
+  }
+}
+.signUp__text-link {
+  color: teal;
+  font-weight: bold;
+  padding-left: 2;
 }
 </style>

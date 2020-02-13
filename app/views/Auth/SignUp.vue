@@ -62,23 +62,23 @@
         >
           <Label
             class="accept__text-text"
-            :text="$t('lang.views.signup.main.accept_1')"
+            :text="$t('lang.views.signup.main.accept_text_1')"
             textWrap="true"
           />
           <Label
             class="accept__text-link"
-            :text="$t('lang.views.signup.main.terms')"
+            :text="$t('lang.views.signup.main.accept_terms')"
             textWrap="true"
             @tap="toTermsOfService"
           />
           <Label
             class="accept__text-text"
-            :text="$t('lang.views.signup.main.accept_2')"
+            :text="$t('lang.views.signup.main.accept_text_2')"
             textWrap="true"
           />
           <Label
             class="accept__text-link"
-            :text="$t('lang.views.signup.main.privacy')"
+            :text="$t('lang.views.signup.main.accept_privacy')"
             textWrap="true"
             @tap="toPrivacyPolicy"
           />
@@ -86,7 +86,7 @@
 
         <!-- SIGN UP BUTTON -->
         <Button
-          class="-primary -rounded-lg accept__button"
+          class="-primary -rounded-lg signUp__button"
           :text="$t('lang.views.signup.button')"
           @tap="toSignUp"
         />
@@ -100,11 +100,11 @@
         <Label
           class="logIn__text-text"
           textWrap="true"
-          :text="$t('lang.views.signup.main.logIn_1')"
+          :text="$t('lang.views.signup.main.logIn_text')"
         />
         <Label
           class="logIn__text-link"
-          :text="$t('lang.views.signup.main.logIn_2')"
+          :text="$t('lang.views.signup.main.logIn_link')"
           textWrap="true"
           @tap="toLogIn"
         />
@@ -263,8 +263,12 @@ export default {
   color: teal;
   font-weight: bold;
 }
-.accept__button {
+.signUp__button {
   margin-bottom: 16;
+  padding: {
+    left:24;
+    right: 24;
+  }
 }
 .logIn__wrapper {
   padding: {
@@ -277,7 +281,7 @@ export default {
 .logIn__text-text {
 }
 .logIn__text-link {
-  color: red;
+  color: teal;
   font-weight: bold;
   padding-left: 2;
 }
