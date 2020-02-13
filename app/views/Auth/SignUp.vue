@@ -233,8 +233,10 @@ export default {
         title:"ERROR!!",
         message: this.feedbackErrorMessage,
         duration: 500000,
-        onTap: () => this.feedback.hide()
       })
+      if (!this.isDimissed) {
+         this.feedback.hide()
+      }
     },
     onDismissed() {
       this.isDimissed = true
