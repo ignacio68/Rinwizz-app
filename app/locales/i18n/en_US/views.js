@@ -20,7 +20,7 @@ export default {
       accept_text_2: ' & ',
       accept_privacy: 'Privacy Politicy',
       logIn_text: 'Already have an account? ',
-      logIn_link: 'Log In'
+      logIn_link: 'LOG IN'
     },
     input: {
       userName: 'user name',
