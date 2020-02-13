@@ -113,8 +113,6 @@
   </Page>
 </template>
 <script>
-// import { Color } from 'color'
-
 // Components
 import TheSignDataForm from '@components/Auth/TheSignDataForm'
 import SocialButton from '@components/Auth/SocialButton'
