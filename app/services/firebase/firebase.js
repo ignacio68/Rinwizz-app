@@ -1,6 +1,4 @@
-const firebase = require('nativescript-plugin-firebase')
-
-export default firebase
+export const firebase = require('nativescript-plugin-firebase')
 
 // - Storage reference
 // export const storage = firebase.storage()
