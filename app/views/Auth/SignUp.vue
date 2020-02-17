@@ -2,7 +2,7 @@
   <Page actionBarHidden="true">
     <StackLayout
       class="signUp"
-      @tap="onDimissed"
+      @tap="closeFeedbackError"
     >
       <StackLayout class="signUp__wrapper">
         <!-- TITLE -->
@@ -125,7 +125,7 @@
         class="btn"
         height="24"
         text="Cerrar feedback"
-        @tap="onDismissed"
+        @tap="closeFeedbackError"
       />
     </StackLayout>
   </Page>
@@ -167,7 +167,6 @@ export default {
       isDimissed: false,
       feedbackErrorMessage: 'Hay un puto error 👎',
       socialButtons: socialButtons,
-      isError: false,
       isDisplayNameError: false,
       isEmailError: false,
       isPasswordError: false,
@@ -182,6 +181,14 @@ export default {
     loading() {
       if (this.loading) {
         this.toPasswordConfirmation()
+      }
+    },
+    isError() {
+      if (this.error) {
+        this.showFeedbackError()
+      }
+      else {
+        this.closeFeedbackError()
       }
     }
   },
@@ -235,15 +242,12 @@ export default {
       feedback.error({
         position: FeedbackPosition.Bottom, // iOS only
         title:"ERROR!!",
-        message: this.feedbackErrorMessage,
+        message: this.errorMessage,
         duration: 500000,
       })
-      if (!this.isDimissed) {
-         this.feedback.hide()
-      }
     },
-    onDismissed() {
-      this.isDimissed = true
+    closeFeedbackError() {
+      feedback.hide()
     }
   }
 }
