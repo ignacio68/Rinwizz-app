@@ -44,24 +44,26 @@ export const CURRENT_USER = () => {
     .then(user => {
       const newUser = {
         _id: user.uid,
-        isAnonymous: user.isAnonymous,
+        isAnonymous: user.anonymous,
         isEmailVerified: user.emailVerified,
         providers: user.providers,
         email: user.email,
         displayName: user.displayName, // name stored at provider
-        // TODO: solo para producción
         avatar: user.photoURL,
         phone: user.phoneNumber,
         refreshToken: user.refreshToken, // iOS only
-        // profile: user.additionalUserInfo.profile,
-        providerId: user.providerData.providerId,
-        userName: user.providerData.displayName,
-        // isNewUser: user.additionalUserInfo.isNewUser,
-        creationDate: user.metadata.creationTime,
-        lastSignInDate: user.metadata.lastSignInTime
+        profile: user.additionalUserInfo.profile,
+        providerId: user.additionalUserInfo.providerId,
+        userName: user.additionalUserInfo.userName,
+        isNewUser: user.additionalUserInfo.isNewUser,
+        creationDate: user.metadata.creationTimestamp,
+        lastSignInDate: user.metadata.lastSignInTimestamp
       }
       console.log(`El user es ${user}`)
       return newUser
     })
-    .catch(error => console.log(`Error getCurrentUser: ${error}`))
+    .catch(error => {
+      console.log(`Error getCurrentUser: ${error}`))
+      return error
+    }
 }
