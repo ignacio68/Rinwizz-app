@@ -13,10 +13,6 @@ export default {
     reset: 'Reset',
     OK: 'OK'
   },
-  alertConfirmPassword: {
-    alertText: 'Te hemos enviado un email para confirmar la contraseña',
-    buttonText: 'De acuerdo'
-  },
   alerts: {
     phoneButton: 'llamar',
     linkButton: 'acceder'
