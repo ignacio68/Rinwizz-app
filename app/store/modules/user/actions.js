@@ -9,12 +9,15 @@ export default {
   async [LOAD_NEW_USER]({ commit, dispatch }, user) {
     console.log('LOAD_NEW_USER')
     commit('shared/CLEAR_ERROR', null, { root: true })
-    await dispatch('userLocalDb/CREATE_ALL_USERS_LOCAL_DB', null, {
+    // Create the users local database
+    await dispatch('usersLocalDb/CREATE_ALL_USERS_LOCAL_DB', null, {
       root: true
     })
+    // Create the user local database
     .then(async () => {
       await dispatch('userLocalDb/CREATE_USER_LOCAL_DB', user, { root: true })
     })
+    // Reply the users local database wuith remote database
     .then(async () => {
       await dispatch('userLocalDb/REPLY_USERS_DB', null, { root: true })
     })
