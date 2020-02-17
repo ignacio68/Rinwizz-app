@@ -27,6 +27,11 @@ export default {
       email: 'email',
       password: 'password'
     },
+    alert: {
+      title: 'Password Confirmation',
+      message: 'We send you an email to password confirmation',
+      button: 'Ok'
+    },
     button: 'SIGN UP'
   },
   login: {

@@ -27,6 +27,11 @@ export default {
       email: 'correo electrónico',
       password: 'contraseña'
     },
+    alert: {
+      title: 'Confirmación de la contraseña',
+      message: 'Te hemos enviado un email para confirmar la contraseña',
+      button: 'De acuerdo'
+    },
     button: 'CREAR UNA CUENTA'
   },
   login: {
