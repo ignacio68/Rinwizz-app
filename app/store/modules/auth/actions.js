@@ -23,10 +23,12 @@ export default {
    */
 
   // FIXME: desarrollar correctamente async y el catcher de errores.
-  async [SIGNUP_USER]({ state, commit, dispatch }, userData) {
+  async [SIGNUP_USER]({ state, commit, dispatch }, newUserData) {
     console.log('Estoy en SIGNUP_USER')
     commit('shared/LOAD_ACTION', null, { root: true })
     commit('shared/CLEAR_ERROR', null, { root: true })
+
+    const userData = newUserData
 
     signUp(userData)
       .then(user => {
@@ -50,6 +52,7 @@ export default {
           lastSignInDate: user.metadata.lastSignInTimestamp
         }
         // Set the new user at the userStore
+        console.log(JSON.stringify(user))
         commit('user/SET_USER', newUser, { root: true })
         return newUser
       })
@@ -107,7 +110,7 @@ export default {
     await logOut()
       .then(() => {
         commit('user/RESET_USER', null, { root: true })
-        commit('alerts/RESET_ALERTS', null, { root: true })
+        // commit('alerts/RESET_ALERTS', null, { root: true })
         console.log('LOGOUT_USER')
       })
       .then(commit('shared/LOAD_ACTION', true, { root: true }))
