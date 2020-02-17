@@ -5,7 +5,7 @@ import {
   logOut,
   deleteUser,
   reauthenticateUser
-} from '@services/firebase'
+} from '@services/auth'
 
 import {
   SIGNUP_USER,
@@ -32,34 +32,36 @@ export default {
       .then(user => {
         const newUser = {
           _id: user.uid,
+          isAnonymous: user.anonymous,
+          isEmailVerified: user.emailVerified,
+          providers: user.providers,
           email: user.email,
-          name: userData.name,
-          phone: '',
-          isVerified: user.emailVerified,
-          isAnonymous: user.isAnonymous,
+          displayName: userData.displayName, // name stored at provider
           // TODO: solo para producción
           avatar:
-            'https://firebasestorage.googleapis.com/v0/b/rinwizz-app.appspot.com/o/pwqhMnXx8ZMN06BeobDxJOZ5kDC2%2Favatar%2FpwqhMnXx8ZMN06BeobDxJOZ5kDC2..jpg?alt=media&token=8e64b798-eb08-46ec-a794-5d658e994301',
-          providerId: user.providerId,
-          creationDate: user.metadata.creationTime,
-          // creationDate: user.createdAt,
-          // lastSignInDate: user.lastLoginAt
-          lastSignInDate: user.metadata.lastSignInTime
+          'https://firebasestorage.googleapis.com/v0/b/rinwizz-app.appspot.com/o/pwqhMnXx8ZMN06BeobDxJOZ5kDC2%2Favatar%2FpwqhMnXx8ZMN06BeobDxJOZ5kDC2..jpg?alt=media&token=8e64b798-eb08-46ec-a794-5d658e994301',
+          phone: user.phoneNumber,
+          refreshToken: user.refreshToken, // iOS only
+          profile: user.additionalUserInfo.profile,
+          providerId: user.additionalUserInfo.providerId,
+          userName: user.additionalUserInfo.userName,
+          isNewUser: user.additionalUserInfo.isNewUser,
+          creationDate: user.metadata.creationTimestamp,
+          lastSignInDate: user.metadata.lastSignInTimestamp
         }
+        // Set the new user at the userStore
         commit('user/SET_USER', newUser, { root: true })
         return newUser
       })
-      .then(
-        async user => await dispatch('user/LOAD_NEW_USER', user, { root: true })
-      )
+      // TODO: implementar CouchDb
+      // .then(
+      //   async  newUser => await dispatch('user/LOAD_NEW_USER',  newUser, { root: true })
+      // )
       .then(async () => {
         // Enviamos el email de confirmación
         console.log('Enviamos el mensaje')
         const actionCodeSettings = state.actionCodeSettings
         await sendEmailVerification(actionCodeSettings)
-      })
-      .then(() => {
-        commit('user/IS_NEW_USER', true, { root: true })
         commit('shared/LOAD_ACTION', true, { root: true })
       })
       .catch(error => {
