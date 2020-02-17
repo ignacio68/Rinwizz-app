@@ -10,7 +10,7 @@ node_modules
 hooks
 platforms
 report
-setup
+app/setup
 UI
 
 app/App_Resources/Android/google-services.json
