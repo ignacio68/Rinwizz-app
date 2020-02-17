@@ -6,7 +6,8 @@ import auth from './modules/auth'
 // import cloudStorage from './modules/cloudStorage'
 import errors from './modules/errors'
 // import localDb from './modules/localDb'
-// import usersLocalDb from './modules/localDb/users'
+import userLocalDb from './modules/localDb/user'
+import usersLocalDb from './modules/localDb/users'
 // import alertsLocalDb from './modules/localDb/alerts'
 // import location from './modules/location'
 // import navigator from './modules/navigator'
@@ -29,7 +30,8 @@ export const store = new Vuex.Store({
     errors,
     //   location,
     //   localDb,
-    //   usersLocalDb,
+    userLocalDb,
+    usersLocalDb,
     //   alertsLocalDb,
     //   navigator,
     //   password,
