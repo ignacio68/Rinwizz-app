@@ -94,7 +94,7 @@
         <Button
           class="-primary -rounded-lg signUp__button"
           :text="$t('lang.views.signup.button')"
-          @tap="toSignUp"
+          @tap="onSignUp"
         />
       </StackLayout>
 
@@ -147,7 +147,7 @@ import Personal from '@views/Preferences/Personal'
 import { socialButtons } from '@utils/social'
 
 // Store
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 const feedback = new Feedback()
 
@@ -178,22 +178,26 @@ export default {
     ...mapGetters('errors', { errorMessage: 'ERROR_MESSAGE' }),
     ...mapGetters('shared', { isError: 'GET_ERROR', loading: 'LOADING' }),
   },
+  watch: {
+    loading() {
+      if (this.loading) {
+        this.toPasswordConfirmation()
+      }
+    }
+  },
   methods: {
-    onDismmissed() {
-      this.isDimissed = false
-    },
-    toSignUp() {
-      const signUpData = {
+    ...mapActions('auth', ['SIGNUP_USER']),
+    //  FIXME: resolve bug
+    // onDismmissed() {
+    //   this.isDimissed = false
+    // },
+    async onSignUp() {
+      const userData = {
         displayName: this.userData.displayName,
         email: this.userData.email,
         password: this.userData.password
       }
-      console.log(this.socialButtons[1].icon)
-      console.log(signUpData)
-      this.toPasswordConfirmation()
-    },
-    setValue(value) {
-      this.userData[value] = value
+      await this.SIGNUP_USER(userData)
     },
     setDisplayName(newValue) {
       this.userData.displayName = newValue
@@ -216,16 +220,16 @@ export default {
     toTermsOfService() {
       this.$navigateTo(TermsOfService)
     },
-    toPersonal() {
-      this.$navigateTo(Personal)
-    },
     toPasswordConfirmation() {
       alert({
-        title: 'Password Confirmation',
-        message: 'Send an email to password confirmation',
+        title: "$t('lang.views.signup.alert.title)",
+        message: "$t('lang.views.signup.alert.message)",
         cancelable: true,
-        okButtonText: 'Ok'
+        okButtonText: "$t('lang.views.signup.alert.button)"
       }).then(() => this.toPersonal())
+    },
+    toPersonal() {
+       this.$navigateTo(Personal)
     },
     showFeedbackError() {
       feedback.error({
