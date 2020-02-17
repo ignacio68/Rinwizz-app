@@ -98,7 +98,7 @@ export const logOut = () => {
   firebase
     .logout()
     .then(() => console.log('User logout'))
-    .catch(error => console.log(`logOut error: ${error}`))
+    // .catch(error => console.log(`logOut error: ${error}`))
 }
 
 /**
