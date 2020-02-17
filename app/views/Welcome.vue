@@ -83,7 +83,4 @@ export default {
   margin-top: 16px;
   font-size: 20px;
 }
-.fab {
-  color: crimson;
-}
 </style>
