@@ -1,17 +1,13 @@
+// TODO: Nativescript no admite PouchDb => CouchDb
 import {
   createDb,
-  createDoc,
   replyDb,
-  syncDb,
-  changeDb,
-  fetchDoc
+  syncDb
 } from '@services/database'
 
 import {
   setConfig,
-  setOptions,
-  setDoc,
-  setChangeOptions
+  setOptions
 } from '@utils/database'
 
 import {
