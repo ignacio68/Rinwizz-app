@@ -47,7 +47,10 @@ export const setUserProfile = userData => {
 export function sendEmailVerification(actionCodeSettings) {
   firebase.sendEmailVerification(actionCodeSettings).then(
     () => console.log('email enviado'),
-    error => console.log(`sendEmailVerification Error: ${error}`)
+    error => {
+        console.log(`sendEmailVerification Error: ${error}`)
+        return error
+      }
   )
 }
 
