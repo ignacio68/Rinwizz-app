@@ -63,7 +63,7 @@ export const CURRENT_USER = () => {
       return newUser
     })
     .catch(error => {
-      console.log(`Error getCurrentUser: ${error}`))
+      console.log(`Error getCurrentUser: ${error}`)
       return error
-    }
+    })
 }
