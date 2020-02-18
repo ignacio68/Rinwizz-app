@@ -14,7 +14,7 @@ export default {
    */
   [SET_USER]: (state, user) => {
     state.user = user
-    // console.log('mutation SET_USER' + JSON.stringify(state.user))
+    console.log('mutation SET_USER' + JSON.stringify(state.user))
     // state.user = { ...state.user, newUser }
   },
   /**

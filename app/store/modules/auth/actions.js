@@ -32,6 +32,7 @@ export default {
 
     signUp(userData)
       .then(user => {
+        console.log(`user: ${JSON.stringify(user)}`)
         const newUser = {
           _id: user.uid,
           isAnonymous: user.anonymous,
@@ -52,7 +53,7 @@ export default {
           lastSignInDate: user.metadata.lastSignInTimestamp
         }
         // Set the new user at the userStore
-        console.log(JSON.stringify(user))
+        console.log(`newUser: ${JSON.stringify(newUser)}`)
         commit('user/SET_USER', newUser, { root: true })
         return newUser
       })

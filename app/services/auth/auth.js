@@ -1,23 +1,41 @@
-import { firebase, CURRENT_USER } from '@services/firebase'
+import { firebase, firebaseApp, CURRENT_USER } from '@services/firebase'
 /**
  * Signup the user
  *
  * @param {object} userData
  */
 export async function signUp(userData) {
-  await firebase
-    .createUser({
-      email: userData.email,
-      password: userData.password
-    })
-    .then(user => {
-      setUserProfile({ displayName: userData.displayName })
-      return user
-    })
-    .catch(error => {
-      console.log(`signUp error: ${error}`)
-      return error
-    })
+  console.log(`signUp user: ${JSON.stringify(userData)}`)
+  const { user } = await firebaseApp
+    .auth()
+    .createUserWithEmailAndPassword(userData.email, userData.password)
+  console.log(`createUser: ${JSON.stringify(user)}`)
+    // setUserProfile({ displayName: userData.displayName })
+    return Promise.resolve(user)
+  // firebase.createUser({
+  //   email: userData.email,
+  //   password: userData.password
+  // })
+  //   .then(user => {
+  //     console.dir(user)
+  //     return user
+  // })
+  // setUserProfile({ displayName: userData.displayName })
+  // return Promise.resolve(user)
+  // await firebase
+  //   .createUser({
+  //     email: userData.email,
+  //     password: userData.password
+  //   })
+  //   .then(user => {
+  //     console.log(`createUser user: ${JSON.stringify(user)}`)
+  //     // setUserProfile({ displayName: userData.displayName })
+  //     return Promise.resolve(user)
+  //   })
+  //   .catch(error => {
+  //     console.log(`signUp error: ${error}`)
+  //     return error
+  //   })
 }
 
 /**
@@ -26,13 +44,18 @@ export async function signUp(userData) {
  * @param {object} userData
  */
 export const setUserProfile = userData => {
+  console.log('setUpProfile')
   firebase
     .updateProfile({
-      displayName: userData.displayName,
-      photoUrl: userData.displayURL
+      displayName: userData.displayName | null,
+      photoUrl: userData.displayURL | null
     })
     .then(() => {
-      console.log(`setUpProfile:  ${CURRENT_USER.displayName}`)
+      firebase.getCurrentUser()
+        .then(user => {
+          console.log(`setUpProfile currentUser: ${user}`)
+          return Promise.resolve(user)
+      })
     })
     .catch(() => {
       return 'auth/user-empty'
