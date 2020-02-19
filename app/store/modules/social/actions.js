@@ -1,9 +1,7 @@
 import { facebookLogIn, googleLogIn, twitterLogIn } from '@services/auth'
-import { socialButtons } from '@utils/social'
 
 import { SOCIAL_SIGNUP } from '@store/types/actions_types'
 
-import HomePage from '@views/Main/HomePage'
 
 export default {
   /**
@@ -35,4 +33,5 @@ export default {
         break
       }
     }
-  },
+  }
+}
