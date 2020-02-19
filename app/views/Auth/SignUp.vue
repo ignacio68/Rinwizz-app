@@ -217,7 +217,7 @@ export default {
     },
     providerSelected(provider) {
       // console.log(`provider: ${provider}`)
-      this.SOCIAL_SIGNUP(provider)
+      this.SIGNUP_SOCIAL(provider)
     },
     toLogIn() {
       this.$navigateTo(LogIn)
