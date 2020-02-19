@@ -13,10 +13,10 @@ export default {
    *
    * @param {*} index - Índice del array correspondiente a la red social
    */
-  async [SOCIAL_SIGNUP] ({ commit, dispatch }, index) {
+  async [SOCIAL_SIGNUP] ({ commit, dispatch }, provider) {
     commit('shared/CLEAR_ERROR', null, { root: true })
     // const socialButtons = state.socialButtons
-    let nameProvider = socialButtons[index].provider
+    let nameProvider = provider
     console.log('la red social elegida es: ' + nameProvider)
     switch (nameProvider) {
       case 'Facebook': {
