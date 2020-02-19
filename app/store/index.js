@@ -12,7 +12,6 @@ import usersLocalDb from './modules/localDb/users'
 // import location from './modules/location'
 // import password from './modules/password'
 import shared from './modules/shared'
-import social from './modules/social'
 import user from './modules/user'
 // import userDb from './modules/userDb'
 
@@ -34,7 +33,6 @@ export const store = new Vuex.Store({
     //   alertsLocalDb,
     //   password,
     shared,
-    social,
     user,
     //   userDb
   },
