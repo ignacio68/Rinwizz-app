@@ -98,17 +98,17 @@ export default {
     switch (provider) {
       case 'Facebook': {
         const newUser = await facebookLogIn()
-        dispatch('USER/LOAD_NEW_USER', newUser)
+        dispatch('user/LOAD_NEW_USER', newUser)
         break
       }
       case 'Google': {
         const newUser = await googleLogIn()
-        dispatch('USER/LOAD_NEW_USER', newUser)
+        dispatch('user/LOAD_NEW_USER', newUser)
         break
       }
       case 'Twitter': {
         const newUser = await twitterLogIn()
-        dispatch('USER/LOAD_NEW_USER', newUser)
+        dispatch('user/LOAD_NEW_USER', newUser)
         break
       }
     }
