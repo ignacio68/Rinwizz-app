@@ -4,19 +4,19 @@ import {
   logIn,
   logOut,
   deleteUser,
-  reauthenticateUser
+  reauthenticateUser,
+  facebookLogIn,
+  googleLogIn,
+  twitterLogIn
 } from '@services/auth'
-
-import {
-  setNewUser
-} from '@services/user'
 
 import {
   SIGNUP_USER,
   LOGIN_USER,
   LOGOUT_USER,
   DELETE_USER,
-  REAUTHENTICATE_USER
+  REAUTHENTICATE_USER,
+  SIGNUP_SOCIAL
 } from '@store/types/actions_types'
 
 export default {
@@ -83,6 +83,35 @@ export default {
         commit('shared/SET_ERROR', null, { root: true })
         dispatch('errors/AUTH_ERROR', error.code, { root: true })
       })
+  },
+
+  /**
+   * Log In con la red social elegida
+   *
+   * @param {*} providerName - social provider name
+   */
+  async [SIGNUP_SOCIAL] ({ commit, dispatch }, providerName) {
+    commit('shared/CLEAR_ERROR', null, { root: true })
+    // const socialButtons = state.socialButtons
+    let provider = providerName
+    console.log('la red social elegida es: ' + provider)
+    switch (provider) {
+      case 'Facebook': {
+        const newUser = await facebookLogIn()
+        dispatch('USER/LOAD_NEW_USER', newUser)
+        break
+      }
+      case 'Google': {
+        const newUser = await googleLogIn()
+        dispatch('USER/LOAD_NEW_USER', newUser)
+        break
+      }
+      case 'Twitter': {
+        const newUser = await twitterLogIn()
+        dispatch('USER/LOAD_NEW_USER', newUser)
+        break
+      }
+    }
   },
 
   /**
