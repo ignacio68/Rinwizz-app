@@ -9,8 +9,9 @@ export async function signUp(userData) {
   const { user } = await firebaseApp
     .auth()
     .createUserWithEmailAndPassword(userData.email, userData.password)
-  console.log(`createUser: ${JSON.stringify(user)}`)
+    // console.log(`createUser: ${JSON.stringify(user)}`)
     // setUserProfile({ displayName: userData.displayName })
+    console.div(user)
     return Promise.resolve(user)
   // firebase.createUser({
   //   email: userData.email,
@@ -36,6 +37,7 @@ export async function signUp(userData) {
   //     console.log(`signUp error: ${error}`)
   //     return error
   //   })
+
 }
 
 /**
