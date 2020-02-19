@@ -8,6 +8,10 @@ import {
 } from '@services/auth'
 
 import {
+  setNewUser
+} from '@services/user'
+
+import {
   SIGNUP_USER,
   LOGIN_USER,
   LOGOUT_USER,
@@ -30,36 +34,18 @@ export default {
 
     const userData = newUserData
 
-    signUp(userData)
-      .then(user => {
-        console.log(`user: ${JSON.stringify(user)}`)
-        const newUser = {
-          _id: user.uid,
-          isAnonymous: user.anonymous,
-          isEmailVerified: user.emailVerified,
-          providers: user.providers,
-          email: user.email,
-          displayName: userData.displayName, // name stored at provider
-          // TODO: solo para producción
-          avatar:
-          'https://firebasestorage.googleapis.com/v0/b/rinwizz-app.appspot.com/o/pwqhMnXx8ZMN06BeobDxJOZ5kDC2%2Favatar%2FpwqhMnXx8ZMN06BeobDxJOZ5kDC2..jpg?alt=media&token=8e64b798-eb08-46ec-a794-5d658e994301',
-          phone: user.phoneNumber,
-          refreshToken: user.refreshToken, // iOS only
-          profile: user.additionalUserInfo.profile,
-          providerId: user.additionalUserInfo.providerId,
-          userName: user.additionalUserInfo.userName,
-          isNewUser: user.additionalUserInfo.isNewUser,
-          creationDate: user.metadata.creationTimestamp,
-          lastSignInDate: user.metadata.lastSignInTimestamp
-        }
+    await signUp(userData)
+      .then(async result => {
+        console.log(`user: ${JSON.stringify(result)}`)
+        // const newUser = await setNewUser(result)
         // Set the new user at the userStore
-        console.log(`newUser: ${JSON.stringify(newUser)}`)
-        commit('user/SET_USER', newUser, { root: true })
-        return newUser
+        // commit('user/SET_USER', result, { root: true })
+        dispatch('user/LOAD_NEW_USER', result)
+        // return result
       })
       // TODO: implementar CouchDb
       // .then(
-      //   async  newUser => await dispatch('user/LOAD_NEW_USER',  newUser, { root: true })
+      //   async  newUser => await dispatch('user/LOAD_NEW_USER',  result, { root: true })
       // )
       .then(async () => {
         // Enviamos el email de confirmación
