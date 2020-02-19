@@ -193,8 +193,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions('auth', ['SIGNUP_USER']),
-    ...mapActions('social' ['SOCIAL_SIGNUP']),
+    ...mapActions('auth', ['SIGNUP_USER', 'SIGNUP_SOCIAL']),
     //  FIXME: resolve bug
     // onDismmissed() {
     //   this.isDimissed = false
@@ -217,7 +216,7 @@ export default {
       this.userData.password = newValue
     },
     providerSelected(provider) {
-      console.log(`provider: ${provider}`)
+      // console.log(`provider: ${provider}`)
       this.SOCIAL_SIGNUP(provider)
     },
     toLogIn() {
