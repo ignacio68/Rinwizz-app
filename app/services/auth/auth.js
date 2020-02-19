@@ -104,11 +104,98 @@ export async function logIn(userData) {
     .then(
       user => {
         console.log(`logIn user: ${JSON.stringify(user)})`)
-        return user
+        return Promise.resolve(user)
       },
       error => {
         console.log(`logIn error: ${error}`)
-        return error
+        return Promise.reject(error)
+      }
+    )
+}
+
+/**
+ * Login with Facebook
+ *
+ */
+export async function facebookLogIn() {
+  await firebase
+    .login({
+      type: firebase.LoginType.FACEBOOK,
+      facebookOptions: {
+        scopes:[
+          'public_profile', 'email'
+        ]
+      }
+    })
+    .then(
+      result => {
+        console.log(`facebookLogIn: ${JSON.stringify(result)})`)
+        return Promise.resolve(result)
+      },
+    )
+    .catch(
+      error => {
+        console.log(`facebookLogIn error: ${error}`)
+        return Promise.reject(error)
+      }
+    )
+}
+
+/**
+ * Login with Google
+ *
+ */
+export async function googleLogIn() {
+  await firebase
+    .login({
+      type: firebase.LoginType.GOOGLE,
+      googleOptions: {
+        hostedDomain: "mygsuitedomain.com", //TODO: actualizar la página
+        scopes:[
+          'https://www.googleapis.com/auth/user.birthay.read' //TODO: actualizar información solicitada
+        ]
+      }
+    })
+    .then(
+      result => {
+        console.log(`googleLogIn: ${JSON.stringify(result)})`)
+        return Promise.resolve(result)
+      },
+    )
+    .catch(
+      error => {
+        console.log(`googleLogIn error: ${error}`)
+        return Promise.reject(error)
+      }
+    )
+}
+
+/**
+ * Login with Twitter
+ *
+ */
+export async function twitterLogIn() {
+  const token = "myBackendToken" // TODO: utilizar el Twitter token
+  await firebase
+    .login({
+      type: firebase.LoginType.CUSTOM,
+      customOptions: {
+        token: token,
+        scopes:[
+          'public_profile', 'email' // TODO: actualizar a Twitter
+        ]
+      }
+    })
+    .then(
+      result => {
+        console.log(`twitterLogIn: ${JSON.stringify(result)})`)
+        return Promise.resolve(result)
+      },
+    )
+    .catch(
+      error => {
+        console.log(`twitterLogIn error: ${error}`)
+        return Promise.reject(error)
       }
     )
 }
