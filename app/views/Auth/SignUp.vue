@@ -194,6 +194,7 @@ export default {
   },
   methods: {
     ...mapActions('auth', ['SIGNUP_USER']),
+    ...mapActions('social' ['SOCIAL_SIGNUP']),
     //  FIXME: resolve bug
     // onDismmissed() {
     //   this.isDimissed = false
@@ -217,6 +218,7 @@ export default {
     },
     providerSelected(provider) {
       console.log(`provider: ${provider}`)
+      this.SOCIAL_SIGNUP(provider)
     },
     toLogIn() {
       this.$navigateTo(LogIn)
