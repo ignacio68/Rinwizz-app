@@ -11,6 +11,7 @@ export default {
     console.log('LOAD_NEW_USER')
     commit('shared/CLEAR_ERROR', null, { root: true })
     const newUser = await setNewUser(userData)
+    console.dir(newUser)
     await commit('user/SET_USER', newUser, { root: true })
     // // Create the users local database
     // await dispatch('usersLocalDb/CREATE_ALL_USERS_LOCAL_DB', null, {
