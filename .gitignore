@@ -14,4 +14,5 @@ app/setup
 UI
 
 app/App_Resources/Android/google-services.json
+app\App_Resources\Android\src\main\res\values\facebooklogin.xml
 app/App_Resources/iOS/GoogleService-Info.plist
