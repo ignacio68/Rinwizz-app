@@ -1,3 +1,4 @@
+import { setNewUser } from '@services/user'
 import { LOAD_NEW_USER, LOAD_USER } from '@store/types/actions_types'
 // import { onAuthStateChange } from '@services/auth'
 export default {
@@ -6,21 +7,23 @@ export default {
    *
    * @param {object} user - new user data
    */
-  async [LOAD_NEW_USER]({ commit, dispatch }, user) {
+  async [LOAD_NEW_USER]({ commit, dispatch }, userData) {
     console.log('LOAD_NEW_USER')
     commit('shared/CLEAR_ERROR', null, { root: true })
-    // Create the users local database
-    await dispatch('usersLocalDb/CREATE_ALL_USERS_LOCAL_DB', null, {
-      root: true
-    })
-    // Create the user local database
-    .then(async () => {
-      await dispatch('userLocalDb/CREATE_USER_LOCAL_DB', user, { root: true })
-    })
-    // Reply the users local database wuith remote database
-    .then(async () => {
-      await dispatch('userLocalDb/REPLY_USERS_DB', null, { root: true })
-    })
+    const newUser = await setNewUser(userData)
+    await commit('user/SET_USER', newUser, { root: true })
+    // // Create the users local database
+    // await dispatch('usersLocalDb/CREATE_ALL_USERS_LOCAL_DB', null, {
+    //   root: true
+    // })
+    // // Create the user local database
+    // .then(async () => {
+    //   await dispatch('userLocalDb/CREATE_USER_LOCAL_DB', user, { root: true })
+    // })
+    // // Reply the users local database wuith remote database
+    // .then(async () => {
+    //   await dispatch('userLocalDb/REPLY_USERS_DB', null, { root: true })
+    // })
   },
 
   /**
