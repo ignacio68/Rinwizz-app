@@ -1,7 +1,7 @@
 export default {
   welcome: {
     header: 'WELCOME TO RINWIZZ',
-    text: 'Receive alerts and news from your favorites sites!',
+    text: 'Receive alerts and news from your favorites places!',
     text1: 'Tickets for events',
     text2: 'Free tables in restaurans',
     text3: 'Specials prices in stores',
