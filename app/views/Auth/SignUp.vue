@@ -142,6 +142,7 @@ import LogIn from './LogIn'
 import PrivacyPolicy from '@views/Shared/PrivacyPolicy'
 import TermsOfService from '@views/Shared/TermsOfService'
 import Personal from '@views/Preferences/Personal'
+import AppSplitter from '@views/AppSplitter'
 
 // Social Buttons data
 import { socialButtons } from '@utils/social'
@@ -218,6 +219,7 @@ export default {
     providerSelected(provider) {
       // console.log(`provider: ${provider}`)
       this.SIGNUP_SOCIAL(provider)
+      .then(() => this.$navigateTo(AppSplitter))
     },
     toLogIn() {
       this.$navigateTo(LogIn)
