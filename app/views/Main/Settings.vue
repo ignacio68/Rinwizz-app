@@ -8,6 +8,16 @@
     </StackLayout>
     <StackLayout>
       <Label
+        class="h1"
+        :text="user.displayName"
+        textWrap="true"
+      />
+      <Label
+        class="h3"
+        :text="user.email"
+        textWrap="true"
+      />
+      <Label
         class="nt-drawer__list-item text"
         text="Perfil"
         textWrap="true"
@@ -36,11 +46,14 @@
 <script>
 import LogIn from '@views/Auth/Login'
 import Welcome from '@views/Welcome'
-import { mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'Settings',
   data() {
     return {}
+  },
+  computed: {
+    ...mapGetters('user', { user: 'USER'})
   },
   methods: {
     ...mapActions('auth', ['LOGOUT_USER', 'DELETE_USER']),
