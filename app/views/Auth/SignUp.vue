@@ -179,11 +179,11 @@ export default {
     ...mapGetters('shared', { isError: 'GET_ERROR', loading: 'LOADING' }),
   },
   watch: {
-    loading() {
-      if (this.loading) {
-        this.toPasswordConfirmation()
-      }
-    },
+    // loading() {
+    //   if (this.loading) {
+    //     this.toPasswordConfirmation()
+    //   }
+    // },
     isError() {
       if (this.error) {
         this.showFeedbackError()
@@ -205,7 +205,7 @@ export default {
         email: this.userData.email,
         password: this.userData.password
       }
-      await this.SIGNUP_USER(userData)
+      await this.SIGNUP_USER(userData).then (() => this.toPasswordConfirmation())
     },
     setDisplayName(newValue) {
       this.userData.displayName = newValue
@@ -216,10 +216,9 @@ export default {
     setPassword(newValue) {
       this.userData.password = newValue
     },
-    providerSelected(provider) {
+    async providerSelected(provider) {
       // console.log(`provider: ${provider}`)
-      this.SIGNUP_SOCIAL(provider)
-      .then(() => this.$navigateTo(AppSplitter))
+      await this.SIGNUP_SOCIAL(provider).then(() => this.$navigateTo(AppSplitter))
     },
     toLogIn() {
       this.$navigateTo(LogIn)
