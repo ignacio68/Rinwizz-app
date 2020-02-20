@@ -1,4 +1,5 @@
 import { firebase, firebaseApp, CURRENT_USER } from '@services/firebase'
+import * as twitter from '@setup/twitter'
 /**
  * Signup the user
  *
@@ -177,7 +178,7 @@ export async function googleLogIn() {
  *
  */
 export async function twitterLogIn() {
-  const token = "myBackendToken" // TODO: utilizar el Twitter token
+  const token = twitter.token // TODO: utilizar el Twitter token
   await firebase
     .login({
       type: firebase.LoginType.CUSTOM,
