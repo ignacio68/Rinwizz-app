@@ -40,7 +40,7 @@ export default {
         // const newUser = await setNewUser(result)
         // Set the new user at the userStore
         // commit('user/SET_USER', result, { root: true })
-        dispatch('user/LOAD_NEW_USER', result)
+        dispatch('user/LOAD_NEW_USER', result, { root: true })
         // return result
       })
       // TODO: implementar CouchDb
@@ -98,17 +98,17 @@ export default {
     switch (provider) {
       case 'Facebook': {
         const newUser = await facebookLogIn()
-        dispatch('user/LOAD_NEW_USER', newUser)
+        dispatch('user/LOAD_NEW_USER', newUser, { root: true })
         break
       }
       case 'Google': {
         const newUser = await googleLogIn()
-        dispatch('user/LOAD_NEW_USER', newUser)
+        dispatch('user/LOAD_NEW_USER', newUser, { root: true })
         break
       }
       case 'Twitter': {
         const newUser = await twitterLogIn()
-        dispatch('user/LOAD_NEW_USER', newUser)
+        dispatch('user/LOAD_NEW_USER', newUser, { root: true })
         break
       }
     }
