@@ -1,3 +1,5 @@
+import { setUser } from '@services/user'
+
 export const firebase = require('nativescript-plugin-firebase')
 export const firebaseApp = require('nativescript-plugin-firebase/app')
 
@@ -43,23 +45,7 @@ export const CURRENT_USER = () => {
   firebase
     .getCurrentUser()
     .then(user => {
-      const newUser = {
-        _id: user.uid,
-        isAnonymous: user.anonymous,
-        isEmailVerified: user.emailVerified,
-        providers: user.providers,
-        email: user.email,
-        displayName: user.displayName, // name stored at provider
-        avatar: user.photoURL,
-        phone: user.phoneNumber,
-        refreshToken: user.refreshToken, // iOS only
-        profile: user.additionalUserInfo.profile,
-        providerId: user.additionalUserInfo.providerId,
-        userName: user.additionalUserInfo.userName,
-        isNewUser: user.additionalUserInfo.isNewUser,
-        creationDate: user.metadata.creationTimestamp,
-        lastSignInDate: user.metadata.lastSignInTimestamp
-      }
+      const newUser = setUser(user)
       console.log(`El user es ${user}`)
       return newUser
     })
