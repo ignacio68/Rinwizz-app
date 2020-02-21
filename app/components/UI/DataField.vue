@@ -32,7 +32,7 @@
         <Label
           ref="label"
           opacity="0.4"
-          fontSize="textSize"
+          :fontSize="labelTextSize"
           :text="labelText"
           row="1"
           col="0"
@@ -44,6 +44,7 @@
           :keyboardType="keyboard"
           :returnKeyType="returnKey"
           :text="dataText"
+          :fontSize="labelTextSize"
           editable="true"
           autocorrect="false"
           row="1"
@@ -83,6 +84,7 @@
 <script>
 import FontIcon from '@components/UI/FontIcon'
 import { Color } from 'color'
+
 export default {
   name: 'DataField',
   components: {
@@ -119,15 +121,20 @@ export default {
       default: '',
       required: true
     },
+    labelTextSize: {
+      type: Number,
+      default: 16,
+      validation: s => !isNaN(s)
+    },
     // ----- TEXT FIELD ----- //
 
     textSize: {
       type: [String, Number],
-      default: 16,
+      default: 20,
       validation: s => !isNaN(s)
     },
     maxLength: {
-      type: [String, Number],
+      type: Number,
       default: 32,
       validation: s => !isNaN(s)
     },
@@ -165,6 +172,8 @@ export default {
   data() {
     return {
       dataText:'',
+      // textField : this.$refs.textField.nativeView,
+      // label: this.$refs.label.nativeView
     }
   },
   methods: {
@@ -189,7 +198,7 @@ export default {
         .catch(() => {})
 
       // Set the border bottom color to color focus to indicate focus
-      textField.borderBottomColor = new Color('#00b47e')
+      textField.borderBottomColor = new Color('teal')
     },
     onBlur() {
       // Get our elements to manipulate
@@ -209,6 +218,12 @@ export default {
       }
       //  Reset border bottom color
       textField.borderBottomColor = new Color('#cec8c8')
+    },
+    onError() {
+       // Get our elements to manipulate
+      const textField = this.$refs.textField.nativeView
+      // Set the same color than the feedback message error
+      textField.borderBottomColor = new Color('red') // TODO: revisar numero de color
     }
   }
 }
