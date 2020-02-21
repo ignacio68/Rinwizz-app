@@ -175,9 +175,8 @@ export default {
         title: 'lang.views.signup.alert.title',
         message: 'lang.views.signup.alert.message',
         cancelable: true,
-        okButtonText: 'lang.views.signup.alert.button)'
+        okButtonText: 'lang.views.signup.alert.button'
       }
-
     }
   },
   computed: {
@@ -185,6 +184,7 @@ export default {
     ...mapGetters('shared', { isError: 'GET_ERROR', loading: 'LOADING' }),
   },
   watch: {
+    // TODO: revisar como método para ir a Personal
     // loading() {
     //   if (this.loading) {
     //     this.toPasswordConfirmation()
@@ -223,7 +223,6 @@ export default {
       this.userData.password = newValue
     },
     async providerSelected(provider) {
-      // console.log(`provider: ${provider}`)
       await this.SIGNUP_SOCIAL(provider).then(() => this.$navigateTo(AppSplitter))
     },
     toLogIn() {
