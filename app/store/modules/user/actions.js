@@ -1,4 +1,4 @@
-import { setNewUser } from '@services/user'
+import { setUser } from '@services/user'
 import { LOAD_NEW_USER, LOAD_USER } from '@store/types/actions_types'
 // import { onAuthStateChange } from '@services/auth'
 export default {
@@ -10,7 +10,7 @@ export default {
   async [LOAD_NEW_USER]({ commit, dispatch }, userData) {
     console.log('LOAD_NEW_USER')
     commit('shared/CLEAR_ERROR', null, { root: true })
-    const newUser = await setNewUser(userData)
+    const newUser = await setUser(userData)
     console.dir(newUser)
     await commit('user/SET_USER', newUser, { root: true })
     // // Create the users local database

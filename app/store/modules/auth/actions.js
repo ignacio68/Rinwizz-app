@@ -39,7 +39,7 @@ export default {
     await signUp(userData)
       .then(async result => {
         console.log(`user: ${JSON.stringify(result)}`)
-        // const newUser = await setNewUser(result)
+        // const newUser = await setUser(result)
         // Set the new user at the userStore
         // commit('user/SET_USER', result, { root: true })
         await dispatch('user/LOAD_NEW_USER', result, { root: true })

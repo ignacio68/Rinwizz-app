@@ -1,4 +1,4 @@
-export function setNewUser(userData) {
+export function setUser(userData) {
   const newUser = {
     _id: userData.uid,
     isAnonymous: userData.anonymous,
