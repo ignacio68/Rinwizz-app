@@ -75,7 +75,7 @@
 </template>
 <script>
 // Store
-import { mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 // Components
 import TheSignDataForm from '@components/Auth/TheSignDataForm'
@@ -99,6 +99,10 @@ export default {
       isEmailError: true,
       isPasswordError: true,
     }
+  },
+  computed: {
+    ...mapGetters('errors', { errorMessage: 'ERROR_MESSAGE' }),
+    ...mapGetters('shared', { isError: 'GET_ERROR', loading: 'LOADING' }),
   },
   methods: {
     ...mapActions('auth', ['LOGIN_USER']),
