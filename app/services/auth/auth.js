@@ -12,7 +12,7 @@ export async function signUp(userData) {
     .createUserWithEmailAndPassword(userData.email, userData.password)
     // console.log(`createUser: ${JSON.stringify(user)}`)
     // setUserProfile({ displayName: userData.displayName })
-    console.div(user)
+    console.dir(user)
     return Promise.resolve(user)
   // firebase.createUser({
   //   email: userData.email,
