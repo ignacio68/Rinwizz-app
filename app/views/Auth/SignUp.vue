@@ -11,20 +11,11 @@
           :text="$t('lang.views.signup.main.title')"
         />
 
-        <!-- ERROR -->
-        <!-- TODO: add feedback component -->
-        <Label
-          v-if="isError"
-          class="text-danger"
-          :text="errorMessage"
-          textWrap="true"
-        />
-
         <!-- DATA FORM -->
         <TheSignDataForm
           :isDisplayName="true"
           :isDisplayNameError="isDisplayNameError"
-          :isDisplayEmail="isEmailError"
+          :isEmailError="isEmailError"
           :isPasswordError="isPasswordError"
           @displayNameModified="setDisplayName"
           @emailModified="setEmail"
@@ -142,7 +133,7 @@ import LogIn from './LogIn'
 import PrivacyPolicy from '@views/Shared/PrivacyPolicy'
 import TermsOfService from '@views/Shared/TermsOfService'
 import Personal from '@views/Preferences/Personal'
-import AppSplitter from '@views/AppSplitter'
+// import AppSplitter from '@views/AppSplitter'
 
 // Social Buttons data
 import { socialButtons } from '@utils/social'
@@ -165,12 +156,11 @@ export default {
         email: '',
         password: ''
       },
-      isDimissed: false,
-      feedbackErrorMessage: 'Hay un puto error 👎',
-      socialButtons: socialButtons,
       isDisplayNameError: false,
       isEmailError: false,
       isPasswordError: false,
+
+      socialButtons: socialButtons,
       passwordConfirmation: {
         title: 'lang.views.signup.alert.title',
         message: 'lang.views.signup.alert.message',
@@ -181,7 +171,7 @@ export default {
   },
   computed: {
     ...mapGetters('errors', { errorMessage: 'ERROR_MESSAGE' }),
-    ...mapGetters('shared', { isError: 'GET_ERROR', loading: 'LOADING' }),
+    ...mapGetters('shared', { isError: 'GET_ERROR', isLoading: 'LOADING' }),
   },
   watch: {
     // TODO: revisar como método para ir a Personal
@@ -191,13 +181,31 @@ export default {
     //   }
     // },
     isError() {
-      if (this.error) {
-        this.showFeedbackError()
-      }
-      else {
-        this.closeFeedbackError()
+      if (this.isError === true) {
+          this.showFeedbackError()
+        }
+        else {
+          this.closeFeedbackError()
+        }
+    },
+    // isError: function( newValue, oldValue){
+    //   if (newValue === true) {
+    //     this.showFeedbackError()
+    //   }
+    //   else {
+    //     this.closeFeedbackError()
+    //   }
+    // },
+    isLoading() {
+      if (this.isLoading === true) {
+        this.toPasswordConfirmation()
+        this.isLoading = false
       }
     }
+  },
+  mounted() {
+    this.isError = false
+    this.isLoading = false
   },
   methods: {
     ...mapActions('auth', ['SIGNUP_USER', 'SIGNUP_SOCIAL']),
@@ -215,15 +223,18 @@ export default {
     },
     setDisplayName(newValue) {
       this.userData.displayName = newValue
+      this.isError = false
     },
     setEmail(newValue) {
       this.userData.email = newValue
+      this.isError = false
     },
     setPassword(newValue) {
       this.userData.password = newValue
+      this.isError = false
     },
     async providerSelected(provider) {
-      await this.SIGNUP_SOCIAL(provider).then(() => this.$navigateTo(AppSplitter))
+      await this.SIGNUP_SOCIAL(provider)
     },
     toLogIn() {
       this.$navigateTo(LogIn)
