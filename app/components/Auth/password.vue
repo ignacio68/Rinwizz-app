@@ -45,12 +45,12 @@ export default {
   },
   data() {
     return {
-      isSecure: true
+      isSecure: false
     }
   },
   computed: {
     iconName() {
-      return this.isSecure ? 'fa-eye-slash' : 'fa-eye'
+      return this.isSecure ? 'fa-eye' : 'fa-eye-slash'
     }
   },
   methods: {
