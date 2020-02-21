@@ -1,6 +1,3 @@
-// auth
-export const GET_CREDENTIAL = 'GET_CREDENTIAL'
-
 // alerts
 export const GET_ALERTS = 'GET_ALERTS'
 
