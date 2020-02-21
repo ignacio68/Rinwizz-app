@@ -9,14 +9,6 @@
           textWrap="true"
         />
 
-        <!-- ERROR -->
-        <Label
-          v-if="isError"
-          class="text-danger"
-          :text="errorMessage"
-          textWrap="true"
-        />
-
         <!-- DATA FORM -->
         <TheSignDataForm
           :isDisplayName="false"
