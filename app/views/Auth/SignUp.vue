@@ -171,6 +171,12 @@ export default {
       isDisplayNameError: false,
       isEmailError: false,
       isPasswordError: false,
+      passwordConfirmation: {
+        title: 'lang.views.signup.alert.title',
+        message: 'lang.views.signup.alert.message',
+        cancelable: true,
+        okButtonText: 'lang.views.signup.alert.button)'
+      }
 
     }
   },
@@ -231,10 +237,14 @@ export default {
     },
     toPasswordConfirmation() {
       alert({
-        title: "$t('lang.views.signup.alert.title)",
-        message: "$t('lang.views.signup.alert.message)",
-        cancelable: true,
-        okButtonText: "$t('lang.views.signup.alert.button)"
+        title: this.$t(this.passwordConfirmation.title),
+        message: this.$t(this.passwordConfirmation.message),
+        cancelable: this.passwordConfirmation.cancelable,
+        okButtonText: this.$t(this.passwordConfirmation.okButtonText)
+        // title: this.$t('lang.views.signup.alert.title'),
+        // message: this.$t('lang.views.signup.alert.message'),
+        // cancelable: true,
+        // okButtonText: this.$t('lang.views.signup.alert.button')
       }).then(() => this.toPersonal())
     },
     toPersonal() {
@@ -330,10 +340,6 @@ export default {
     top: 16;
     left: 40;
   }
-}
-.logIn__text-wrapper {
-}
-.logIn__text-text {
 }
 .logIn__text-link {
   color: teal;
