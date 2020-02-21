@@ -10,6 +10,8 @@ import {
   twitterLogIn
 } from '@services/auth'
 
+import { actionCodeSettings } from '@utils/auth'
+
 import {
   SIGNUP_USER,
   LOGIN_USER,
@@ -27,7 +29,7 @@ export default {
    */
 
   // FIXME: desarrollar correctamente async y el catcher de errores.
-  async [SIGNUP_USER]({ state, commit, dispatch }, newUserData) {
+  async [SIGNUP_USER]({ commit, dispatch }, newUserData) {
     console.log('Estoy en SIGNUP_USER')
     commit('shared/LOAD_ACTION', null, { root: true })
     commit('shared/CLEAR_ERROR', null, { root: true })
@@ -50,7 +52,7 @@ export default {
       .then(async () => {
         // Enviamos el email de confirmación
         console.log('Enviamos el mensaje')
-        const actionCodeSettings = state.actionCodeSettings
+        // const actionCodeSettings = actionCodeSettings
         await sendEmailVerification(actionCodeSettings)
         commit('shared/LOAD_ACTION', true, { root: true })
       })
