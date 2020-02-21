@@ -17,4 +17,4 @@
       minimumVersion: '19'
     },
     dynamicLinkDomain: 'rinwizz.page.link'
-  },
+  }
