@@ -42,7 +42,7 @@ export default {
         // const newUser = await setNewUser(result)
         // Set the new user at the userStore
         // commit('user/SET_USER', result, { root: true })
-        dispatch('user/LOAD_NEW_USER', result, { root: true })
+        await dispatch('user/LOAD_NEW_USER', result, { root: true })
         // return result
       })
       // TODO: implementar CouchDb
