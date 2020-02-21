@@ -1,7 +1,2 @@
-export default {
-  credential: {},
-  mode: '',
-  oobCode: '',
-  actionCode: '',
-  continueUrl: ''
-}
+// export default {
+// }
