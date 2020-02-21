@@ -34,15 +34,16 @@ export default {
     commit('shared/LOAD_ACTION', null, { root: true })
     commit('shared/CLEAR_ERROR', null, { root: true })
 
-    const userData = newUserData
+    const userSignUpData = newUserData
 
-    await signUp(userData)
+    await signUp(userSignUpData)
       .then(async result => {
         console.log(`user: ${JSON.stringify(result)}`)
         // const newUser = await setUser(result)
         // Set the new user at the userStore
         // commit('user/SET_USER', result, { root: true })
-        await dispatch('user/LOAD_NEW_USER', result, { root: true })
+        const { user } = result
+        await dispatch('user/LOAD_NEW_USER', user, { root: true })
         // return result
       })
       // TODO: implementar CouchDb
@@ -94,9 +95,7 @@ export default {
    */
   async [SIGNUP_SOCIAL] ({ commit, dispatch }, providerName) {
     commit('shared/CLEAR_ERROR', null, { root: true })
-    // const socialButtons = state.socialButtons
-    let provider = providerName
-    console.log('la red social elegida es: ' + provider)
+    const provider = providerName
     switch (provider) {
       case 'Facebook': {
         const newUser = await facebookLogIn()
