@@ -80,6 +80,7 @@ export default {
     logIn(userData)
       .then(user => {
         commit('user/SET_USER', user, { root: true })
+        commit('shared/LOAD_ACTION', null, { root: true })
       })
       .catch(error => {
         console.log('logUserIn error: ' + error.message)
