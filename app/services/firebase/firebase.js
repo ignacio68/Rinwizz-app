@@ -44,10 +44,10 @@ export function firebaseInit() {
 export const CURRENT_USER = () => {
   firebase
     .getCurrentUser()
-    .then(user => {
-      const newUser = setUser(user)
+    .then(userData => {
+      const user = setUser(userData)
       console.log(`El user es ${user}`)
-      return newUser
+      return user
     })
     .catch(error => {
       console.log(`Error getCurrentUser: ${error}`)

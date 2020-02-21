@@ -1,5 +1,5 @@
 export function setUser(userData) {
-  const newUser = {
+  const user = {
     _id: userData.uid,
     isAnonymous: userData.anonymous,
     isEmailVerified: userData.emailVerified,
@@ -19,5 +19,5 @@ export function setUser(userData) {
     creationDate: userData.metadata.creationTimestamp,
     lastSignInDate: userData.metadata.lastSignInTimestamp
   }
-  return newUser
+  return user
 }
