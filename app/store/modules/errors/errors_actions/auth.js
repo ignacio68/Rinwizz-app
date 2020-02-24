@@ -15,22 +15,7 @@ export function AUTH_ERROR({ commit }, errorCode) {
   console.log('Estoy en AUTH_ERROR')
   console.log('AUTH_ERROR es: ' + errorCode)
   switch (errorCode) {
-    case 'auth/email-already-in-use': {
-      const message = i18n.t('lang.errors.auth.emailAlreadyInUse')
-      commit('SET_ERROR_MESSAGE', message)
-      break
-    }
-    case 'auth/invalid-email': {
-      const message = i18n.t('lang.errors.auth.invalidEmail')
-      commit('SET_ERROR_MESSAGE', message)
-      break
-    }
-    case 'auth/weak-password': {
-      const message = i18n.t('lang.errors.auth.weakPassword')
-      // const message = 'email no válido'
-      commit('SET_ERROR_MESSAGE', message)
-      break
-    }
+    // USER
     case 'auth/user-empty': {
       const message = i18n.t('lang.errors.auth.userEmpty')
       commit('SET_ERROR_MESSAGE', message)
@@ -43,6 +28,24 @@ export function AUTH_ERROR({ commit }, errorCode) {
     }
     case 'auth/user-not-found': {
       const message = i18n.t('lang.errors.auth.userNotFound')
+      commit('SET_ERROR_MESSAGE', message)
+      break
+    }
+    // EMAIL
+    case 'auth/invalid-email': {
+      const message = i18n.t('lang.errors.auth.invalidEmail')
+      commit('SET_ERROR_MESSAGE', message)
+      break
+    }
+    case 'auth/email-already-in-use': {
+      const message = i18n.t('lang.errors.auth.emailAlreadyInUse')
+      commit('SET_ERROR_MESSAGE', message)
+      break
+    }
+    // PASSWORD
+    case 'auth/weak-password': {
+      const message = i18n.t('lang.errors.auth.weakPassword')
+      // const message = 'email no válido'
       commit('SET_ERROR_MESSAGE', message)
       break
     }
