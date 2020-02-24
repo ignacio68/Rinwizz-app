@@ -55,7 +55,6 @@ export default {
         console.log('Enviamos el mensaje')
         // const actionCodeSettings = actionCodeSettings
         await sendEmailVerification(actionCodeSettings)
-        commit('shared/LOAD_ACTION', true, { root: true })
       })
       .catch(error => {
         console.log('SIGNUP_USER error: ' + error.message)
@@ -76,11 +75,11 @@ export default {
   async [LOGIN_USER]({ commit, dispatch }, userData) {
     console.log('LOGIN_USER')
     commit('shared/CLEAR_ERROR', null, { root: true })
+    commit('shared/LOAD_ACTION', null, { root: true })
 
     logIn(userData)
       .then(user => {
         commit('user/SET_USER', user, { root: true })
-        commit('shared/LOAD_ACTION', null, { root: true })
       })
       .catch(error => {
         console.log('logUserIn error: ' + error.message)
@@ -96,6 +95,7 @@ export default {
    */
   async [SIGNUP_SOCIAL] ({ commit, dispatch }, providerName) {
     commit('shared/CLEAR_ERROR', null, { root: true })
+    commit('shared/LOAD_ACTION', null, { root: true })
     const provider = providerName
     switch (provider) {
       case 'Facebook': {
