@@ -62,6 +62,7 @@ export default {
       //   commit('shared/SET_ERROR', null, { root: true })
       //   dispatch('errors/AUTH_ERROR', error.code, { root: true })
       // })
+
     //   commit('shared/SET_ERROR', null, { root: true })
     //   dispatch('errors/AUTH_ERROR', 'auth/user-empty', { root: true })
     // }
@@ -76,11 +77,11 @@ export default {
   async [LOGIN_USER]({ commit, dispatch }, userData) {
     console.log('LOGIN_USER')
     commit('shared/CLEAR_ERROR', null, { root: true })
+    commit('shared/LOAD_ACTION', null, { root: true })
 
     logIn(userData)
       .then(user => {
         commit('user/SET_USER', user, { root: true })
-        commit('shared/LOAD_ACTION', null, { root: true })
       })
       .catch(error => {
         console.log('logUserIn error: ' + error.message)
@@ -96,6 +97,7 @@ export default {
    */
   async [SIGNUP_SOCIAL] ({ commit, dispatch }, providerName) {
     commit('shared/CLEAR_ERROR', null, { root: true })
+    commit('shared/LOAD_ACTION', null, { root: true })
     const provider = providerName
     switch (provider) {
       case 'Facebook': {
