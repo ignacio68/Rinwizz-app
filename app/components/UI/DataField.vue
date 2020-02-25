@@ -219,12 +219,12 @@ export default {
       //  Reset border bottom color
       textField.borderBottomColor = new Color('#cec8c8')
     },
-    onError() {
-       // Get our elements to manipulate
-      const textField = this.$refs.textField.nativeView
-      // Set the same color than the feedback message error
-      textField.borderBottomColor = new Color('red') // TODO: revisar numero de color
-    }
+    // onError() {
+    //    // Get our elements to manipulate
+    //   const textField = this.$refs.textField.nativeView
+    //   // Set the same color than the feedback message error
+    //   textField.borderBottomColor = new Color('red') // TODO: revisar numero de color
+    // }
   }
 }
 </script>

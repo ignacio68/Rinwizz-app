@@ -180,14 +180,14 @@ export default {
     //     this.toPasswordConfirmation()
     //   }
     // },
-    isError() {
-      if (this.isError === true) {
-          this.showFeedbackError()
-        }
-        else {
-          this.closeFeedbackError()
-        }
-    },
+    // isError() {
+    //   if (this.isError === true) {
+    //       this.showFeedbackError()
+    //     }
+    //     else {
+    //       this.closeFeedbackError()
+    //     }
+    // },
     // isError: function( newValue, oldValue){
     //   if (newValue === true) {
     //     this.showFeedbackError()
@@ -196,12 +196,12 @@ export default {
     //     this.closeFeedbackError()
     //   }
     // },
-    isLoading() {
-      if (this.isLoading === true) {
-        this.toPasswordConfirmation()
-        this.isLoading = false
-      }
-    }
+    // isLoading() {
+    //   if (this.isLoading === true) {
+    //     this.toPasswordConfirmation()
+    //     this.isLoading = false
+    //   }
+    // }
   },
   mounted() {
     this.isError = false
@@ -282,7 +282,7 @@ export default {
 .signUp__wrapper {
   background-color: whitesmoke;
   margin: {
-    top: 80;
+    top: 20;
     left: 16;
     right: 16;
   }

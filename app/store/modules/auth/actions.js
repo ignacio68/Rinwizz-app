@@ -37,31 +37,31 @@ export default {
     const userSignUpData = newUserData
 
     await signUp(userSignUpData)
-      .then(async result => {
-        console.log(`user: ${JSON.stringify(result)}`)
-        // const newUser = await setUser(result)
-        // Set the new user at the userStore
-        // commit('user/SET_USER', result, { root: true })
-        const { user } = result
-        await dispatch('user/LOAD_NEW_USER', user, { root: true })
-        // return result
-      })
-      // TODO: implementar CouchDb
-      // .then(
-      //   async  newUser => await dispatch('user/LOAD_NEW_USER',  result, { root: true })
-      // )
-      .then(async () => {
-        // Enviamos el email de confirmación
-        console.log('Enviamos el mensaje')
-        // const actionCodeSettings = actionCodeSettings
-        await sendEmailVerification(actionCodeSettings)
-        commit('shared/LOAD_ACTION', true, { root: true })
-      })
-      .catch(error => {
-        console.log('SIGNUP_USER error: ' + error.message)
-        commit('shared/SET_ERROR', null, { root: true })
-        dispatch('errors/AUTH_ERROR', error.code, { root: true })
-      })
+      // .then(async result => {
+      //   console.log(`user: ${JSON.stringify(result)}`)
+      //   // const newUser = await setUser(result)
+      //   // Set the new user at the userStore
+      //   // commit('user/SET_USER', result, { root: true })
+      //   const user = result
+      //   await dispatch('user/LOAD_NEW_USER', user, { root: true })
+      //   // return result
+      // })
+      // // TODO: implementar CouchDb
+      // // .then(
+      // //   async  newUser => await dispatch('user/LOAD_NEW_USER',  result, { root: true })
+      // // )
+      // .then(async () => {
+      //   // Enviamos el email de confirmación
+      //   console.log('Enviamos el mensaje')
+      //   // const actionCodeSettings = actionCodeSettings
+      //   await sendEmailVerification(actionCodeSettings)
+      //   commit('shared/LOAD_ACTION', true, { root: true })
+      // })
+      // .catch(error => {
+      //   console.log('SIGNUP_USER error: ' + error.message)
+      //   commit('shared/SET_ERROR', null, { root: true })
+      //   dispatch('errors/AUTH_ERROR', error.code, { root: true })
+      // })
     //   commit('shared/SET_ERROR', null, { root: true })
     //   dispatch('errors/AUTH_ERROR', 'auth/user-empty', { root: true })
     // }

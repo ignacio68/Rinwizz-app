@@ -76,6 +76,7 @@ Vue.config.silent = TNS_ENV === 'production'
 const user = firebaseInit()
 
 new Vue({
+  user,
   i18n,
   store,
   beforeCreate() {
@@ -97,10 +98,11 @@ new Vue({
     } else {
       console.log('No se encuentra el idioma del navegador')
     }
+
   },
   created() {
     if(user) {
-      this.$store.commit('user/SET_USER', user)
+      this.$store.commit('user/SET_USER', user.user)
     } else {
       console.log('El usuario no existe')
     }
@@ -113,12 +115,12 @@ new Vue({
 /* eslint-disable no-new */
 
 // Hot updates
-if (module.hot) {
-  module.hot.accept(
-    ['./locales/i18n/en_US', './locales/i18n/es_ES'],
-    () => {
-      i18n.setLocaleMessage('en', require('./locales/i18n/en_US').default)
-      i18n.setLocaleMessage('es', require('./locales/i18n/es_ES').default)
-    }
-  )
-}
+// if (module.hot) {
+//   module.hot.accept(
+//     ['./locales/i18n/en_US', './locales/i18n/es_ES'],
+//     () => {
+//       i18n.setLocaleMessage('en', require('./locales/i18n/en_US').default)
+//       i18n.setLocaleMessage('es', require('./locales/i18n/es_ES').default)
+//     }
+//   )
+// }

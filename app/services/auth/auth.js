@@ -1,5 +1,7 @@
 import { firebase, firebaseApp, CURRENT_USER } from '@services/firebase'
 import * as twitter from '@setup/twitter'
+import { phoneNumber } from '@setup/firebase'
+import { setUser } from '@services/user'
 /**
  * Signup the user
  *
@@ -7,38 +9,27 @@ import * as twitter from '@setup/twitter'
  */
 export async function signUp(userData) {
   console.log(`signUp user: ${JSON.stringify(userData)}`)
-  const { user } = await firebaseApp
-    .auth()
-    .createUserWithEmailAndPassword(userData.email, userData.password)
-    // console.log(`createUser: ${JSON.stringify(user)}`)
-    // setUserProfile({ displayName: userData.displayName })
-    console.dir(user)
-    return Promise.resolve(user)
-  // firebase.createUser({
-  //   email: userData.email,
-  //   password: userData.password
+  await firebase
+    .createUser({
+      email: userData.email,
+      password: userData.password
+    })
+    // .then(async result => {
+    //   console.dir(result)
+    //   setUserProfile({ displayName: result.displayName })
+    //   const user = await setUser(result)
+    //   console.dir(user)
+    //   return user
+    // })
+    // .then(user => Promise.resolve(user))
+    .then(
+    user => console.console.dir(user),
+    errorMessage => console.log(`signUp error: ${errorMessage}`)
+  )
+  // .catch(error => {
+  //   console.log(`signUp error: ${error}`)
+  //   return error
   // })
-  //   .then(user => {
-  //     console.dir(user)
-  //     return user
-  // })
-  // setUserProfile({ displayName: userData.displayName })
-  // return Promise.resolve(user)
-  // await firebase
-  //   .createUser({
-  //     email: userData.email,
-  //     password: userData.password
-  //   })
-  //   .then(user => {
-  //     console.log(`createUser user: ${JSON.stringify(user)}`)
-  //     // setUserProfile({ displayName: userData.displayName })
-  //     return Promise.resolve(user)
-  //   })
-  //   .catch(error => {
-  //     console.log(`signUp error: ${error}`)
-  //     return error
-  //   })
-
 }
 
 /**
@@ -53,13 +44,7 @@ export const setUserProfile = userData => {
       displayName: userData.displayName | null,
       photoUrl: userData.displayURL | null
     })
-    .then(() => {
-      firebase.getCurrentUser()
-        .then(user => {
-          console.log(`setUpProfile currentUser: ${user}`)
-          return Promise.resolve(user)
-      })
-    })
+    .then(() => console.log('User profile updated'))
     .catch(() => {
       return 'auth/user-empty'
     })
@@ -74,9 +59,9 @@ export function sendEmailVerification(actionCodeSettings) {
   firebase.sendEmailVerification(actionCodeSettings).then(
     () => console.log('email enviado'),
     error => {
-        console.log(`sendEmailVerification Error: ${error}`)
-        return error
-      }
+      console.log(`sendEmailVerification Error: ${error}`)
+      return error
+    }
   )
 }
 
@@ -125,23 +110,18 @@ export async function facebookLogIn() {
     .login({
       type: firebase.LoginType.FACEBOOK,
       facebookOptions: {
-        scopes:[
-          'public_profile', 'email'
-        ]
+        scopes: ['public_profile', 'email']
       }
     })
-    .then(
-      result => {
-        console.log(`facebookLogIn: ${JSON.stringify(result)})`)
-        return Promise.resolve(result)
-      },
-    )
-    .catch(
-      error => {
-        console.log(`facebookLogIn error: ${error}`)
-        return Promise.reject(error)
-      }
-    )
+    .then(result => {
+      console.log(`facebookLogIn: ${JSON.stringify(result)}`)
+      setUser(result)
+    })
+    .then(user => Promise.resolve(user))
+    .catch(error => {
+      console.log(`facebookLogIn error: ${error}`)
+      return Promise.reject(error)
+    })
 }
 
 /**
@@ -153,24 +133,21 @@ export async function googleLogIn() {
     .login({
       type: firebase.LoginType.GOOGLE,
       googleOptions: {
-        hostedDomain: "mygsuitedomain.com", //TODO: actualizar la página
-        scopes:[
+        hostedDomain: 'mygsuitedomain.com', //TODO: actualizar la página
+        scopes: [
           'https://www.googleapis.com/auth/user.birthay.read' //TODO: actualizar información solicitada
         ]
       }
     })
-    .then(
-      result => {
-        console.log(`googleLogIn: ${JSON.stringify(result)})`)
-        return Promise.resolve(result)
-      },
-    )
-    .catch(
-      error => {
-        console.log(`googleLogIn error: ${error}`)
-        return Promise.reject(error)
-      }
-    )
+    .then(result => {
+      console.log(`googleLogIn: ${JSON.stringify(result)}`)
+      setUser(result)
+    })
+    .then(user => Promise.resolve(user))
+    .catch(error => {
+      console.log(`googleLogIn error: ${error}`)
+      return Promise.reject(error)
+    })
 }
 
 /**
@@ -184,22 +161,44 @@ export async function twitterLogIn() {
       type: firebase.LoginType.CUSTOM,
       customOptions: {
         token: token,
-        scopes:[
-          'public_profile', 'email' // TODO: actualizar a Twitter
+        scopes: [
+          'public_profile',
+          'email' // TODO: actualizar a Twitter
         ]
       }
     })
-    .then(
-      result => {
-        console.log(`twitterLogIn: ${JSON.stringify(result)})`)
-        return Promise.resolve(result)
-      },
-    )
-    .catch(
-      error => {
-        console.log(`twitterLogIn error: ${error}`)
-        return Promise.reject(error)
+    .then(result => {
+      console.log(`twitterLogIn: ${JSON.stringify(result)}`)
+      setUser(result)
+    })
+    .then(user => Promise.resolve(user))
+    .catch(error => {
+      console.log(`twitterLogIn error: ${error}`)
+      return Promise.reject(error)
+    })
+}
+
+/**
+ * Phone verification
+ *
+ * @param (string) userçPhoneNumber - User's phone number
+ */
+export async function phoneVerification(userPhoneNumber) {
+  await firebase.login({
+    type: firebase.LoginType.PHONE,
+    phoneOptions: {
+      // phoneNumber: userPhoneNumber,
+      phoneNumber: phoneNumber, // Production only
+      verificationPrompt: 'The received verificaction code', // TODO: refactoring
+      // Optional
+      android: {
+        timeout: 30
       }
+    }
+  })
+    .then(
+      result => JSON.stringify(result),
+      errorMessage => console.log(errorMessage)
     )
 }
 
@@ -208,10 +207,47 @@ export async function twitterLogIn() {
  *
  */
 export const logOut = () => {
+  firebase.logout().then(() => console.log('User logout'))
+  // .catch(error => console.log(`logOut error: ${error}`))
+}
+
+/**
+ * TODO: revisar en la consola de Firebase el texto del email que se envía
+ * Reset the user's password
+ *
+ * @param {string} userEmail - User`s email
+ */
+export async function resetPasswordEmail(userEmail) {
+  await firebase
+    .sendPasswordResetEmail(userEmail)
+    .then(() => console.log('Password reset email sent'))
+    .catch(error => console.log(`resetPasswordEmail error: ${error}`))
+}
+
+/**
+ * TODO: Comprobar su utilización. Quizás es mejor utilizar el método nativo
+ * Updating the user's password
+ *
+ * @param {sting} newPassword - New usw¡er's password
+ */
+export function updatePassword(newPassword) {
   firebase
-    .logout()
-    .then(() => console.log('User logout'))
-    // .catch(error => console.log(`logOut error: ${error}`))
+    .updatePassword(newPassword)
+    .then(() => console.log('Password updated'))
+    .catch(error => console.log(`updatedPassword error: ${error}`))
+}
+
+/**
+ * TODO: Comprobar su utilización. Quizás es mejor utilizar el método nativo
+ * Updating the user's email adress
+ *
+ * @param {sting} newEmail - New usw¡er's password
+ */
+export function updateEmail(newEmail) {
+  firebase
+    .updateEmail(newEmail)
+    .then(() => console.log('Email updated'))
+    .catch(error => console.log(`updatedEmail error: ${error}`))
 }
 
 /**
@@ -245,45 +281,45 @@ export async function deleteUser(providerId) {
     })
 }
 
-/**
- * TODO: refactoring password use argument
- * Get the user credential
- *
- * @param {string} providerId
- */
-export async function fetchCredential(password) {
-  const currentUser = CURRENT_USER
-  const providerId = currentUser.providerId
-  await getTokenId().then(idToken => {
-    // eslint-disable-next-line no-unused-vars
-    let credential
-    switch (providerId) {
-      case 'facebook.com': {
-        credential = firebaseAuth.FacebookAuthProvider.credential(idToken)
-        break
-      }
-      case 'google.com': {
-        credential = firebaseAuth.GoogleAuthProvider.credential(idToken)
-        break
-      }
-      case 'twitter.com': {
-        credential = firebaseAuth.TwitterAuthProvider.credential(idToken)
-        break
-      }
-      case 'password': {
-        const email = currentUser.email
-        const userPassword = password
-        credential = firebaseAuth.EmailAuthProvider.credential(
-          email,
-          userPassword
-        )
-        break
-      }
-      default:
-        return 'auth/user-empty'
-    }
-  })
-}
+// /**
+//  * TODO: refactoring password use argument
+//  * Get the user credential
+//  *
+//  * @param {string} providerId
+//  */
+// export async function fetchCredential(password) {
+//   const currentUser = CURRENT_USER
+//   const providerId = currentUser.providerId
+//   await getTokenId().then(idToken => {
+//     // eslint-disable-next-line no-unused-vars
+//     let credential
+//     switch (providerId) {
+//       case 'facebook.com': {
+//         credential = firebaseAuth.FacebookAuthProvider.credential(idToken)
+//         break
+//       }
+//       case 'google.com': {
+//         credential = firebaseAuth.GoogleAuthProvider.credential(idToken)
+//         break
+//       }
+//       case 'twitter.com': {
+//         credential = firebaseAuth.TwitterAuthProvider.credential(idToken)
+//         break
+//       }
+//       case 'password': {
+//         const email = currentUser.email
+//         const userPassword = password
+//         credential = firebaseAuth.EmailAuthProvider.credential(
+//           email,
+//           userPassword
+//         )
+//         break
+//       }
+//       default:
+//         return 'auth/user-empty'
+//     }
+//   })
+// }
 
 /**
  * Get the user TokenId
@@ -293,19 +329,6 @@ export async function getTokenId() {
   const idToken = await currentUser
     .getIdToken()
     .then(() => Promise.resolve(idToken))
-}
-
-/**
- * TODO: pasar a firestore y repasar
- * Update firebase users name database
- *
- * @param {string} userName
- */
-export async function updateUserName(userName) {
-  await firebaseDb
-    .ref('usersNames/')
-    .update(userName)
-    .then(() => console.log('Actualizada la base de datos de nombres'))
 }
 
 /**

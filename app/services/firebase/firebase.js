@@ -27,13 +27,17 @@ export const firebaseApp = require('nativescript-plugin-firebase/app')
 export function firebaseInit() {
   firebase
     .init({
+      persist: true,
       onAuthStateChanged: data => {
         console.log(JSON.stringify(data))
         return data
       }
     })
     .then(
-      () => console.log('firebase.init done'),
+      (data) => {
+        console.log('firebase.init done')
+        return data
+      },
       error => console.log(`firebase.init error: ${error}`)
     )
 }
