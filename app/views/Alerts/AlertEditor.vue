@@ -28,7 +28,7 @@
 </template>
 <script>
 // TODO: revisar @component alias
-import AlertScript from '@components/Alerts/AlertScript'
+import AlertScript from '@/components/Alerts/AlertScript'
 export default {
   name: 'AlertEditor',
   components: {

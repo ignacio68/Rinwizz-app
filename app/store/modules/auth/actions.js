@@ -8,7 +8,7 @@ import {
   facebookLogIn,
   googleLogIn,
   twitterLogIn
-} from '@services/auth'
+} from '@/services/auth'
 
 import { actionCodeSettings } from '@utils/auth'
 
@@ -19,7 +19,7 @@ import {
   DELETE_USER,
   REAUTHENTICATE_USER,
   SIGNUP_SOCIAL
-} from '@store/types/actions_types'
+} from '@/store/types/actions_types'
 
 export default {
   /**

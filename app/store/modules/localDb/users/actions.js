@@ -3,7 +3,7 @@ import {
   createDb,
   replyDb,
   syncDb
-} from '@services/database'
+} from '@/services/database'
 
 import {
   setConfig,
@@ -14,7 +14,7 @@ import {
   CREATE_ALL_USERS_LOCAL_DB,
   REPLY_USERS_DB,
   SYNC_USERS_DB,
-} from '@store/types/actions_types'
+} from '@/store/types/actions_types'
 
 export default {
   /**

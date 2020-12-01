@@ -123,8 +123,8 @@
 </template>
 <script>
 // Components
-import TheSignDataForm from '@components/Auth/TheSignDataForm'
-import SocialButton from '@components/Auth/SocialButton'
+import TheSignDataForm from '@/components/Auth/TheSignDataForm'
+import SocialButton from '@/components/Auth/SocialButton'
 import { Feedback, FeedbackPosition } from 'nativescript-feedback'
 // import { Color } from 'color'
 

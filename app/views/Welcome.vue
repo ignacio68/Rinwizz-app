@@ -49,7 +49,7 @@
 // import RadioButton from 'nativescript-vue-radio-button'
 import SignUp from '@views/Auth/SignUp'
 // import Personal from '@views/Preferences/Personal'
-import FontIcon from '@components/UI/FontIcon'
+import FontIcon from '@/components/UI/FontIcon'
 export default {
   name: 'Welcome',
   components: {

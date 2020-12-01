@@ -3,7 +3,7 @@
 import {
   SET_ALERTS_LOCAL_DB,
   SET_USER_ALERT_LOCAL_DB
-} from '@store/types/mutations_types'
+} from '@/store/types/mutations_types'
 
 export default {
   // Creamos en caché la base de datos de alertas

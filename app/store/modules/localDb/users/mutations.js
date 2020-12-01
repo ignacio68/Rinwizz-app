@@ -1,6 +1,6 @@
 import {
   SET_ALL_USERS_LOCAL_DB,
-} from '@store/types/mutations_types'
+} from '@/store/types/mutations_types'
 
 export default {
   /**

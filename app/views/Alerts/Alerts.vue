@@ -39,7 +39,7 @@
 import { EventBus, checkNetwork } from '@utils/commons'
 import { SnackBar, SnackBarOptions } from '@nstudio/nativescript-snackbar'
 import AlertEditor from './AlertEditor'
-import TheActionBar from '@components/UI/TheActionBar'
+import TheActionBar from '@/components/UI/TheActionBar'
 export default {
   name: 'Alerts',
   components: {

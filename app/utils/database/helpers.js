@@ -3,7 +3,7 @@
 //   authUsers,
 //   authAlerts,
 //   authFakeAlerts
-// } from '@setup/cloudant'
+// } from '@/setup/cloudant'
 // import {
 //   userSample,
 //   alertSample,

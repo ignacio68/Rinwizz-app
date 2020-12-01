@@ -4,12 +4,13 @@
  * @copyright Ignacio López-Amor Pinillos 2019
  * @author Ignacio López-Amor Pinillos <ignaciolopezamor@gmail.com>
  * @license MIT
- * @version 0.3..0
+ * @version 0.3.0
  */
 
 import Vue from 'nativescript-vue'
 
-import { device, isAndroid, isIOS } from 'tns-core-modules/platform'
+// import { isAndroid, isIOS, Device } from '@nativescript/core'
+import * as Platform from '@nativescript/core/platform'
 
 import { firebaseInit } from './services/firebase'
 
@@ -29,8 +30,8 @@ import { TNSFontIcon, fonticon } from 'nativescript-fonticon'
 
 // Add view components
 // import AppNavigator from './AppNavigator'
-import Welcome from '@views/Welcome'
-import AppSplitter from '@views/AppSplitter'
+import Welcome from '@/views/Welcome'
+import AppSplitter from '@/views/AppSplitter'
 
 //Add UI components
 // import 'nativescript-ui-sidedrawer/vue'
@@ -81,13 +82,11 @@ new Vue({
   store,
   beforeCreate() {
     // Set the platform OS global variable
-    Vue.prototype.IS_ANDROID = isAndroid
-    Vue.prototype.IS_IOS = isIOS
-    console.log(`Running on Android? ${isAndroid}`)
-    console.log(`Running on iOS? ${isIOS}`)
+    Vue.prototype.IS_ANDROID = Platform.isAndroid
+    Vue.prototype.IS_IOS = Platform.isIOS
 
     // // Set app language
-    const val = device.language
+    const val = Platform.device.language
     const lang = val.slice(0, 2)
     if (lang) {
       // const lang = val.replace('-', '')

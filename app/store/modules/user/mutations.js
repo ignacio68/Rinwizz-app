@@ -2,7 +2,7 @@ import {
   SET_USER,
   RESET_USER,
   UPDATE_USER
-} from '@store/types/mutations_types'
+} from '@/store/types/mutations_types'
 
 export default {
   /**

@@ -53,7 +53,7 @@
 </template>
 <script>
 import { getCss } from '@utils/commons/theme'
-import RadioButton from '@components/UI/RadioButton'
+import RadioButton from '@/components/UI/RadioButton'
 import Avatar from './Avatar'
 import Greetings from './Greetings'
 export default {

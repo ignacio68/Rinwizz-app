@@ -1,7 +1,7 @@
-import { firebase, firebaseApp, CURRENT_USER } from '@services/firebase'
-import * as twitter from '@setup/twitter'
-import { phoneNumber } from '@setup/firebase'
-import { setUser } from '@services/user'
+import { firebase, firebaseApp, CURRENT_USER } from '@/services/firebase'
+import * as twitter from '@/setup/twitter'
+import { phoneNumber } from '@/setup/firebase'
+import { setUser } from '@/services/user'
 /**
  * Signup the user
  *

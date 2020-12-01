@@ -25,8 +25,8 @@
   </StackLayout>
 </template>
 <script>
-import DataField from '@components/UI/DataField'
-import FontIcon from '@components/UI/FontIcon'
+import DataField from '@/components/UI/DataField'
+import FontIcon from '@/components/UI/FontIcon'
 export default {
   name: 'Password',
   components: {

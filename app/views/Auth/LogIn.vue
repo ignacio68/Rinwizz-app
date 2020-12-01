@@ -70,7 +70,7 @@
 import { mapGetters, mapActions } from 'vuex'
 
 // Components
-import TheSignDataForm from '@components/Auth/TheSignDataForm'
+import TheSignDataForm from '@/components/Auth/TheSignDataForm'
 
 // Views
 import SignUp from './SignUp'

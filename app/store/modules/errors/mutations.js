@@ -1,4 +1,4 @@
-import { SET_ERROR_MESSAGE } from '@store/types/mutations_types'
+import { SET_ERROR_MESSAGE } from '@/store/types/mutations_types'
 export default {
   /**
    * Actualiza errorMessage

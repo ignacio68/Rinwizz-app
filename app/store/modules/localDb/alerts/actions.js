@@ -4,7 +4,7 @@ import {
   replyDb,
   syncDb,
   fetchAllDocs
-} from '@services/database'
+} from '@/services/database'
 import {
   setConfig,
   setAlertsOptions,
@@ -17,7 +17,7 @@ import {
   SYNC_ALERTS_DB,
   PUT_ALERT_LOCAL_DB,
   GET_ALERTS
-} from '@store/types/actions_types'
+} from '@/store/types/actions_types'
 
 /**
  * Creamos la bas ede datos local de las alertas

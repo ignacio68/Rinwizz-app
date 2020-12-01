@@ -2,7 +2,7 @@ import i18n from '@locales'
 
 // TODO: revisar la importación de constantes para ser utilizadas como funciones
 // TODO: por el momento no se importan -> fake const!!
-// import { AUTH_ERROR } from '@store/types/actions_types'
+// import { AUTH_ERROR } from '@/store/types/actions_types'
 
 /**
  * Manejo de los errores de autenticación

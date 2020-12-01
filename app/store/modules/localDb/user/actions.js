@@ -3,7 +3,7 @@ import {
   createDoc,
   changeDb,
   fetchDoc
-} from '@services/database'
+} from '@/services/database'
 
 import {
   setDoc,
@@ -16,7 +16,7 @@ import {
   FETCH_USER,
   UPDATE_USER_LOCAL_DB,
   REMOVE_USER_LOCAL_DB
-} from '@store/types/actions_types'
+} from '@/store/types/actions_types'
 
 export default {
 

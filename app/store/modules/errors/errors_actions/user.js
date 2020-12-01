@@ -2,7 +2,7 @@ import i18n from '@locales'
 
 // TODO: revisar la importación de constantes para ser utilizadas como funciones
 // TODO: FAKE CONST!!!
-// import { USER_ERROR } from '@store/types/actions_types'
+// import { USER_ERROR } from '@/store/types/actions_types'
 
 // export default {
 /**

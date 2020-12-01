@@ -6,7 +6,7 @@ import {
   SET_FOLLOWING,
   REMOVE_FOLLOWING,
   SET_FOLLOWER
-} from '@store/types/mutations_types'
+} from '@/store/types/mutations_types'
 
 export default {
   /**

@@ -34,7 +34,7 @@
   </StackLayout>
 </template>
 <script>
-import DataField from '@components/UI/DataField'
+import DataField from '@/components/UI/DataField'
 import Password from './Password'
 export default {
   name: 'TheSignDataForm',

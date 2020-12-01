@@ -33,7 +33,7 @@
   </Page>
 </template>
 <script>
-import FontIcon from '@components/UI/FontIcon'
+import FontIcon from '@/components/UI/FontIcon'
 import Welcome from '@views/Welcome'
 import AppSplitter from '@views/AppSplitter'
 export default {

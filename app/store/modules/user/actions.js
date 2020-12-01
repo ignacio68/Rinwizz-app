@@ -1,5 +1,5 @@
-import { LOAD_NEW_USER, LOAD_USER } from '@store/types/actions_types'
-// import { onAuthStateChange } from '@services/auth'
+import { LOAD_NEW_USER, LOAD_USER } from '@/store/types/actions_types'
+// import { onAuthStateChange } from '@/services/auth'
 export default {
   /**
    * Create the database of the new user

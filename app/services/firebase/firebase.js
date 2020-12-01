@@ -1,4 +1,4 @@
-import { setUser } from '@services/user'
+import { setUser } from '@/services/user'
 
 export const firebase = require('nativescript-plugin-firebase')
 export const firebaseApp = require('nativescript-plugin-firebase/app')

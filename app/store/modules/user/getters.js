@@ -5,7 +5,7 @@ import {
   USER_IS_EMAIL_VERIFIED,
   USER_FOLLOWING,
   USER_IS_NEW
-} from '@store/types/getters_types'
+} from '@/store/types/getters_types'
 
 export default {
   [USER]: state => state.user,

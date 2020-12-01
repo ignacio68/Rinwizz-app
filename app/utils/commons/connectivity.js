@@ -1,13 +1,10 @@
 import {
-  connectionType,
-  getConnectionType,
-  startMonitoring,
-  stopMonitoring
-} from 'tns-core-modules/connectivity'
+  Connectivity
+} from '@nativescript/core'
 
 export function checkNetwork() {
-  const type = getConnectionType()
-  if (type === connectionType.none) {
+  const type = Connectivity.getConnectionType()
+  if (type === Connectivity.none) {
     console.log('No hay conexión')
     return false
   } else {

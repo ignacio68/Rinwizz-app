@@ -20,7 +20,7 @@
   </StackLayout>
 </template>
 <script>
-import FontIcon from '@components/UI/FontIcon'
+import FontIcon from '@/components/UI/FontIcon'
 export default {
   name: 'SocialButton',
   components: {
