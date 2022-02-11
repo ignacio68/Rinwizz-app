@@ -60,7 +60,7 @@
     "eslint-plugin-vue": "^6.0.1",
     "lodash": "^4.17.15",
     "nativescript-vue-template-compiler": "^2.0.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "prettier": "^1.19.1",
     "sass": "^1.23.7",
     "typescript": "^3.7.4",
