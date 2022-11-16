@@ -27,7 +27,7 @@
   "dependencies": {
     "@nativescript/core": "7.0.0",
     "@nativescript/theme": "^2.2.1",
-    "@nativescript/webpack": "3.0.0",
+    "@nativescript/webpack": "5.0.10",
     "@nstudio/nativescript-floatingactionbutton": "^1.1.0",
     "@nstudio/nativescript-snackbar": "^1.1.1",
     "@types/webpack-env": "^1.16.0",
